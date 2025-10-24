@@ -4,6 +4,7 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { Analytics } from "@vercel/analytics/react"; // ✅ Add this line
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
     title: "CPC Salary Calculator | 7th & 8th Pay Commission",
     description:
       "Calculate Salary, DA, HRA, NPS Instantly. A complete CPC Salary Calculator for Government Employees.",
-    url: "https://your-domain-here", // update after deployment
+    url: "https://indianpaycalculator.in", // ✅ Updated
     siteName: "CPC Salary Calculator",
     images: [
       {
@@ -35,7 +36,6 @@ export const metadata: Metadata = {
   },
 };
 
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -45,17 +45,17 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} min-h-screen flex flex-col bg-gray-50 text-gray-900`}>
         <ThemeProvider>
-          {/* Header (fixed on top for all pages) */}
           <Header />
 
-          {/* Main content area */}
           <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
             {children}
           </main>
 
-          {/* Footer (persistent at bottom) */}
           <Footer />
         </ThemeProvider>
+
+        {/* ✅ Enable Vercel Analytics */}
+        <Analytics />
       </body>
     </html>
   );
