@@ -18,7 +18,7 @@ export async function POST(req: NextRequest) {
     const { error } = await resend.emails.send({
       from: "CPC Salary Calculator <onboarding@resend.dev>", // change to your domain later if you verify a sender
       to: ["cpcforgovtemployees@gmail.com"],
-      reply_to: email,
+      replyTo: email,
       subject: `New message from ${name} (Contact Form)`,
       text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
     });
