@@ -4,7 +4,8 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { Analytics } from "@vercel/analytics/react"; // ✅ Add this line
+import { Analytics } from "@vercel/analytics/react";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
     title: "CPC Salary Calculator | 7th & 8th Pay Commission",
     description:
       "Calculate Salary, DA, HRA, NPS Instantly. A complete CPC Salary Calculator for Government Employees.",
-    url: "https://indianpaycalculator.in", // ✅ Updated
+    url: "https://indianpaycalculator.in",
     siteName: "CPC Salary Calculator",
     images: [
       {
@@ -36,25 +37,35 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
+      {/* ✅ GA4 Script */}
+      <Script
+        src="https://www.googletagmanager.com/gtag/js?id=G-NM3F8Q6764"
+        strategy="afterInteractive"
+      />
+      <Script id="ga4-init" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-NM3F8Q6764', {
+            page_path: window.location.pathname,
+          });
+        `}
+      </Script>
+
       <body className={`${inter.className} min-h-screen flex flex-col bg-gray-50 text-gray-900`}>
         <ThemeProvider>
           <Header />
-
           <main className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-8">
             {children}
           </main>
-
           <Footer />
         </ThemeProvider>
 
-        {/* ✅ Enable Vercel Analytics */}
+        {/* ✅ Vercel Analytics */}
         <Analytics />
       </body>
     </html>
