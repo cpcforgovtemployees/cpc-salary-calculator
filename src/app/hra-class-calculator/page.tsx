@@ -70,28 +70,28 @@ export default function HRAClassCalculator() {
 
   // ------------------ Calculate HRA Amount ------------------
   const handleCalculate = () => {
-    if (!selectedCity) {
-      alert("Please select a city first.");
-      return;
-    }
-    if (!basicPay) {
-      alert("Please enter Basic Pay to calculate HRA amount.");
-      return;
-    }
+  if (!selectedCity) {
+    alert("Please select a city first.");
+    return;
+  }
+  if (!basicPay) {
+    alert("Please enter Basic Pay to calculate HRA amount.");
+    return;
+  }
 
-    const cityClass = result?.hraClass || "Other";
-    const hraAmount = calculateHRA(Number(basicPay), cityClass);
+  const cityClass: "X" | "Y" | "Z" | "Other" = (result?.hraClass as "X" | "Y" | "Z" | "Other") ?? "Other";
+  const hraAmount = calculateHRA(Number(basicPay), cityClass);
 
-    // Add amount to existing result
-    setResult((prev) =>
-      prev
-        ? {
-            ...prev,
-            hraAmount,
-          }
-        : null
-    );
-  };
+  setResult((prev) =>
+    prev
+      ? {
+          ...prev,
+          hraAmount,
+        }
+      : null
+  );
+};
+
 
   // ------------------ Reset Amount when Basic Pay changes ------------------
   const handleBasicPayChange = (value: string) => {
