@@ -1,65 +1,602 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { useState, useEffect } from "react";
+import { CalculatorForm } from "@/components/CalculatorForm";
+import { ResultsBreakdown } from "@/components/ResultsBreakdown";
+import { Card } from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
+import { InfoTooltip } from "@/components/InfoTooltip";
+import {
+  calculate7thCPC,
+  calculate8thCPC,
+  type SalaryInputs,
+  type SalaryBreakdown,
+} from "@/lib/salary-calculator";
+import {
+  ResponsiveContainer,
+  BarChart,
+  Bar,
+  XAxis,
+  YAxis,
+  Tooltip,
+  Legend,
+  CartesianGrid,
+} from "recharts";
+
+export default function Calculator() {
+  // --- Inputs ---
+  const [inputs, setInputs] = useState<SalaryInputs>({
+    payLevel: "",
+    payLevelLabel: "",
+    basicPay: 0,
+    hraClass: "Other",
+    taCityType: "",
+    daPercentage: 58,
+    otherAllowances: [],
+    otherDeductions: [],
+  });
+
+  // --- Auto-save setup ---
+  const STORAGE_KEY = "salary-calculator-inputs-v2";
+  const EXPIRY_DURATION = 60 * 60 * 1000; // 1 hour
+
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (!saved) return;
+      const { data, timestamp } = JSON.parse(saved);
+      if (Date.now() - timestamp < EXPIRY_DURATION) {
+        const safeData = {
+          ...data,
+          hraClass: data.hraClass && data.hraClass !== "Other" ? data.hraClass : "",
+        };
+        setInputs(safeData);
+        console.log("🟢 Data restored from localStorage");
+      } else {
+        localStorage.removeItem(STORAGE_KEY);
+      }
+    } catch (e) {
+      console.warn("⚠️ Could not load saved data", e);
+    }
+  }, []);
+
+  useEffect(() => {
+    try {
+      if (!inputs || Object.keys(inputs).length === 0) return;
+      localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify({ data: inputs, timestamp: Date.now() })
+      );
+    } catch (e) {
+      console.warn("⚠️ Could not save data", e);
+    }
+  }, [inputs]);
+
+  // --- Fitment Factor ---
+  const [fitmentFactor, setFitmentFactor] = useState(1.92);
+
+  // --- Zero Breakdown ---
+  const zeroBreakdown: SalaryBreakdown = {
+    basicPay: 0,
+    da: 0,
+    hra: 0,
+    ta: 0,
+    daOnTa: 0,
+    otherAllowances: [],
+    grossSalary: 0,
+    npsEmployee: 0,
+    cghs: 0,
+    otherDeductions: [],
+    totalDeductions: 0,
+    netSalary: 0,
+    npsEmployer: 0,
+    cpc: "7th",
+    incomeTax: 0,
+  };
+
+  const [breakdown7th, setBreakdown7th] = useState<SalaryBreakdown>(zeroBreakdown);
+  const [breakdown8th, setBreakdown8th] = useState<SalaryBreakdown>({
+    ...zeroBreakdown,
+    cpc: "8th",
+  });
+
+  useEffect(() => {
+    if (inputs.basicPay > 0 && inputs.payLevel) {
+      setBreakdown7th(calculate7thCPC(inputs));
+      setBreakdown8th(calculate8thCPC(inputs, fitmentFactor));
+    } else {
+      setBreakdown7th(zeroBreakdown);
+      setBreakdown8th({ ...zeroBreakdown, cpc: "8th" });
+    }
+  }, [inputs, fitmentFactor]);
+
+  // ---------------------------------------
+  // 📘 Lazy-loaded Export Helpers (Optimized)
+  // ---------------------------------------
+
+  const handleGenerateReportPDF = async () => {
+  try {
+    // ✅ 1. Import jsPDF
+    const jsPDFModule = await import("jspdf");
+    const jsPDF = jsPDFModule.jsPDF;
+
+    // ✅ 2. Import the plugin (handles both CJS/ESM cases)
+    const autoTableModule = await import("jspdf-autotable");
+    const autoTable =
+      autoTableModule.default || (autoTableModule as any).autoTable;
+
+    // ✅ 3. Create the PDF
+    const pdf = new jsPDF({ unit: "pt", format: "a4" });
+    const now = new Date().toLocaleString("en-IN");
+
+    // --- Title & Header ---
+    pdf.setFontSize(18);
+    pdf.setTextColor("#1E3A8A");
+    pdf.text("CPC Salary Calculation Report", 40, 50);
+
+    pdf.setFontSize(10);
+    pdf.setTextColor("#4B5563");
+    pdf.text(`Generated on: ${now}`, 40, 70);
+    pdf.text(`Fitment Factor (8th CPC): ×${fitmentFactor.toFixed(2)}`, 40, 85);
+
+    // --- 7th CPC Income ---
+    pdf.setFontSize(12);
+    pdf.setTextColor("#111827");
+    pdf.text("7th CPC - Income Breakdown", 40, 110);
+
+    autoTable(pdf, {
+      startY: 120,
+      head: [["Component", "Amount (₹)"]],
+      body: [
+        ["Basic Pay", breakdown7th.basicPay.toLocaleString("en-IN")],
+        ["DA", breakdown7th.da.toLocaleString("en-IN")],
+        ["HRA", breakdown7th.hra.toLocaleString("en-IN")],
+        ["TA", breakdown7th.ta.toLocaleString("en-IN")],
+        ["DA on TA", breakdown7th.daOnTa.toLocaleString("en-IN")],
+        ["Gross Salary", breakdown7th.grossSalary.toLocaleString("en-IN")],
+      ],
+      theme: "grid",
+      headStyles: { fillColor: [30, 64, 175], textColor: 255 },
+      styles: { fontSize: 10, cellPadding: 4 },
+    });
+
+    // --- 7th CPC Deductions ---
+    pdf.text("7th CPC - Deductions", 40, (pdf as any).lastAutoTable.finalY + 25);
+    autoTable(pdf, {
+      startY: (pdf as any).lastAutoTable.finalY + 35,
+      head: [["Deduction", "Amount (₹)"]],
+      body: [
+        ["Income Tax", (breakdown7th.incomeTax ?? 0).toLocaleString("en-IN")],
+        ["NPS (Employee)", breakdown7th.npsEmployee.toLocaleString("en-IN")],
+        ["CGHS", breakdown7th.cghs.toLocaleString("en-IN")],
+        ["Total Deductions", breakdown7th.totalDeductions.toLocaleString("en-IN")],
+        ["Net Salary", breakdown7th.netSalary.toLocaleString("en-IN")],
+      ],
+      theme: "grid",
+      headStyles: { fillColor: [239, 68, 68], textColor: 255 },
+      styles: { fontSize: 10, cellPadding: 4 },
+    });
+
+    // --- 8th CPC Income ---
+    pdf.setTextColor("#111827");
+    pdf.text("8th CPC - Projected Income", 40, (pdf as any).lastAutoTable.finalY + 30);
+    autoTable(pdf, {
+      startY: (pdf as any).lastAutoTable.finalY + 40,
+      head: [["Component", "Amount (₹)"]],
+      body: [
+        ["Basic Pay", breakdown8th.basicPay.toLocaleString("en-IN")],
+        ["DA", breakdown8th.da.toLocaleString("en-IN")],
+        ["HRA", breakdown8th.hra.toLocaleString("en-IN")],
+        ["TA", breakdown8th.ta.toLocaleString("en-IN")],
+        ["DA on TA", breakdown8th.daOnTa.toLocaleString("en-IN")],
+        ["Gross Salary", breakdown8th.grossSalary.toLocaleString("en-IN")],
+      ],
+      theme: "grid",
+      headStyles: { fillColor: [16, 185, 129], textColor: 255 },
+      styles: { fontSize: 10, cellPadding: 4 },
+    });
+
+    // --- 8th CPC Deductions ---
+    pdf.text("8th CPC - Projected Deductions", 40, (pdf as any).lastAutoTable.finalY + 25);
+    autoTable(pdf, {
+      startY: (pdf as any).lastAutoTable.finalY + 35,
+      head: [["Deduction", "Amount (₹)"]],
+      body: [
+        ["Income Tax", (breakdown8th.incomeTax ?? 0).toLocaleString("en-IN")],
+        ["NPS (Employee)", breakdown8th.npsEmployee.toLocaleString("en-IN")],
+        ["CGHS", breakdown8th.cghs.toLocaleString("en-IN")],
+        ["Total Deductions", breakdown8th.totalDeductions.toLocaleString("en-IN")],
+        ["Net Salary", breakdown8th.netSalary.toLocaleString("en-IN")],
+      ],
+      theme: "grid",
+      headStyles: { fillColor: [239, 68, 68], textColor: 255 },
+      styles: { fontSize: 10, cellPadding: 4 },
+    });
+
+    // --- Summary ---
+    const netChange = breakdown8th.netSalary - breakdown7th.netSalary;
+    const percentChange = breakdown7th.netSalary
+      ? ((netChange / breakdown7th.netSalary) * 100).toFixed(1)
+      : "N/A";
+
+    pdf.setFontSize(13);
+    pdf.setTextColor("#1E3A8A");
+    pdf.text("Summary", 40, (pdf as any).lastAutoTable.finalY + 40);
+
+    pdf.setFontSize(11);
+    pdf.setTextColor("#111827");
+    pdf.text(
+      `Net Salary Increase: ₹${netChange.toLocaleString("en-IN")} (${percentChange}%)`,
+      40,
+      (pdf as any).lastAutoTable.finalY + 60
+    );
+    pdf.text(
+      `Current Net Salary: ₹${breakdown7th.netSalary.toLocaleString("en-IN")}`,
+      40,
+      (pdf as any).lastAutoTable.finalY + 80
+    );
+    pdf.text(
+      `Projected Net Salary: ₹${breakdown8th.netSalary.toLocaleString("en-IN")}`,
+      40,
+      (pdf as any).lastAutoTable.finalY + 100
+    );
+
+    // ✅ Save PDF
+    pdf.save("CPC_Salary_Report.pdf");
+  } catch (err) {
+    console.error("❌ Error generating PDF:", err);
+    alert("Failed to generate PDF. Check console for details.");
+  }
+};
+
+
+  const handleGenerateReportExcel = async () => {
+    try {
+      const XLSX = await import("xlsx");
+      const wsData: (string | number)[][] = [
+        ["7th CPC - Income"],
+        ["Component", "Amount (₹)"],
+        ["Basic Pay", breakdown7th.basicPay],
+        ["DA", breakdown7th.da],
+        ["HRA", breakdown7th.hra],
+        ["TA", breakdown7th.ta],
+        ["DA on TA", breakdown7th.daOnTa],
+        ["Gross Salary", breakdown7th.grossSalary],
+        [],
+        ["7th CPC - Deductions"],
+        ["Deduction", "Amount (₹)"],
+        ["Income Tax", breakdown7th.incomeTax ?? 0],
+        ["NPS (Employee)", breakdown7th.npsEmployee],
+        ["CGHS", breakdown7th.cghs],
+        ["Total Deductions", breakdown7th.totalDeductions],
+        ["Net Salary", breakdown7th.netSalary],
+        [],
+        ["8th CPC - Income (Projected)"],
+        ["Component", "Amount (₹)"],
+        ["Basic Pay", breakdown8th.basicPay],
+        ["DA", breakdown8th.da],
+        ["HRA", breakdown8th.hra],
+        ["TA", breakdown8th.ta],
+        ["DA on TA", breakdown8th.daOnTa],
+        ["Gross Salary", breakdown8th.grossSalary],
+        [],
+        ["8th CPC - Deductions (Projected)"],
+        ["Deduction", "Amount (₹)"],
+        ["Income Tax", breakdown8th.incomeTax ?? 0],
+        ["NPS (Employee)", breakdown8th.npsEmployee],
+        ["CGHS", breakdown8th.cghs],
+        ["Total Deductions", breakdown8th.totalDeductions],
+        ["Net Salary", breakdown8th.netSalary],
+        [],
+        ["Summary"],
+        ["Net Salary Increase", breakdown8th.netSalary - breakdown7th.netSalary],
+      ];
+
+      const worksheet = XLSX.utils.aoa_to_sheet(wsData);
+      const workbook = XLSX.utils.book_new();
+      XLSX.utils.book_append_sheet(workbook, worksheet, "CPC Report");
+
+      // Auto-width
+      const colWidths = [{ wch: 25 }, { wch: 15 }];
+      worksheet["!cols"] = colWidths;
+
+      XLSX.writeFile(workbook, "CPC_Salary_Report.xlsx");
+    } catch (err) {
+      console.error("Error generating Excel:", err);
+      alert("Failed to generate Excel file. Check console for details.");
+    }
+  };
+
+  // ---------------------------------------
+  // UI Rendering
+  // ---------------------------------------
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <div className="min-h-screen flex flex-col bg-background">
+      
+
+      <main className="flex-1">
+        <div className="container mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-10 sm:space-y-12">
+          {/* Title */}
+          <div className="text-center mb-8">
+            <h1 className="text-4xl sm:text-5xl font-extrabold bg-gradient-to-r from-blue-800 via-blue-600 to-indigo-500 bg-clip-text text-transparent mb-4 tracking-tight">
+              Govt. Employees Salary Calculator
+            </h1>
+            <p className="text-gray-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
+              This CPC Salary Calculator helps you understand and compare your pay under the{" "}
+              <strong>7th</strong> and upcoming <strong>8th Pay Commission</strong>. Whether you want to
+              calculate your in-hand salary, DA, HRA, TA, or total deductions, this tool gives a clear,
+              accurate breakdown for government employees. Explore your salary growth with our Pay Matrix
+              and fitment factor projection features.
+            </p>
+          </div>
+
+          {/* Salary Details Form */}
+          <div className="flex justify-center">
+            <div className="w-full max-w-2xl">
+              <CalculatorForm
+                inputs={inputs}
+                onChange={(updatedInputs) => setInputs(updatedInputs)}
+              />
+            </div>
+          </div>
+
+          {/* Results Section */}
+          <div
+            className="
+              grid grid-cols-1 md:grid-cols-2 gap-6 
+              items-stretch relative w-full
+              max-w-6xl mx-auto px-2 sm:px-4 mt-12
+            "
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+            {/* Divider Line (Desktop only) */}
+            <div
+              className="
+                absolute hidden md:block left-1/2 top-6 bottom-6
+                w-[1.5px] bg-gradient-to-b 
+                from-yellow-200 via-indigo-300/70 to-pink-300/60
+                rounded-full
+              "
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+            {/* 7th CPC Section */}
+            <Card className="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 p-5 sm:p-6 flex flex-col">
+              <div className="text-center mb-4 py-2 rounded-md border border-yellow-100 bg-gradient-to-r from-amber-50 to-yellow-50">
+                <h3 className="text-base sm:text-lg font-semibold text-gray-800">
+                  7th Central Pay Commission
+                </h3>
+              </div>
+              <ResultsBreakdown breakdown={breakdown7th} />
+            </Card>
+
+            {/* 8th CPC Section */}
+            <Card className="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 p-5 sm:p-6 flex flex-col">
+              <div className="text-center mb-4 py-2 rounded-md border border-pink-100 bg-gradient-to-r from-pink-50 to-rose-50">
+                <h3 className="text-base sm:text-lg font-semibold text-gray-800">
+                  8th Central Pay Commission (Projected)
+                </h3>
+
+                {/* Fitment Factor Slider */}
+                <div className="flex items-center justify-center gap-2 sm:gap-3 flex-wrap text-center mt-2">
+                  <div className="flex items-center gap-2 bg-white/70 px-2 py-[3px] rounded-md border border-pink-100 shadow-sm backdrop-blur-[2px]">
+                    <Label className="text-[11px] font-semibold text-gray-800">
+                      Fitment&nbsp;Factor:
+                    </Label>
+                    <div className="relative w-[150px] sm:w-[200px]">
+                      <input
+                        type="range"
+                        min={1.0}
+                        max={3.0}
+                        step={0.01}
+                        value={fitmentFactor}
+                        onChange={(e) => setFitmentFactor(parseFloat(e.target.value))}
+                        aria-label="Fitment Factor Slider"
+                        className="w-full h-[4px] rounded-full appearance-none cursor-pointer 
+                          bg-gradient-to-r from-yellow-300 to-yellow-400
+                          accent-amber-500
+                          [&::-webkit-slider-thumb]:appearance-none
+                          [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5
+                          [&::-webkit-slider-thumb]:rounded-full
+                          [&::-webkit-slider-thumb]:bg-amber-500
+                          [&::-webkit-slider-thumb]:shadow-[0_0_8px_rgba(255,193,7,0.7)]
+                          [&::-webkit-slider-thumb]:transition-transform
+                          [&::-webkit-slider-thumb]:hover:scale-110"
+                      />
+                    </div>
+                    <span className="text-[11px] font-mono font-bold text-[#40916C] min-w-[3rem] text-right">
+                      × {fitmentFactor.toFixed(2)}
+                    </span>
+                    <div className="scale-[0.75] ml-1">
+                      <InfoTooltip
+                        content={
+                          <div className="text-[10.5px] text-gray-700 leading-relaxed max-w-[220px]">
+                            <p className="mb-1">
+                              <strong>Fitment Factor</strong> helps estimate your new basic pay under the{" "}
+                              <strong>8th CPC</strong>.
+                            </p>
+                            <p>
+                              Example: A factor of <strong>1.92</strong> means your new pay will be about{" "}
+                              <strong>92%</strong> higher than your current basic pay.
+                            </p>
+                          </div>
+                        }
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <ResultsBreakdown breakdown={breakdown8th} />
+            </Card>
+          </div>
+
+          {/* Charts Section */}
+          {(breakdown7th?.grossSalary > 0 || breakdown8th?.grossSalary > 0) && (
+            <Card className="p-4 sm:p-6 md:p-8 bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 w-full max-w-6xl mx-auto">
+              <h3 className="text-xl sm:text-2xl font-semibold text-center text-gray-800 mb-1">
+                7th vs 8th CPC Comparison
+              </h3>
+              <p className="text-xs sm:text-sm text-gray-500 text-center mb-6 sm:mb-8">
+                A visual comparison of your salary components between the 7th and 8th Pay Commission.
+              </p>
+
+              {/* Income Chart */}
+              <div className="mb-8 sm:mb-10">
+                <h4 className="text-sm sm:text-base font-medium text-center text-blue-700 mb-3 sm:mb-4">
+                  Income Comparison
+                </h4>
+
+                <div className="w-full h-[220px] sm:h-[260px] md:h-[280px]">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <BarChart
+                      data={[
+                        { name: "Basic Pay", "7th CPC": breakdown7th.basicPay, "8th CPC": breakdown8th.basicPay },
+                        { name: "DA", "7th CPC": breakdown7th.da, "8th CPC": breakdown8th.da },
+                        { name: "HRA", "7th CPC": breakdown7th.hra, "8th CPC": breakdown8th.hra },
+                        { name: "TA", "7th CPC": breakdown7th.ta, "8th CPC": breakdown8th.ta },
+                        { name: "DA on TA", "7th CPC": breakdown7th.daOnTa, "8th CPC": breakdown8th.daOnTa },
+                        { name: "Net Salary", "7th CPC": breakdown7th.netSalary, "8th CPC": breakdown8th.netSalary },
+                      ]}
+                      margin={{ top: 10, right: 10, left: -10, bottom: 20 }}
+                    >
+                      <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
+                      <XAxis
+                        dataKey="name"
+                        tick={{ fill: "#4B5563", fontSize: 10 }}
+                        interval={0}
+                        angle={-30}
+                        textAnchor="end"
+                        height={45}
+                      />
+                      <YAxis
+                        tick={{ fill: "#4B5563", fontSize: 10 }}
+                        width={50}
+                        tickFormatter={(value) =>
+                          value >= 100000 ? `${(value / 1000).toFixed(0)}k` : value
+                        }
+                      />
+                      <Tooltip
+                        formatter={(value: number) => `₹${value.toLocaleString("en-IN")}`}
+                        contentStyle={{
+                          backgroundColor: "white",
+                          borderRadius: "8px",
+                          border: "1px solid #E5E7EB",
+                        }}
+                      />
+                      <Legend
+                        wrapperStyle={{
+                          fontSize: "10px",
+                          paddingTop: "5px",
+                        }}
+                        align="center"
+                        verticalAlign="bottom"
+                      />
+                      <Bar dataKey="7th CPC" fill="#93C5FD" barSize={20} radius={[4, 4, 0, 0]} />
+                      <Bar dataKey="8th CPC" fill="#86EFAC" barSize={20} radius={[4, 4, 0, 0]} />
+                    </BarChart>
+                  </ResponsiveContainer>
+                </div>
+              </div>
+
+              {/* Deductions Chart */}
+              <div>
+                <h4 className="text-sm sm:text-base font-medium text-center text-red-700 mb-3 sm:mb-4">
+                  Deductions Comparison
+                </h4>
+
+                <div className="w-full h-[220px] sm:h-[260px] md:h-[300px]">
+                  <ResponsiveContainer width="100%" height="100%">
+                    <BarChart
+                      data={[
+                        {
+                          name: "Income Tax",
+                          "7th CPC": breakdown7th.incomeTax ?? 0,
+                          "8th CPC": breakdown8th.incomeTax ?? 0,
+                        },
+                        {
+                          name: "NPS (Employee)",
+                          "7th CPC": breakdown7th.npsEmployee,
+                          "8th CPC": breakdown8th.npsEmployee,
+                        },
+                        {
+                          name: "CGHS",
+                          "7th CPC": breakdown7th.cghs,
+                          "8th CPC": breakdown8th.cghs,
+                        },
+                        {
+                          name: "Total Deductions",
+                          "7th CPC": breakdown7th.totalDeductions,
+                          "8th CPC": breakdown8th.totalDeductions,
+                        },
+                      ]}
+                      margin={{ top: 10, right: 10, left: -10, bottom: 20 }}
+                    >
+                      <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
+                      <XAxis
+                        dataKey="name"
+                        tick={{ fill: "#4B5563", fontSize: 10 }}
+                        interval={0}
+                        angle={-25}
+                        textAnchor="end"
+                        height={40}
+                      />
+                      <YAxis
+                        tick={{ fill: "#4B5563", fontSize: 10 }}
+                        width={50}
+                        tickFormatter={(value) =>
+                          value >= 100000 ? `${(value / 1000).toFixed(0)}k` : value
+                        }
+                      />
+                      <Tooltip
+                        formatter={(value: number) => `₹${value.toLocaleString("en-IN")}`}
+                        contentStyle={{
+                          backgroundColor: "white",
+                          borderRadius: "8px",
+                          border: "1px solid #E5E7EB",
+                        }}
+                      />
+                      <Legend
+                        wrapperStyle={{
+                          fontSize: "10px",
+                          paddingTop: "5px",
+                        }}
+                        align="center"
+                        verticalAlign="bottom"
+                      />
+                      <Bar dataKey="7th CPC" fill="#A5B4FC" barSize={20} radius={[4, 4, 0, 0]} />
+                      <Bar dataKey="8th CPC" fill="#FCA5A5" barSize={20} radius={[4, 4, 0, 0]} />
+                    </BarChart>
+                  </ResponsiveContainer>
+                </div>
+              </div>
+            </Card>
+          )}
+
+          {/* Download Buttons */}
+          <div className="flex flex-col sm:flex-row justify-center gap-3 mt-6 max-w-6xl mx-auto px-2 sm:px-4">
+            <button
+              type="button"
+              onClick={handleGenerateReportPDF}
+              aria-label="Download report as PDF"
+              className="px-5 py-2 bg-indigo-400 text-white rounded-md hover:bg-indigo-500 transition font-medium shadow-sm"
+            >
+              Download Report PDF
+            </button>
+
+            <button
+              type="button"
+              onClick={handleGenerateReportExcel}
+              aria-label="Download report as Excel"
+              className="px-5 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition font-medium shadow-sm"
+            >
+              Download Report Excel
+            </button>
+          </div>
         </div>
       </main>
+
+      
     </div>
   );
 }
