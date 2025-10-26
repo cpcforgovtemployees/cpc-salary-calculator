@@ -54,7 +54,7 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/70 shadow-sm">
       <div className="container mx-auto px-3 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between gap-4 py-3 relative">
+        <div className="flex items-center justify-between gap-4 py-1 relative">
 
           {/* Logo + Title */}
           <Link href="/" className="flex items-center gap-3" onClick={closeMenu}>
