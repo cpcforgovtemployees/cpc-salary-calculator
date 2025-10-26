@@ -9,16 +9,13 @@ export function Header() {
   const pathname = usePathname();
 
   const navLinks = [
-    { href: "/", label: "Calculator" },
-    { href: "/nps-calculator", label: "NPS Calculator" },
-    { href: "/da-arrear-calculator", label: "DA Arrears" },
-    { href: "/hra-class-calculator", label: "HRA Class" },
-  ];
+  { href: "/", label: "CPC Calculator" },
+  { href: "/nps-calculator", label: "NPS Calculator" },
+  { href: "/da-arrear-calculator", label: "DA Arrears" },
+  { href: "/hra-class-calculator", label: "HRA Class" },
+];
 
-  // ✅ Toast state
   const [showToast, setShowToast] = useState(false);
-
-  // ✅ Reference to mobile menu for auto-close
   const menuRef = useRef<HTMLDetailsElement>(null);
 
   const handleShare = async () => {
@@ -28,7 +25,6 @@ export function Header() {
       if (navigator?.clipboard?.writeText) {
         await navigator.clipboard.writeText(url);
       } else {
-        // Fallback for browsers without clipboard API
         const textarea = document.createElement("textarea");
         textarea.value = url;
         textarea.style.position = "fixed";
@@ -41,7 +37,6 @@ export function Header() {
 
       setShowToast(true);
 
-      // ✅ Auto-close mobile menu after 300ms
       setTimeout(() => {
         if (menuRef.current && menuRef.current.open) {
           menuRef.current.open = false;
@@ -58,16 +53,17 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/70 shadow-sm">
       <div className="container mx-auto px-3 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between gap-4 py-3 relative">
-          
+
           {/* Logo + Title */}
           <Link href="/" className="flex items-center gap-3">
             <div className="flex items-center justify-center w-10 h-10 rounded-md bg-indigo-600 text-white shadow-sm flex-shrink-0">
               <IndianRupee className="w-5 h-5" />
             </div>
             <div>
-              <h1 className="text-lg font-semibold tracking-tight text-gray-900">
+              {/* ✅ Changed h1 → p for SEO */}
+              <p className="text-lg font-semibold tracking-tight text-gray-900">
                 CPC Salary Calculator
-              </h1>
+              </p>
               <p className="text-xs text-gray-600">7th & 8th Pay Commission</p>
             </div>
           </Link>
@@ -88,7 +84,6 @@ export function Header() {
               </Link>
             ))}
 
-            {/* ✅ SHARE BUTTON */}
             <button
               onClick={handleShare}
               className="ml-2 flex items-center gap-1 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium px-3 py-2 rounded-md transition-all"
@@ -98,22 +93,13 @@ export function Header() {
             </button>
           </nav>
 
-          {/* Mobile Navigation (Hamburger Menu) */}
+          {/* Mobile Navigation */}
           <details ref={menuRef} className="md:hidden relative">
             <summary className="flex items-center justify-center w-10 h-10 rounded-md border border-gray-200 bg-white hover:bg-gray-50 cursor-pointer list-none">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={2}
-                stroke="currentColor"
-                className="w-5 h-5 text-gray-700"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                strokeWidth={2} stroke="currentColor" className="w-5 h-5 text-gray-700">
+                <path strokeLinecap="round" strokeLinejoin="round"
+                  d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             </summary>
 
@@ -132,7 +118,6 @@ export function Header() {
                 </Link>
               ))}
 
-              {/* ✅ Mobile Share Option */}
               <button
                 onClick={handleShare}
                 className="px-4 py-2 text-sm font-medium text-left text-gray-700 hover:bg-gray-100"
@@ -142,7 +127,6 @@ export function Header() {
             </div>
           </details>
 
-          {/* ✅ Toast (Bottom Right) */}
           {showToast && (
             <div className="fixed bottom-5 right-5 bg-gray-900 text-white text-sm px-4 py-2 rounded-md shadow-lg animate-fade-in-out z-[9999]">
               ✅ Link Copied!
