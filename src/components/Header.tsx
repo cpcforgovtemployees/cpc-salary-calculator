@@ -9,14 +9,22 @@ export function Header() {
   const pathname = usePathname();
 
   const navLinks = [
-  { href: "/", label: "CPC Calculator" },
-  { href: "/nps-calculator", label: "NPS Calculator" },
-  { href: "/da-arrear-calculator", label: "DA Arrears" },
-  { href: "/hra-class-calculator", label: "HRA Class" },
-];
+    { href: "/", label: "CPC Calculator" },
+    { href: "/nps-calculator", label: "NPS Calculator" },
+    { href: "/da-arrear-calculator", label: "DA Arrears" },
+    { href: "/hra-class-calculator", label: "HRA Class" },
+  ];
 
   const [showToast, setShowToast] = useState(false);
   const menuRef = useRef<HTMLDetailsElement>(null);
+
+  const closeMenu = () => {
+    setTimeout(() => {
+      if (menuRef.current?.open) {
+        menuRef.current.open = false;
+      }
+    }, 200);
+  };
 
   const handleShare = async () => {
     const url = typeof window !== "undefined" ? window.location.href : "";
@@ -36,13 +44,7 @@ export function Header() {
       }
 
       setShowToast(true);
-
-      setTimeout(() => {
-        if (menuRef.current && menuRef.current.open) {
-          menuRef.current.open = false;
-        }
-      }, 300);
-
+      closeMenu(); // ✅ close menu when sharing
       setTimeout(() => setShowToast(false), 2000);
     } catch (error) {
       console.error("Failed to copy link:", error);
@@ -55,12 +57,11 @@ export function Header() {
         <div className="flex items-center justify-between gap-4 py-3 relative">
 
           {/* Logo + Title */}
-          <Link href="/" className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-3" onClick={closeMenu}>
             <div className="flex items-center justify-center w-10 h-10 rounded-md bg-indigo-600 text-white shadow-sm flex-shrink-0">
               <IndianRupee className="w-5 h-5" />
             </div>
             <div>
-              {/* ✅ Changed h1 → p for SEO */}
               <p className="text-lg font-semibold tracking-tight text-gray-900">
                 CPC Salary Calculator
               </p>
@@ -108,6 +109,7 @@ export function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
+                  onClick={closeMenu} // ✅ close menu when clicking any page
                   className={`px-4 py-2 text-sm font-medium ${
                     pathname === link.href
                       ? "text-indigo-700 bg-indigo-50"
