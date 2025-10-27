@@ -10,11 +10,10 @@ import Script from "next/script";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "CPC Salary Calculator | 7th & 8th Pay Commission",
+  title: "CPC Salary Calculator – 7th & 8th Pay Commission | Indian Pay Calculator",
   description:
-    "Compare 7th and 8th Pay Commission salaries, calculate DA, HRA, and Fitment Factor. Accurate CPC Salary Calculator for Government employees.",
+    "Accurate CPC Salary Calculator for Indian government employees — compute in-hand pay, DA, HRA, NPS, and fitment factors for 7th & 8th Pay Commission quickly and easily.",
 
-  // ✅ Updated icons to include full favicon set
   icons: {
     icon: [
       { url: "/favicon-16.png", sizes: "16x16" },
@@ -28,17 +27,17 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "CPC Salary Calculator | 7th & 8th Pay Commission",
+    title: "CPC Salary Calculator – 7th & 8th Pay Commission | Indian Pay Calculator",
     description:
-      "Calculate Salary, DA, HRA, NPS Instantly. A complete CPC Salary Calculator for Government Employees.",
+      "Accurate CPC Salary Calculator for Indian government employees — compute in-hand pay, DA, HRA, NPS, and fitment factors for 7th & 8th Pay Commission quickly and easily.",
     url: "https://www.indianpaycalculator.in",
-    siteName: "CPC Salary Calculator",
+    siteName: "Indian Pay Calculator",
     images: [
       {
         url: "https://www.indianpaycalculator.in/og/og-image.png",
         width: 1200,
         height: 630,
-        alt: "CPC Salary Calculator",
+        alt: "Indian Pay Calculator — CPC Salary Calculator",
       },
     ],
     type: "website",

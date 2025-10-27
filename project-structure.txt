@@ -1,0 +1,82 @@
+.
+├── README.md
+├── eslint.config.mjs
+├── next-env.d.ts
+├── next-sitemap.config.js
+├── next.config.ts
+├── package-lock.json
+├── package.json
+├── postcss.config.mjs
+├── project-structure.txt
+├── public
+│   ├── apple-touch-icon.png
+│   ├── favicon-16.png
+│   ├── favicon-32.png
+│   ├── favicon-48.png
+│   ├── favicon-64.png
+│   ├── fonts
+│   │   └── Roboto-Regular.ttf
+│   ├── icons
+│   │   ├── icon-192.png
+│   │   ├── icon-256.png
+│   │   ├── icon-384.png
+│   │   └── icon-512.png
+│   ├── logo-512.png
+│   ├── og
+│   │   └── og-image.png
+│   ├── robots.txt
+│   ├── sitemap-0.xml
+│   └── sitemap.xml
+├── src
+│   ├── app
+│   │   ├── about
+│   │   │   └── page.tsx
+│   │   ├── api
+│   │   │   └── send-feedback
+│   │   │       └── route.ts
+│   │   ├── contact
+│   │   │   └── page.tsx
+│   │   ├── da-arrear-calculator
+│   │   │   ├── metadata.ts
+│   │   │   └── page.tsx
+│   │   ├── favicon.ico
+│   │   ├── globals.css
+│   │   ├── hra-class-calculator
+│   │   │   ├── metadata.ts
+│   │   │   └── page.tsx
+│   │   ├── layout.tsx
+│   │   ├── metadata.ts
+│   │   ├── nps-calculator
+│   │   │   ├── metadata.ts
+│   │   │   └── page.tsx
+│   │   ├── page.tsx
+│   │   └── terms
+│   │       └── page.tsx
+│   ├── components
+│   │   ├── CalculatorForm.tsx
+│   │   ├── ErrorBoundary.tsx
+│   │   ├── Footer.tsx
+│   │   ├── Header.tsx
+│   │   ├── InfoTooltip.tsx
+│   │   ├── PayMatrixSelector.tsx
+│   │   ├── PayMatrixTable.tsx
+│   │   ├── ResultsBreakdown.tsx
+│   │   ├── SalaryInsights.tsx
+│   │   ├── ThemeProvider.tsx
+│   │   └── ui
+│   │       ├── button.tsx
+│   │       ├── card.tsx
+│   │       ├── input.tsx
+│   │       ├── label.tsx
+│   │       ├── select.tsx
+│   │       ├── slider.tsx
+│   │       └── tooltip.tsx
+│   └── lib
+│       ├── constants.ts
+│       ├── ga.ts
+│       ├── queryClient.ts
+│       ├── salary-calculator.ts
+│       └── utils.ts
+└── tsconfig.json
+
+18 directories, 62 files
