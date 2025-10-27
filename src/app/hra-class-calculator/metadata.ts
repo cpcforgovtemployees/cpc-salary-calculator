@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "HRA Class Calculator – X, Y, Z City HRA for Govt Employees | Indian Pay Calculator",
   description:
-    "Find your HRA class (X, Y, or Z) and calculate House Rent Allowance instantly. Indian Pay Calculator provides accurate HRA rates for 7th & 8th Pay Commission, Central and State Government employees.",
+    "HRA Class and Amount Calculator for Indian government employees — calculate HRA percentage and in-hand pay for 7th & 8th Pay Commission quickly and easily.",
   keywords: [
     "HRA Class Calculator",
     "HRA Calculator",
