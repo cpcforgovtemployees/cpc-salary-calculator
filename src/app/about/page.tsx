@@ -4,7 +4,7 @@ import { Card } from "@/components/ui/card";
 export const metadata = {
   title: "About Indian Pay Calculator – 7th & 8th CPC Salary Calculator",
   description:
-    "Learn about Indian Pay Calculator — a free CPC salary calculator for government employees to compare 7th and 8th Pay Commission salaries, DA, HRA, NPS, and more.",
+    "Learn about Indian Pay Calculator — a free CPC salary calculator for government employees to compare 7th and 8th Pay Commission salaries, DA, HRA, and NPS.",
   keywords: [
     "About Indian Pay Calculator",
     "CPC Salary Calculator",
