@@ -50,6 +50,23 @@ export default function About() {
         <h2 className="text-xl sm:text-2xl font-semibold text-gray-800 mt-8 mb-3">
           Why This Tool Stands Out
         </h2>
+        <h3 className="text-lg font-semibold text-gray-700 mt-4 mb-2">
+  Key Benefits of Indian Pay Calculator
+</h3>
+<ul className="list-disc pl-6 text-gray-700 space-y-2">
+  <li>Instant comparison between <strong>7th CPC and 8th CPC</strong>.</li>
+  <li>City-based <strong>HRA and TA calculations</strong> for accuracy.</li>
+  <li>DA and Fitment Factor projections for the <strong>8th Pay Commission</strong>.</li>
+  <li>Downloadable reports in <strong>PDF and Excel format</strong>.</li>
+  <li>Completely <strong>free and easy to use</strong> on all devices.</li>
+</ul>
+
+<h3 className="text-lg font-semibold text-gray-700 mt-6 mb-2">
+  Why Government Employees Trust This Tool
+</h3>
+<p className="text-gray-700 leading-relaxed mb-6">
+  We prioritize accuracy and transparency in every calculation. Each update is verified with the latest government CPC data and DA announcements.
+</p>
         <ul className="list-disc pl-6 text-gray-700 space-y-2">
           <li>Instant comparison between <strong>7th CPC and 8th CPC</strong>.</li>
           <li>City-based <strong>HRA and TA calculations</strong> for accuracy.</li>
