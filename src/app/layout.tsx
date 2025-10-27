@@ -12,7 +12,7 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "CPC Salary Calculator – 7th & 8th Pay Commission | Indian Pay Calculator",
   description:
-    "Accurate CPC Salary Calculator for Indian government employees — compute in-hand pay, DA, HRA, NPS, and fitment factors for 7th & 8th Pay Commission quickly and easily.",
+    "Accurate CPC Salary Calculator for Indian government employees — calculate in-hand pay, DA, HRA, NPS, and fitment factors for 7th & 8th Pay Commission easily.",
 
   icons: {
     icon: [
