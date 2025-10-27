@@ -1,6 +1,29 @@
 import Link from "next/link";
 import { Card } from "@/components/ui/card";
 
+export const metadata = {
+  title: "About Indian Pay Calculator – 7th & 8th CPC Salary Calculator",
+  description:
+    "Learn about Indian Pay Calculator — a free CPC salary calculator for government employees to compare 7th and 8th Pay Commission salaries, DA, HRA, NPS, and more.",
+  keywords: [
+    "About Indian Pay Calculator",
+    "CPC Salary Calculator",
+    "7th Pay Commission",
+    "8th Pay Commission",
+    "Government Salary Calculator",
+    "DA HRA NPS Calculator",
+  ],
+  openGraph: {
+    title: "About Indian Pay Calculator – 7th & 8th CPC Salary Calculator",
+    description:
+      "Discover the story behind Indian Pay Calculator — your trusted tool for 7th & 8th CPC salary calculations, DA, HRA, and NPS insights.",
+    url: "https://www.indianpaycalculator.in/about",
+    siteName: "Indian Pay Calculator",
+    type: "article",
+  },
+};
+
+
 export default function About() {
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-10">
