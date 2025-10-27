@@ -595,8 +595,77 @@ export default function Calculator() {
           </div>
         </div>
       </main>
+      {/* --- Informational SEO Section (Static Text) --- */}
+<section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mt-14 mb-10 text-gray-700 leading-relaxed">
+  <h2 className="text-2xl font-semibold text-gray-800 mb-4 text-center">
+    About the CPC Salary Calculator
+  </h2>
+  <p className="mb-4">
+    The <strong>Indian Pay Calculator</strong> is a comprehensive tool built for{" "}
+    <strong>Central and State Government employees</strong> to understand and compare their
+    pay under both the <strong>7th</strong> and <strong>8th Central Pay Commissions (CPC)</strong>.
+    It instantly calculates all major components including <strong>Basic Pay</strong>,
+    <strong> Dearness Allowance (DA)</strong>, <strong>House Rent Allowance (HRA)</strong>,
+    <strong> Travel Allowance (TA)</strong>, <strong>NPS</strong>, and other deductions,
+    giving a transparent in-hand salary breakdown.
+  </p>
+  <p className="mb-4">
+    This calculator also provides projected salary figures under the upcoming{" "}
+    <strong>8th Pay Commission</strong>, based on the selected{" "}
+    <strong>fitment factor</strong>. The fitment factor helps estimate how much
+    your <strong>Basic Pay</strong> may increase once the new CPC is implemented.
+    Users can also generate detailed <strong>PDF and Excel reports</strong> to save
+    or print their results for official or personal use.
+  </p>
 
-      
+  <h3 className="text-xl font-semibold text-gray-800 mt-8 mb-3">
+    Why Government Employees Use This Calculator
+  </h3>
+  <ul className="list-disc pl-6 space-y-2">
+    <li>Accurate comparison between <strong>7th and 8th CPC pay structures</strong>.</li>
+    <li>City-based <strong>HRA and TA calculations</strong> for realistic results.</li>
+    <li>Calculations are based on <strong>official CPC pay matrix</strong> and DA formula.</li>
+    <li>Free, mobile-friendly, and updated regularly with latest government data.</li>
+  </ul>
+
+  <h3 className="text-xl font-semibold text-gray-800 mt-8 mb-3">
+    Understanding the Fitment Factor
+  </h3>
+  <p className="mb-4">
+    The <strong>Fitment Factor</strong> determines how much your salary increases
+    when moving from one Pay Commission to the next. For example, a factor of{" "}
+    <strong>1.92</strong> means your new Basic Pay will be about{" "}
+    <strong>92% higher</strong> than your current pay. You can adjust this slider in
+    the calculator to test different scenarios and view how your salary components
+    change under the <strong>8th CPC</strong>.
+  </p>
+
+  <h3 className="text-xl font-semibold text-gray-800 mt-8 mb-3">
+    Frequently Asked Questions (FAQs)
+  </h3>
+  <p className="mb-2">
+    <strong>Q:</strong> What is the purpose of this calculator?<br />
+    <strong>A:</strong> It helps government employees instantly calculate in-hand
+    salary, DA, HRA, NPS, deductions, and compare the difference between the
+    <strong> 7th</strong> and <strong>8th Pay Commission</strong>.
+  </p>
+  <p className="mb-2">
+    <strong>Q:</strong> Can I download my salary report?<br />
+    <strong>A:</strong> Yes, the tool lets you export your salary details in{" "}
+    <strong>PDF and Excel formats</strong> for record-keeping or submission purposes.
+  </p>
+  <p className="mb-2">
+    <strong>Q:</strong> Is the data used in this tool official?<br />
+    <strong>A:</strong> Yes, the formulas and DA rates are derived from the{" "}
+    <strong>official CPC pay matrix</strong> and government DA notifications.
+  </p>
+
+  <p className="mt-6">
+    With over a million government employees expected to benefit from the upcoming{" "}
+    <strong>8th Pay Commission</strong>, this calculator ensures transparency,
+    accuracy, and clarity for every user seeking to understand their revised pay structure.
+  </p>
+</section>
     </div>
   );
 }
