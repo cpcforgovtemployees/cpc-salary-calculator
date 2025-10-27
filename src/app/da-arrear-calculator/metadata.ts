@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "DA Arrear Calculator – 7th & 8th CPC | Indian Pay Calculator",
   description:
-    "Use the DA Arrear Calculator by Indian Pay Calculator to compute Dearness Allowance arrears for Central and State Government employees under the 7th and 8th Pay Commissions.",
+    "Accurate CPC Salary Calculator for Indian government employees — calculate DA arrears and in-hand pay for 7th & 8th Pay Commission quickly and easily.",
   keywords: [
     "DA Arrear Calculator",
     "7th Pay Commission DA Arrears",
