@@ -1,19 +1,39 @@
+// src/app/da-arrear-calculator/metadata.ts
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "DA Arrears Calculator | Dearness Allowance Arrear for Govt Employees",
+  title: "DA Arrear Calculator – 7th & 8th CPC | Indian Pay Calculator",
   description:
-    "Easy DA Arrears Calculator to compute Dearness Allowance arrears based on old and new DA percentages. Works for Central and State Government employees under 7th Pay Commission.",
+    "Use the DA Arrear Calculator by Indian Pay Calculator to compute Dearness Allowance arrears for Central and State Government employees under the 7th and 8th Pay Commissions.",
   keywords: [
-    "DA Arrears Calculator",
-    "Dearness Allowance Arrears",
-    "DA Arrears Calculator for Government Employees",
+    "DA Arrear Calculator",
     "7th Pay Commission DA Arrears",
+    "8th Pay Commission DA Arrears",
+    "Dearness Allowance Calculator",
+    "CPC Salary Calculator",
+    "Indian Pay Calculator",
     "Calculate DA Arrears Online",
-    "Central Government DA Arrears",
-    "State Government DA Arrears",
+    "Central Government DA Calculator",
+    "State Government DA Calculator",
     "DA Difference Calculator",
-    "DA Increase Arrears",
-    "DA Due Calculator"
   ],
+  openGraph: {
+    title: "DA Arrear Calculator – 7th & 8th CPC | Indian Pay Calculator",
+    description:
+      "Calculate Dearness Allowance arrears instantly under the 7th and 8th Pay Commissions using Indian Pay Calculator. Accurate, free, and easy to use.",
+    url: "https://www.indianpaycalculator.in/da-arrear-calculator",
+    siteName: "Indian Pay Calculator",
+    type: "article",
+    locale: "en_IN",
+    images: [
+      {
+        url: "https://www.indianpaycalculator.in/og/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "DA Arrear Calculator – Indian Pay Calculator",
+      },
+    ],
+  },
 };
+
+export default metadata;
