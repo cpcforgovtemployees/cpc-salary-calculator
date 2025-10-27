@@ -4,7 +4,7 @@ import ContactForm from "@/components/ContactForm";
 export const metadata = {
   title: "Contact & Feedback – Indian Pay Calculator | 7th & 8th CPC",
   description:
-    "Get in touch with Indian Pay Calculator. Share your feedback, queries, or suggestions about our 7th & 8th Pay Commission salary calculator, DA, HRA, and NPS tools.",
+    "Get in touch with Indian Pay Calculator. Share your feedback, queries, or suggestions about our 7th & 8th Pay Commission salary calculator, DA, HRA, and NPS.",
   keywords: [
     "Contact Indian Pay Calculator",
     "Feedback CPC Salary Calculator",
