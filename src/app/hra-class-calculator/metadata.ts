@@ -1,19 +1,39 @@
+// src/app/hra-class-calculator/metadata.ts
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "HRA Class & Amount Calculator | X, Y, Z City HRA in India",
+  title: "HRA Class Calculator – X, Y, Z City HRA for Govt Employees | Indian Pay Calculator",
   description:
-    "HRA Class & Amount Calculator for India. Check HRA percentage for X, Y, Z cities and calculate HRA for Central and State Government employees and salaried private employees.",
+    "Find your HRA class (X, Y, or Z) and calculate House Rent Allowance instantly. Indian Pay Calculator provides accurate HRA rates for 7th & 8th Pay Commission, Central and State Government employees.",
   keywords: [
-    "HRA Calculator",
     "HRA Class Calculator",
-    "X Y Z City HRA",
-    "HRA Calculator India",
-    "HRA Percentage by City",
+    "HRA Calculator",
+    "X Y Z City HRA Rates",
+    "7th Pay Commission HRA",
+    "8th Pay Commission HRA",
     "HRA for Government Employees",
     "HRA City Classification",
-    "HRA Exemption Calculator",
     "House Rent Allowance Calculator",
-    "HRA Rules India"
+    "HRA Percentage by City",
+    "Indian Pay Calculator",
   ],
+  openGraph: {
+    title: "HRA Class Calculator – X, Y, Z City HRA for Govt Employees | Indian Pay Calculator",
+    description:
+      "Check your HRA class (X, Y, Z) and calculate HRA amount for Central and State Government employees under the 7th & 8th Pay Commission.",
+    url: "https://www.indianpaycalculator.in/hra-class-calculator",
+    siteName: "Indian Pay Calculator",
+    type: "article",
+    locale: "en_IN",
+    images: [
+      {
+        url: "https://www.indianpaycalculator.in/og/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "HRA Class Calculator – Indian Pay Calculator",
+      },
+    ],
+  },
 };
+
+export default metadata;
