@@ -3,7 +3,7 @@ import Link from "next/link";
 export const metadata = {
   title: "Terms & Conditions – Indian Pay Calculator | 7th & 8th CPC",
   description:
-    "Read the Terms & Conditions for using the Indian Pay Calculator. Understand disclaimers, data accuracy, user responsibilities, and your rights when using our 7th & 8th Pay Commission Salary Calculators.",
+    "Read the Terms & Conditions for using Indian Pay Calculator. Understand disclaimers, accuracy, and rights for 7th & 8th Pay Commission salary calculators.",
   keywords: [
     "Indian Pay Calculator Terms",
     "Terms and Conditions",
