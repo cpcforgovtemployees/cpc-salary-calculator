@@ -46,6 +46,12 @@ export function Footer() {
             >
               Terms
             </Link>
+            <Link
+              href="/privacy-policy"
+              className="text-sm text-gray-600 hover:text-indigo-600 transition-colors"
+            >
+              Privacy
+            </Link>
           </div>
 
           {/* Right Icons */}
