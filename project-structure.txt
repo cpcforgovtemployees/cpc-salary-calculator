@@ -1,4 +1,7 @@
 .
+├── .DS_Store
+├── .env.local
+├── .gitignore
 ├── README.md
 ├── eslint.config.mjs
 ├── next-env.d.ts
@@ -28,6 +31,7 @@
 │   ├── sitemap-0.xml
 │   └── sitemap.xml
 ├── src
+│   ├── .DS_Store
 │   ├── app
 │   │   ├── about
 │   │   │   └── page.tsx
@@ -50,10 +54,13 @@
 │   │   │   ├── metadata.ts
 │   │   │   └── page.tsx
 │   │   ├── page.tsx
+│   │   ├── privacy-policy
+│   │   │   └── page.tsx
 │   │   └── terms
 │   │       └── page.tsx
 │   ├── components
 │   │   ├── CalculatorForm.tsx
+│   │   ├── ContactForm.tsx
 │   │   ├── ErrorBoundary.tsx
 │   │   ├── Footer.tsx
 │   │   ├── Header.tsx
@@ -79,4 +86,4 @@
 │       └── utils.ts
 └── tsconfig.json
 
-18 directories, 62 files
+19 directories, 68 files

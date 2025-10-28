@@ -157,26 +157,33 @@ export function CalculatorForm({ inputs, onChange }: CalculatorFormProps) {
     className="flex flex-wrap items-center gap-2 sm:gap-3 w-full"
   >
     {/* Allowance Name */}
-    <input
-      type="text"
-      value={allowance.name}
-      onChange={(e) =>
-        handleAllowanceChange(index, "name", e.target.value)
-      }
-      placeholder={`Allowance Name ${index + 1}`}
-      className="flex-1 min-w-[140px] p-2 text-sm border rounded-md"
-    />
+    <div className="flex-1 min-w-[140px]">
+  <label htmlFor={`allowance-name-${index}`} className="sr-only">
+    Allowance Name {index + 1}
+  </label>
+  <input
+    id={`allowance-name-${index}`}
+    type="text"
+    value={allowance.name}
+    onChange={(e) => handleAllowanceChange(index, "name", e.target.value)}
+    placeholder={`Allowance Name ${index + 1}`}
+    className="w-full p-2 text-sm border rounded-md"
+  />
+</div>
+<div className="w-28 sm:w-32">
+  <label htmlFor={`allowance-amount-${index}`} className="sr-only">
+    Allowance Amount {index + 1}
+  </label>
+  <input
+    id={`allowance-amount-${index}`}
+    type="number"
+    value={allowance.amount === 0 ? "" : allowance.amount}
+    onChange={(e) => handleAllowanceChange(index, "amount", e.target.value)}
+    placeholder="Amount (₹)"
+    className="w-full p-2 text-sm border rounded-md text-right [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+  />
+</div>
 
-    {/* Amount */}
-    <input
-      type="number"
-      value={allowance.amount === 0 ? "" : allowance.amount}
-      onChange={(e) =>
-        handleAllowanceChange(index, "amount", e.target.value)
-      }
-      placeholder="Amount (₹)"
-      className="w-28 sm:w-32 p-2 text-sm border rounded-md text-right [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
-    />
 
     {/* Remove Button */}
     <button
