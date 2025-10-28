@@ -1,7 +1,4 @@
 "use client";
-
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import { useState, useEffect } from "react";
 import { CalculatorForm } from "@/components/CalculatorForm";
 import { ResultsBreakdown } from "@/components/ResultsBreakdown";
@@ -314,70 +311,55 @@ export default function Calculator() {
   // ---------------------------------------
   return (
     <div className="min-h-screen flex flex-col bg-background">
-      
-
       <main className="flex-1">
         <div className="container mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-10 sm:space-y-12">
           {/* Title */}
-          <div className="text-center mb-8">
+          <header className="text-center mb-8">
             <h1 className="text-4xl sm:text-5xl font-extrabold bg-gradient-to-r from-blue-800 via-blue-600 to-indigo-500 bg-clip-text text-transparent mb-4 tracking-tight">
               Govt. Employees Salary Calculator
             </h1>
             <p className="text-gray-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
-              This CPC Salary Calculator helps you understand and compare your pay under the{" "}
-              <strong>7th</strong> and upcoming <strong>8th Pay Commission</strong>. Whether you want to
-              calculate your in-hand salary, DA, HRA, TA, or total deductions, this tool gives a clear,
-              accurate breakdown for government employees. Explore your salary growth with our Pay Matrix
-              and fitment factor projection features.
+              This CPC Salary Calculator helps you understand and compare your pay under the <strong>7th</strong> and upcoming <strong>8th Pay Commission</strong>. Whether you want to calculate your in-hand salary, DA, HRA, TA, or total deductions, this tool gives a clear, accurate breakdown for government employees. Explore your salary growth with our Pay Matrix and fitment factor projection features.
             </p>
-          </div>
+          </header>
 
           {/* Salary Details Form */}
-          <div className="flex justify-center">
+          <section className="flex justify-center">
             <div className="w-full max-w-2xl">
               <CalculatorForm
                 inputs={inputs}
                 onChange={(updatedInputs) => setInputs(updatedInputs)}
               />
             </div>
-          </div>
+          </section>
 
           {/* Results Section */}
-          <div
-            className="
-              grid grid-cols-1 md:grid-cols-2 gap-6 
-              items-stretch relative w-full
-              max-w-6xl mx-auto px-2 sm:px-4 mt-12
-            "
+          <section
+            aria-label="Salary Comparison Results"
+            className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch relative w-full max-w-6xl mx-auto px-2 sm:px-4 mt-12"
           >
             {/* Divider Line (Desktop only) */}
             <div
-              className="
-                absolute hidden md:block left-1/2 top-6 bottom-6
-                w-[1.5px] bg-gradient-to-b 
-                from-yellow-200 via-indigo-300/70 to-pink-300/60
-                rounded-full
-              "
+              className="absolute hidden md:block left-1/2 top-6 bottom-6 w-[1.5px] bg-gradient-to-b from-yellow-200 via-indigo-300/70 to-pink-300/60 rounded-full"
+              aria-hidden="true"
             />
 
             {/* 7th CPC Section */}
             <Card className="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 p-5 sm:p-6 flex flex-col">
               <div className="text-center mb-4 py-2 rounded-md border border-yellow-100 bg-gradient-to-r from-amber-50 to-yellow-50">
-                <h3 className="text-base sm:text-lg font-semibold text-gray-800">
+                <h2 className="text-base sm:text-lg font-semibold text-gray-800">
                   7th Central Pay Commission
-                </h3>
+                </h2>
               </div>
               <ResultsBreakdown breakdown={breakdown7th} />
             </Card>
-
             {/* 8th CPC Section */}
             <Card className="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 p-5 sm:p-6 flex flex-col">
               <div className="text-center mb-4 py-2 rounded-md border border-pink-100 bg-gradient-to-r from-pink-50 to-rose-50">
-                <h3 className="text-base sm:text-lg font-semibold text-gray-800">
+                <h2 className="text-base sm:text-lg font-semibold text-gray-800">
                   8th Central Pay Commission (Projected)
-                </h3>
-
-                {/* Fitment Factor Slider */}
+                </h2>
+                {/* Fitment Factor Slider (Accessible) */}
                 <div className="flex items-center justify-center gap-2 sm:gap-3 flex-wrap text-center mt-2">
                   <div className="flex items-center gap-2 bg-white/70 px-2 py-[3px] rounded-md border border-pink-100 shadow-sm backdrop-blur-[2px]">
                     <Label className="text-[11px] font-semibold text-gray-800">
@@ -392,9 +374,7 @@ export default function Calculator() {
                         value={fitmentFactor}
                         onChange={(e) => setFitmentFactor(parseFloat(e.target.value))}
                         aria-label="Fitment Factor Slider"
-                        className="w-full h-[4px] rounded-full appearance-none cursor-pointer 
-                          bg-gradient-to-r from-yellow-300 to-yellow-400
-                          accent-amber-500
+                        className="w-full h-[4px] rounded-full appearance-none cursor-pointer bg-gradient-to-r from-yellow-300 to-yellow-400 accent-amber-500
                           [&::-webkit-slider-thumb]:appearance-none
                           [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5
                           [&::-webkit-slider-thumb]:rounded-full
@@ -412,12 +392,10 @@ export default function Calculator() {
                         content={
                           <div className="text-[10.5px] text-gray-700 leading-relaxed max-w-[220px]">
                             <p className="mb-1">
-                              <strong>Fitment Factor</strong> helps estimate your new basic pay under the{" "}
-                              <strong>8th CPC</strong>.
+                              <strong>Fitment Factor</strong> helps estimate your new basic pay under the <strong>8th CPC</strong>.
                             </p>
                             <p>
-                              Example: A factor of <strong>1.92</strong> means your new pay will be about{" "}
-                              <strong>92%</strong> higher than your current basic pay.
+                              Example: A factor of <strong>1.92</strong> means your new pay will be about <strong>92%</strong> higher than your current basic pay.
                             </p>
                           </div>
                         }
@@ -426,17 +404,16 @@ export default function Calculator() {
                   </div>
                 </div>
               </div>
-
               <ResultsBreakdown breakdown={breakdown8th} />
             </Card>
-          </div>
+          </section>
 
           {/* Charts Section */}
           {(breakdown7th?.grossSalary > 0 || breakdown8th?.grossSalary > 0) && (
-            <Card className="p-4 sm:p-6 md:p-8 bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 w-full max-w-6xl mx-auto">
-              <h3 className="text-xl sm:text-2xl font-semibold text-center text-gray-800 mb-1">
+            <Card className="p-4 sm:p-6 md:p-8 bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 w-full max-w-6xl mx-auto" aria-label="CPC Salary Comparison Charts">
+              <h2 className="text-xl sm:text-2xl font-semibold text-center text-gray-800 mb-1">
                 7th vs 8th CPC Comparison
-              </h3>
+              </h2>
               <p className="text-xs sm:text-sm text-gray-500 text-center mb-6 sm:mb-8">
                 A visual comparison of your salary components between the 7th and 8th Pay Commission.
               </p>
@@ -583,7 +560,6 @@ export default function Calculator() {
             >
               Download Report PDF
             </button>
-
             <button
               type="button"
               onClick={handleGenerateReportExcel}

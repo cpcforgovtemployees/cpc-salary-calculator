@@ -1,10 +1,13 @@
-// src/app/hra-class-calculator/metadata.ts
 import type { Metadata } from "next";
+
+// Make sure the URL is your live deployed one
+const siteUrl = "https://www.indianpaycalculator.in/hra-class-calculator";
+const ogImage = "https://www.indianpaycalculator.in/og/og-image.png";
 
 export const metadata: Metadata = {
   title: "HRA Class Calculator – X, Y, Z City HRA for Govt Employees | Indian Pay Calculator",
   description:
-    "HRA Class and Amount Calculator for Indian government employees — calculate HRA percentage and in-hand pay for 7th & 8th Pay Commission quickly and easily.",
+    "Check your city’s HRA classification and calculate House Rent Allowance (HRA) amount for Indian government employees. Instantly compute X/Y/Z rates for 7th & 8th Pay Commission. Updated for latest DA and HRA changes.",
   keywords: [
     "HRA Class Calculator",
     "HRA Calculator",
@@ -16,24 +19,53 @@ export const metadata: Metadata = {
     "House Rent Allowance Calculator",
     "HRA Percentage by City",
     "Indian Pay Calculator",
+    "Central Government HRA",
+    "State Government HRA",
+    "Urban HRA Rate",
+    "City Wise HRA Amount"
   ],
   openGraph: {
     title: "HRA Class Calculator – X, Y, Z City HRA for Govt Employees | Indian Pay Calculator",
     description:
-      "Check your HRA class (X, Y, Z) and calculate HRA amount for Central and State Government employees under the 7th & 8th Pay Commission.",
-    url: "https://www.indianpaycalculator.in/hra-class-calculator",
+      "Find your HRA class (X, Y, or Z) and calculate your House Rent Allowance instantly. Perfect for Central and State Govt employees under 7th & 8th Pay Commission.",
+    url: siteUrl,
     siteName: "Indian Pay Calculator",
     type: "article",
     locale: "en_IN",
     images: [
       {
-        url: "https://www.indianpaycalculator.in/og/og-image.png",
+        url: ogImage,
         width: 1200,
         height: 630,
         alt: "HRA Class Calculator – Indian Pay Calculator",
       },
     ],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "HRA Class Calculator – X, Y, Z City HRA for Govt Employees",
+    description: "Instant city classification, updated HRA rates, and amounts for Indian government employees.",
+    images: [ogImage],
+    site: "@indianpaycalc"
+  },
+  alternates: {
+    canonical: siteUrl,
+  }
+};
+
+// JSON-LD Structured Data for Google Rich Results
+export const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "FinancialProduct",
+  name: "HRA Class Calculator",
+  url: siteUrl,
+  description:
+    "Free HRA class and amount calculator for Indian government employees. Instantly find X, Y, Z city classification and compute HRA for 7th & 8th CPC.",
+  brand: {
+    "@type": "Organization",
+    name: "Indian Pay Calculator",
+    url: "https://www.indianpaycalculator.in"
+  }
 };
 
 export default metadata;

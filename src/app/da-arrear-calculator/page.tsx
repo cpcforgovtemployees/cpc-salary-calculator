@@ -74,7 +74,6 @@ export default function DAArrearCalculator() {
                 className="mt-1"
               />
             </div>
-
             <div>
               <Label className="font-medium text-gray-700">New DA (%)</Label>
               <Input
@@ -85,7 +84,6 @@ export default function DAArrearCalculator() {
                 className="mt-1"
               />
             </div>
-
             <div>
               <Label className="font-medium text-gray-700">No. of Months</Label>
               <Input
@@ -96,7 +94,6 @@ export default function DAArrearCalculator() {
                 className="mt-1"
               />
             </div>
-
             <div>
               <Label className="font-medium text-gray-700">Basic Pay (₹)</Label>
               <Input
@@ -108,7 +105,6 @@ export default function DAArrearCalculator() {
               />
             </div>
           </div>
-
           <div className="flex justify-center">
             <Button
               onClick={handleCalculate}
@@ -117,12 +113,9 @@ export default function DAArrearCalculator() {
               Calculate Arrears
             </Button>
           </div>
-
           {arrears !== null && (
             <div className="text-center mt-6 border-t pt-6">
-              <h3 className="text-lg font-semibold text-green-700">
-                Total Arrears:
-              </h3>
+              <h3 className="text-lg font-semibold text-green-700">Total Arrears:</h3>
               <p className="text-3xl font-bold text-green-800">
                 ₹{arrears.toLocaleString("en-IN")}
               </p>
@@ -166,9 +159,7 @@ export default function DAArrearCalculator() {
                     </tr>
                   ))}
                   <tr className="font-semibold bg-gray-50 text-center">
-                    <td colSpan={4} className="px-4 py-2 border">
-                      Total
-                    </td>
+                    <td colSpan={4} className="px-4 py-2 border">Total</td>
                     <td className="px-4 py-2 border text-green-700 font-bold">
                       ₹{arrears?.toLocaleString("en-IN")}
                     </td>
@@ -179,62 +170,37 @@ export default function DAArrearCalculator() {
           </Card>
         )}
 
-        {/* ✅ H2 - DA Information Section */}
+        {/* Info Section */}
         <section className="max-w-3xl mx-auto space-y-4 text-gray-700 leading-relaxed">
           <h2 className="text-2xl font-semibold text-gray-800 mt-10 mb-3 text-center">
             Understanding Dearness Allowance (DA) and Arrears
           </h2>
           <p>
-            Dearness Allowance (DA) is a cost-of-living adjustment paid to
-            government employees and pensioners to offset inflation. It is
-            revised periodically by the Government of India — typically twice
-            a year in January and July — based on changes in the Consumer Price
-            Index (CPI).
+            Dearness Allowance (DA) is a cost-of-living adjustment paid to government employees and pensioners to offset inflation. It is revised periodically by the Government of India — typically twice a year in January and July — based on changes in the Consumer Price Index (CPI).
           </p>
           <p>
-            When the new DA rate is implemented with retrospective effect,
-            employees become eligible for <strong>DA arrears</strong> — the
-            difference between the old and new DA rates for the applicable
-            months. This calculator helps you instantly determine those arrears.
+            When the new DA rate is implemented with retrospective effect, employees become eligible for <strong>DA arrears</strong> — the difference between the old and new DA rates for the applicable months. This calculator helps you instantly determine those arrears.
           </p>
-
-          <h3 className="text-lg font-semibold text-gray-700 mt-4">
-            Formula for DA Arrear Calculation
-          </h3>
+          <h3 className="text-lg font-semibold text-gray-700 mt-4">Formula for DA Arrear Calculation</h3>
           <p>
             <strong>Arrear = (New DA% - Old DA%) × Basic Pay × Number of Months ÷ 100</strong>
           </p>
           <p>
-            For example, if your Basic Pay is ₹50,000, Old DA = 46%, New DA = 50%, and
-            months = 3, then arrears = (4% × ₹50,000 × 3) ÷ 100 = ₹6,000.
+            For example, if your Basic Pay is ₹50,000, Old DA = 46%, New DA = 50%, and months = 3, then arrears = (4% × ₹50,000 × 3) ÷ 100 = ₹6,000.
           </p>
-
-          <h3 className="text-lg font-semibold text-gray-700 mt-4">
-            Latest DA Updates and 8th Pay Commission
-          </h3>
+          <h3 className="text-lg font-semibold text-gray-700 mt-4">Latest DA Updates and 8th Pay Commission</h3>
           <p>
-            As per the latest government announcement, DA for central government
-            employees under the <strong>7th Pay Commission</strong> has reached{" "}
-            <strong>50%</strong>. When the DA crosses this threshold, allowances
-            such as HRA and TA are revised. The <strong>8th Pay Commission</strong>,
-            expected soon, will further update DA structures and fitment factors.
+            As per the latest government announcement, DA for central government employees under the <strong>7th Pay Commission</strong> has reached <strong>50%</strong>. When the DA crosses this threshold, allowances such as HRA and TA are revised. The <strong>8th Pay Commission</strong>, expected soon, will further update DA structures and fitment factors.
           </p>
-
-          <h3 className="text-lg font-semibold text-gray-700 mt-4">
-            Benefits of Using Indian Pay Calculator
-          </h3>
+          <h3 className="text-lg font-semibold text-gray-700 mt-4">Benefits of Using Indian Pay Calculator</h3>
           <ul className="list-disc pl-6 space-y-1">
             <li>Accurate and government-aligned DA calculations.</li>
             <li>Instant breakdown for monthly arrears.</li>
             <li>Optimized for 7th and upcoming 8th CPC rates.</li>
             <li>Free and accessible across all devices.</li>
           </ul>
-
           <p>
-            Our goal is to make pay calculations simpler, transparent, and accurate
-            for every government employee in India. Whether you're checking your
-            salary, arrears, or DA increase, the <strong>Indian Pay Calculator</strong>{" "}
-            is built to serve your needs efficiently.
+            Our goal is to make pay calculations simpler, transparent, and accurate for every government employee in India. Whether you're checking your salary, arrears, or DA increase, the <strong>Indian Pay Calculator</strong> is built to serve your needs efficiently.
           </p>
         </section>
       </main>

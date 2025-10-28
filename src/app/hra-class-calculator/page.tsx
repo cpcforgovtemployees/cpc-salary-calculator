@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { calculateHRA, formatCurrency } from "@/lib/salary-calculator";
 import { HRA_RATES } from "@/lib/constants";
 
-// ------------------ City → Class Mapping ------------------
+// City → Class mapping for dropdown classification
 const cityClassMap: Record<string, "X" | "Y" | "Z"> = {
   Delhi: "X", Mumbai: "X", Chennai: "X", Kolkata: "X", Hyderabad: "X", Bengaluru: "X",
   Ahmedabad: "Y", Pune: "Y", Jaipur: "Y", Lucknow: "Y", Chandigarh: "Y", Indore: "Y",
@@ -27,7 +27,6 @@ export default function HRAClassCalculator() {
   const handleCityChange = (city: string) => {
     setSelectedCity(city);
     if (!city) return setResult(null);
-
     const cityClass = cityClassMap[city] || "Other";
     const hraRate = HRA_RATES[cityClass] ?? 0.1;
     setResult({
@@ -45,7 +44,6 @@ export default function HRAClassCalculator() {
   const handleCalculate = () => {
     if (!selectedCity) return alert("Please select a city first.");
     if (!basicPay) return alert("Please enter Basic Pay to calculate HRA amount.");
-
     const cityClass = result?.hraClass as "X" | "Y" | "Z" | "Other";
     const hraAmount = calculateHRA(Number(basicPay), cityClass);
     setResult((prev) => (prev ? { ...prev, hraAmount } : null));
@@ -54,18 +52,18 @@ export default function HRAClassCalculator() {
   return (
     <div className="min-h-screen flex flex-col bg-gray-50">
       <main className="flex-1 container mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">
-        {/* ✅ H1 - Main Title */}
+        {/* H1 Title */}
         <div className="text-center">
           <h1 className="text-4xl sm:text-5xl font-extrabold bg-gradient-to-r from-blue-800 via-blue-600 to-indigo-500 bg-clip-text text-transparent mb-4 tracking-tight">
             HRA Class & Amount Calculator
           </h1>
           <p className="text-gray-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
-            Find your <strong>HRA Class (X, Y, or Z)</strong> and calculate your <strong>House Rent Allowance</strong> instantly. 
+            Find your <strong>HRA Class (X, Y, or Z)</strong> and calculate your <strong>House Rent Allowance</strong> instantly.
             Perfect for <strong>Central</strong> and <strong>State Government employees</strong> under the 7th and 8th Pay Commission.
           </p>
         </div>
 
-        {/* ✅ H2 - Section: How the HRA Class System Works */}
+        {/* H2 - HRA System */}
         <h2 className="text-2xl font-semibold text-gray-800 text-center mt-10">
           Understanding HRA Classes in India
         </h2>
@@ -73,12 +71,12 @@ export default function HRAClassCalculator() {
           X, Y, and Z City Classification Explained
         </h3>
         <p className="text-gray-700 leading-relaxed max-w-3xl mx-auto text-center">
-          Cities in India are categorized into three HRA classes — <strong>X</strong>, <strong>Y</strong>, and <strong>Z</strong> — 
-          based on population size and cost of living. <strong>X Class</strong> cities like Delhi, Mumbai, and Bengaluru have higher HRA rates 30%, 
-          while <strong>Y Class</strong> cities such as Pune or Jaipur get 20%, and <strong>Z Class</strong> or other smaller cities receive 10%.These rates apply after DA has crossed 50% of basic pay.
+          Cities in India are categorized into three HRA classes — <strong>X</strong>, <strong>Y</strong>, and <strong>Z</strong> —
+          based on population size and cost of living. <strong>X Class</strong> cities like Delhi, Mumbai, and Bengaluru have higher HRA rates 30%,
+          while <strong>Y Class</strong> cities such as Pune or Jaipur get 20%, and <strong>Z Class</strong> or other smaller cities receive 10%. These rates apply after DA has crossed 50% of basic pay.
         </p>
 
-        {/* ✅ H2 - Section: Calculator */}
+        {/* H2 - Calculator */}
         <h2 className="text-2xl font-semibold text-gray-800 text-center mt-10">
           Calculate Your HRA Instantly
         </h2>
@@ -111,7 +109,6 @@ export default function HRAClassCalculator() {
                 <option value="Other">Other City</option>
               </select>
             </div>
-
             {/* Basic Pay Input */}
             <div>
               <Label className="font-medium text-gray-700">Basic Pay (₹)</Label>
@@ -124,7 +121,6 @@ export default function HRAClassCalculator() {
               />
             </div>
           </div>
-
           <div className="flex justify-center mt-2">
             <button
               onClick={handleCalculate}
@@ -133,7 +129,6 @@ export default function HRAClassCalculator() {
               Calculate HRA
             </button>
           </div>
-
           {result && (
             <div className="mt-6 bg-indigo-50 rounded-md p-5 shadow-sm border border-indigo-100">
               <h3 className="text-lg font-semibold text-gray-800 text-center mb-2">
@@ -155,14 +150,14 @@ export default function HRAClassCalculator() {
           )}
         </Card>
 
-        {/* ✅ H2 - Section: HRA Policy Info */}
+        {/* H2 - Latest HRA Policy and Rules */}
         <h2 className="text-2xl font-semibold text-gray-800 text-center mt-10">
           Latest HRA Rules & Government Policies
         </h2>
         <p className="text-gray-700 leading-relaxed max-w-3xl mx-auto text-center">
-          Under the <strong>7th Pay Commission</strong>, House Rent Allowance (HRA) rates are 24%, 16%, and 8% of basic pay for X, Y, and Z class cities respectively.  
-          When the <strong>DA (Dearness Allowance)</strong> crosses 25%, the HRA rates are revised to 27%, 18%, and 9%, and when DA crosses 50%, they further increase to 30%, 20%, and 10%. 
-          After implementation of the <strong>8th Pay Commission</strong>, HRA rates are expected to increase proportionally. 
+          Under the <strong>7th Pay Commission</strong>, House Rent Allowance (HRA) rates are 24%, 16%, and 8% of basic pay for X, Y, and Z class cities respectively.
+          When the <strong>DA (Dearness Allowance)</strong> crosses 25%, the HRA rates are revised to 27%, 18%, and 9%, and when DA crosses 50%, they further increase to 30%, 20%, and 10%.
+          After implementation of the <strong>8th Pay Commission</strong>, HRA rates are expected to increase proportionally.
           The Indian Pay Calculator ensures that all these updates are reflected in real-time for accuracy.
         </p>
       </main>
