@@ -7,7 +7,7 @@ const ogImage = "https://www.indianpaycalculator.in/og/og-image.png";
 export const metadata: Metadata = {
   title: "NPS Calculator – Pension & Retirement Corpus | Indian Pay Calculator",
   description:
-    "Accurate NPS Calculator for Indian government employees — calculate pension, NPS corpus, and contributions at 7th & 8th Pay Commission rates. Includes retirement and monthly deduction projection.",
+    "Calculate monthly NPS deductions and retirement corpus for government employees under 7th & 8th Pay Commission. Easy, accurate, instant results.",
   keywords: [
     "NPS Calculator",
     "NPS Calculator for Government Employees",
