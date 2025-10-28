@@ -1,4 +1,11 @@
-import { AlertTriangle, Github, Twitter, Linkedin } from "lucide-react";
+import {
+  AlertTriangle,
+  Github,
+  Twitter,
+  Linkedin,
+  Facebook,
+  Instagram
+} from "lucide-react";
 import Link from "next/link";
 
 export function Footer() {
@@ -28,60 +35,40 @@ export function Footer() {
 
           {/* Center Links */}
           <div className="flex items-center gap-4">
-            <Link
-              href="/about"
-              className="text-sm text-gray-600 hover:text-indigo-600 transition-colors"
-            >
-              About
-            </Link>
-            <Link
-              href="/contact"
-              className="text-sm text-gray-600 hover:text-indigo-600 transition-colors"
-            >
-              Contact
-            </Link>
-            <Link
-              href="/terms"
-              className="text-sm text-gray-600 hover:text-indigo-600 transition-colors"
-            >
-              Terms
-            </Link>
-            <Link
-              href="/privacy-policy"
-              className="text-sm text-gray-600 hover:text-indigo-600 transition-colors"
-            >
-              Privacy
-            </Link>
+            <Link href="/about" className="text-sm text-gray-600 hover:text-indigo-600 transition-colors">About</Link>
+            <Link href="/contact" className="text-sm text-gray-600 hover:text-indigo-600 transition-colors">Contact</Link>
+            <Link href="/terms" className="text-sm text-gray-600 hover:text-indigo-600 transition-colors">Terms</Link>
+            <Link href="/privacy-policy" className="text-sm text-gray-600 hover:text-indigo-600 transition-colors">Privacy</Link>
           </div>
 
           {/* Right Icons */}
           <div className="flex items-center gap-4">
             <a
-              href="https://github.com"
+              href="https://twitter.com/yourprofile"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="GitHub"
-              className="text-gray-500 hover:text-indigo-700 transition-colors"
-            >
-              <Github className="w-5 h-5" />
-            </a>
-            <a
-              href="https://twitter.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Twitter"
+              aria-label="X (Twitter)"
               className="text-gray-500 hover:text-indigo-700 transition-colors"
             >
               <Twitter className="w-5 h-5" />
             </a>
             <a
-              href="https://linkedin.com"
+              href="https://facebook.com/yourpage"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="LinkedIn"
+              aria-label="Facebook"
               className="text-gray-500 hover:text-indigo-700 transition-colors"
             >
-              <Linkedin className="w-5 h-5" />
+              <Facebook className="w-5 h-5" />
+            </a>
+            <a
+              href="https://instagram.com/yourprofile"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="text-gray-500 hover:text-pink-600 transition-colors"
+            >
+              <Instagram className="w-5 h-5" />
             </a>
           </div>
         </div>
