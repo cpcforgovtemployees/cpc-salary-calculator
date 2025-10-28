@@ -44,7 +44,7 @@ export function Footer() {
           {/* Right Icons */}
           <div className="flex items-center gap-4">
             <a
-              href="https://twitter.com/yourprofile"
+              href="https://x.com/IndianPay17017"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="X (Twitter)"
@@ -53,7 +53,7 @@ export function Footer() {
               <Twitter className="w-5 h-5" />
             </a>
             <a
-              href="https://facebook.com/yourpage"
+              href="https://facebook.com"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Facebook"
@@ -62,7 +62,7 @@ export function Footer() {
               <Facebook className="w-5 h-5" />
             </a>
             <a
-              href="https://instagram.com/yourprofile"
+              href="https://instagram.com/indianpaycpc/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Instagram"
