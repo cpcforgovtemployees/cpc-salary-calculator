@@ -7,7 +7,7 @@ const ogImage = "https://www.indianpaycalculator.in/og/og-image.png";
 export const metadata: Metadata = {
   title: "DA Arrear Calculator – 7th & 8th CPC | Indian Pay Calculator",
   description:
-    "Calculate DA arrears, monthly differences, and in-hand pay for Indian government employees under 7th & 8th Pay Commission. Clear breakdown, instant results, export, and official formulas.",
+    "Calculate DA arrears for government employees under 7th & 8th Pay Commission. Enter old and new DA, basic pay, months to get your arrear instantly.",
   keywords: [
     "DA Arrear Calculator",
     "7th Pay Commission DA Arrears",

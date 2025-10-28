@@ -7,7 +7,7 @@ const ogImage = "https://www.indianpaycalculator.in/og/og-image.png";
 export const metadata: Metadata = {
   title: "HRA Class Calculator – X, Y, Z City HRA for Govt Employees | Indian Pay Calculator",
   description:
-    "Check your city’s HRA classification and calculate House Rent Allowance (HRA) amount for Indian government employees. Instantly compute X/Y/Z rates for 7th & 8th Pay Commission. Updated for latest DA and HRA changes.",
+    "Find your HRA city class (X, Y, Z) and calculate House Rent Allowance for Indian government employees under the 7th & 8th Pay Commissions. Get instant and accurate HRA results.",
   keywords: [
     "HRA Class Calculator",
     "HRA Calculator",
