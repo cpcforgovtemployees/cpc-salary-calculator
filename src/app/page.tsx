@@ -333,242 +333,180 @@ export default function Calculator() {
             </div>
           </section>
 
-          {/* Results Section */}
-          <section
-            aria-label="Salary Comparison Results"
-            className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch relative w-full max-w-6xl mx-auto px-2 sm:px-4 mt-12"
-          >
-            {/* Divider Line (Desktop only) */}
-            <div
-              className="absolute hidden md:block left-1/2 top-6 bottom-6 w-[1.5px] bg-gradient-to-b from-yellow-200 via-indigo-300/70 to-pink-300/60 rounded-full"
-              aria-hidden="true"
-            />
+          {/* ✅ Only show after user enters valid inputs */}
+{inputs.basicPay > 0 && inputs.payLevel && (
+  <>
+    {/* Results Section */}
+    <section
+      aria-label="Salary Comparison Results"
+      className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch relative w-full max-w-6xl mx-auto px-2 sm:px-4 mt-12"
+    >
+      {/* Divider Line (Desktop only) */}
+      <div
+        className="absolute hidden md:block left-1/2 top-6 bottom-6 w-[1.5px] bg-gradient-to-b from-yellow-200 via-indigo-300/70 to-pink-300/60 rounded-full"
+        aria-hidden="true"
+      />
 
-            {/* 7th CPC Section */}
-            <Card className="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 p-5 sm:p-6 flex flex-col">
-              <div className="text-center mb-4 py-2 rounded-md border border-yellow-100 bg-gradient-to-r from-amber-50 to-yellow-50">
-                <h2 className="text-base sm:text-lg font-semibold text-gray-800">
-                  7th Central Pay Commission
-                </h2>
+      {/* 7th CPC Section */}
+      <Card className="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 p-5 sm:p-6 flex flex-col">
+        <div className="text-center mb-4 py-2 rounded-md border border-yellow-100 bg-gradient-to-r from-amber-50 to-yellow-50">
+          <h2 className="text-base sm:text-lg font-semibold text-gray-800">
+            7th Central Pay Commission
+          </h2>
+        </div>
+        <ResultsBreakdown breakdown={breakdown7th} />
+      </Card>
+
+      {/* 8th CPC Section */}
+      <Card className="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 p-5 sm:p-6 flex flex-col">
+        <div className="text-center mb-4 py-2 rounded-md border border-pink-100 bg-gradient-to-r from-pink-50 to-rose-50">
+          <h2 className="text-base sm:text-lg font-semibold text-gray-800">
+            8th Central Pay Commission (Projected)
+          </h2>
+
+          {/* Fitment Factor Slider (Accessible) */}
+          <div className="flex items-center justify-center gap-2 sm:gap-3 flex-wrap text-center mt-2">
+            <div className="flex items-center gap-2 bg-white/70 px-2 py-[3px] rounded-md border border-pink-100 shadow-sm backdrop-blur-[2px]">
+              <Label className="text-[11px] font-semibold text-gray-800">
+                Fitment&nbsp;Factor:
+              </Label>
+              <div className="relative w-[150px] sm:w-[200px]">
+                <input
+                  type="range"
+                  min={1.0}
+                  max={3.0}
+                  step={0.01}
+                  value={fitmentFactor}
+                  onChange={(e) => setFitmentFactor(parseFloat(e.target.value))}
+                  aria-label="Fitment Factor Slider"
+                  className="w-full h-[4px] rounded-full appearance-none cursor-pointer bg-gradient-to-r from-yellow-300 to-yellow-400 accent-amber-500
+                    [&::-webkit-slider-thumb]:appearance-none
+                    [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5
+                    [&::-webkit-slider-thumb]:rounded-full
+                    [&::-webkit-slider-thumb]:bg-amber-500
+                    [&::-webkit-slider-thumb]:shadow-[0_0_8px_rgba(255,193,7,0.7)]
+                    [&::-webkit-slider-thumb]:transition-transform
+                    [&::-webkit-slider-thumb]:hover:scale-110"
+                />
               </div>
-              <ResultsBreakdown breakdown={breakdown7th} />
-            </Card>
-            {/* 8th CPC Section */}
-            <Card className="bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 p-5 sm:p-6 flex flex-col">
-              <div className="text-center mb-4 py-2 rounded-md border border-pink-100 bg-gradient-to-r from-pink-50 to-rose-50">
-                <h2 className="text-base sm:text-lg font-semibold text-gray-800">
-                  8th Central Pay Commission (Projected)
-                </h2>
-                {/* Fitment Factor Slider (Accessible) */}
-                <div className="flex items-center justify-center gap-2 sm:gap-3 flex-wrap text-center mt-2">
-                  <div className="flex items-center gap-2 bg-white/70 px-2 py-[3px] rounded-md border border-pink-100 shadow-sm backdrop-blur-[2px]">
-                    <Label className="text-[11px] font-semibold text-gray-800">
-                      Fitment&nbsp;Factor:
-                    </Label>
-                    <div className="relative w-[150px] sm:w-[200px]">
-                      <input
-                        type="range"
-                        min={1.0}
-                        max={3.0}
-                        step={0.01}
-                        value={fitmentFactor}
-                        onChange={(e) => setFitmentFactor(parseFloat(e.target.value))}
-                        aria-label="Fitment Factor Slider"
-                        className="w-full h-[4px] rounded-full appearance-none cursor-pointer bg-gradient-to-r from-yellow-300 to-yellow-400 accent-amber-500
-                          [&::-webkit-slider-thumb]:appearance-none
-                          [&::-webkit-slider-thumb]:w-5 [&::-webkit-slider-thumb]:h-5
-                          [&::-webkit-slider-thumb]:rounded-full
-                          [&::-webkit-slider-thumb]:bg-amber-500
-                          [&::-webkit-slider-thumb]:shadow-[0_0_8px_rgba(255,193,7,0.7)]
-                          [&::-webkit-slider-thumb]:transition-transform
-                          [&::-webkit-slider-thumb]:hover:scale-110"
-                      />
+              <span className="text-[11px] font-mono font-bold text-[#40916C] min-w-[3rem] text-right">
+                × {fitmentFactor.toFixed(2)}
+              </span>
+              <div className="scale-[0.75] ml-1">
+                <InfoTooltip
+                  content={
+                    <div className="text-[10.5px] text-gray-700 leading-relaxed max-w-[220px]">
+                      <p className="mb-1">
+                        <strong>Fitment Factor</strong> helps estimate your new basic pay under the <strong>8th CPC</strong>.
+                      </p>
+                      <p>
+                        Example: A factor of <strong>1.92</strong> means your new pay will be about <strong>92%</strong> higher than your current basic pay.
+                      </p>
                     </div>
-                    <span className="text-[11px] font-mono font-bold text-[#40916C] min-w-[3rem] text-right">
-                      × {fitmentFactor.toFixed(2)}
-                    </span>
-                    <div className="scale-[0.75] ml-1">
-                      <InfoTooltip
-                        content={
-                          <div className="text-[10.5px] text-gray-700 leading-relaxed max-w-[220px]">
-                            <p className="mb-1">
-                              <strong>Fitment Factor</strong> helps estimate your new basic pay under the <strong>8th CPC</strong>.
-                            </p>
-                            <p>
-                              Example: A factor of <strong>1.92</strong> means your new pay will be about <strong>92%</strong> higher than your current basic pay.
-                            </p>
-                          </div>
-                        }
-                      />
-                    </div>
-                  </div>
-                </div>
+                  }
+                />
               </div>
-              <ResultsBreakdown breakdown={breakdown8th} />
-            </Card>
-          </section>
-
-          {/* Charts Section */}
-          {(breakdown7th?.grossSalary > 0 || breakdown8th?.grossSalary > 0) && (
-            <Card className="p-4 sm:p-6 md:p-8 bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 w-full max-w-6xl mx-auto" aria-label="CPC Salary Comparison Charts">
-              <h2 className="text-xl sm:text-2xl font-semibold text-center text-gray-800 mb-1">
-                7th vs 8th CPC Comparison
-              </h2>
-              <p className="text-xs sm:text-sm text-gray-500 text-center mb-6 sm:mb-8">
-                A visual comparison of your salary components between the 7th and 8th Pay Commission.
-              </p>
-
-              {/* Income Chart */}
-              <div className="mb-8 sm:mb-10">
-                <h4 className="text-sm sm:text-base font-medium text-center text-blue-700 mb-3 sm:mb-4">
-                  Income Comparison
-                </h4>
-
-                <div className="w-full h-[220px] sm:h-[260px] md:h-[280px]">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <BarChart
-                      data={[
-                        { name: "Basic Pay", "7th CPC": breakdown7th.basicPay, "8th CPC": breakdown8th.basicPay },
-                        { name: "DA", "7th CPC": breakdown7th.da, "8th CPC": breakdown8th.da },
-                        { name: "HRA", "7th CPC": breakdown7th.hra, "8th CPC": breakdown8th.hra },
-                        { name: "TA", "7th CPC": breakdown7th.ta, "8th CPC": breakdown8th.ta },
-                        { name: "DA on TA", "7th CPC": breakdown7th.daOnTa, "8th CPC": breakdown8th.daOnTa },
-                        { name: "Net Salary", "7th CPC": breakdown7th.netSalary, "8th CPC": breakdown8th.netSalary },
-                      ]}
-                      margin={{ top: 10, right: 10, left: -10, bottom: 20 }}
-                    >
-                      <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
-                      <XAxis
-                        dataKey="name"
-                        tick={{ fill: "#4B5563", fontSize: 10 }}
-                        interval={0}
-                        angle={-30}
-                        textAnchor="end"
-                        height={45}
-                      />
-                      <YAxis
-                        tick={{ fill: "#4B5563", fontSize: 10 }}
-                        width={50}
-                        tickFormatter={(value) =>
-                          value >= 100000 ? `${(value / 1000).toFixed(0)}k` : value
-                        }
-                      />
-                      <Tooltip
-                        formatter={(value: number) => `₹${value.toLocaleString("en-IN")}`}
-                        contentStyle={{
-                          backgroundColor: "white",
-                          borderRadius: "8px",
-                          border: "1px solid #E5E7EB",
-                        }}
-                      />
-                      <Legend
-                        wrapperStyle={{
-                          fontSize: "10px",
-                          paddingTop: "5px",
-                        }}
-                        align="center"
-                        verticalAlign="bottom"
-                      />
-                      <Bar dataKey="7th CPC" fill="#93C5FD" barSize={20} radius={[4, 4, 0, 0]} />
-                      <Bar dataKey="8th CPC" fill="#86EFAC" barSize={20} radius={[4, 4, 0, 0]} />
-                    </BarChart>
-                  </ResponsiveContainer>
-                </div>
-              </div>
-
-              {/* Deductions Chart */}
-              <div>
-                <h4 className="text-sm sm:text-base font-medium text-center text-red-700 mb-3 sm:mb-4">
-                  Deductions Comparison
-                </h4>
-
-                <div className="w-full h-[220px] sm:h-[260px] md:h-[300px]">
-                  <ResponsiveContainer width="100%" height="100%">
-                    <BarChart
-                      data={[
-                        {
-                          name: "Income Tax",
-                          "7th CPC": breakdown7th.incomeTax ?? 0,
-                          "8th CPC": breakdown8th.incomeTax ?? 0,
-                        },
-                        {
-                          name: "NPS (Employee)",
-                          "7th CPC": breakdown7th.npsEmployee,
-                          "8th CPC": breakdown8th.npsEmployee,
-                        },
-                        {
-                          name: "CGHS",
-                          "7th CPC": breakdown7th.cghs,
-                          "8th CPC": breakdown8th.cghs,
-                        },
-                        {
-                          name: "Total Deductions",
-                          "7th CPC": breakdown7th.totalDeductions,
-                          "8th CPC": breakdown8th.totalDeductions,
-                        },
-                      ]}
-                      margin={{ top: 10, right: 10, left: -10, bottom: 20 }}
-                    >
-                      <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
-                      <XAxis
-                        dataKey="name"
-                        tick={{ fill: "#4B5563", fontSize: 10 }}
-                        interval={0}
-                        angle={-25}
-                        textAnchor="end"
-                        height={40}
-                      />
-                      <YAxis
-                        tick={{ fill: "#4B5563", fontSize: 10 }}
-                        width={50}
-                        tickFormatter={(value) =>
-                          value >= 100000 ? `${(value / 1000).toFixed(0)}k` : value
-                        }
-                      />
-                      <Tooltip
-                        formatter={(value: number) => `₹${value.toLocaleString("en-IN")}`}
-                        contentStyle={{
-                          backgroundColor: "white",
-                          borderRadius: "8px",
-                          border: "1px solid #E5E7EB",
-                        }}
-                      />
-                      <Legend
-                        wrapperStyle={{
-                          fontSize: "10px",
-                          paddingTop: "5px",
-                        }}
-                        align="center"
-                        verticalAlign="bottom"
-                      />
-                      <Bar dataKey="7th CPC" fill="#A5B4FC" barSize={20} radius={[4, 4, 0, 0]} />
-                      <Bar dataKey="8th CPC" fill="#FCA5A5" barSize={20} radius={[4, 4, 0, 0]} />
-                    </BarChart>
-                  </ResponsiveContainer>
-                </div>
-              </div>
-            </Card>
-          )}
-
-          {/* Download Buttons */}
-          <div className="flex flex-col sm:flex-row justify-center gap-3 mt-6 max-w-6xl mx-auto px-2 sm:px-4">
-            <button
-              type="button"
-              onClick={handleGenerateReportPDF}
-              aria-label="Download report as PDF"
-              className="px-5 py-2 bg-indigo-400 text-white rounded-md hover:bg-indigo-500 transition font-medium shadow-sm"
-            >
-              Download Report PDF
-            </button>
-            <button
-              type="button"
-              onClick={handleGenerateReportExcel}
-              aria-label="Download report as Excel"
-              className="px-5 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition font-medium shadow-sm"
-            >
-              Download Report Excel
-            </button>
+            </div>
           </div>
+        </div>
+        <ResultsBreakdown breakdown={breakdown8th} />
+      </Card>
+    </section>
+
+    {/* Charts Section */}
+    {(breakdown7th?.grossSalary > 0 || breakdown8th?.grossSalary > 0) && (
+      <Card
+        className="p-4 sm:p-6 md:p-8 bg-white border border-gray-200 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 w-full max-w-6xl mx-auto"
+        aria-label="CPC Salary Comparison Charts"
+      >
+        <h2 className="text-xl sm:text-2xl font-semibold text-center text-gray-800 mb-1">
+          7th vs 8th CPC Comparison
+        </h2>
+        <p className="text-xs sm:text-sm text-gray-500 text-center mb-6 sm:mb-8">
+          A visual comparison of your salary components between the 7th and 8th Pay Commission.
+        </p>
+
+        {/* Income Chart */}
+        <div className="mb-8 sm:mb-10">
+          <h4 className="text-sm sm:text-base font-medium text-center text-blue-700 mb-3 sm:mb-4">
+            Income Comparison
+          </h4>
+          <div className="w-full h-[220px] sm:h-[260px] md:h-[280px]">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart
+                data={[
+                  { name: "Basic Pay", "7th CPC": breakdown7th.basicPay, "8th CPC": breakdown8th.basicPay },
+                  { name: "DA", "7th CPC": breakdown7th.da, "8th CPC": breakdown8th.da },
+                  { name: "HRA", "7th CPC": breakdown7th.hra, "8th CPC": breakdown8th.hra },
+                  { name: "TA", "7th CPC": breakdown7th.ta, "8th CPC": breakdown8th.ta },
+                  { name: "DA on TA", "7th CPC": breakdown7th.daOnTa, "8th CPC": breakdown8th.daOnTa },
+                  { name: "Net Salary", "7th CPC": breakdown7th.netSalary, "8th CPC": breakdown8th.netSalary },
+                ]}
+                margin={{ top: 10, right: 10, left: -10, bottom: 20 }}
+              >
+                <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
+                <XAxis dataKey="name" tick={{ fill: "#4B5563", fontSize: 10 }} interval={0} angle={-30} textAnchor="end" height={45} />
+                <YAxis tick={{ fill: "#4B5563", fontSize: 10 }} width={50} />
+                <Tooltip formatter={(value: number) => `₹${value.toLocaleString("en-IN")}`} />
+                <Legend wrapperStyle={{ fontSize: "10px", paddingTop: "5px" }} align="center" verticalAlign="bottom" />
+                <Bar dataKey="7th CPC" fill="#93C5FD" barSize={20} radius={[4, 4, 0, 0]} />
+                <Bar dataKey="8th CPC" fill="#86EFAC" barSize={20} radius={[4, 4, 0, 0]} />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+        </div>
+
+        {/* Deductions Chart */}
+        <div>
+          <h4 className="text-sm sm:text-base font-medium text-center text-red-700 mb-3 sm:mb-4">
+            Deductions Comparison
+          </h4>
+          <div className="w-full h-[220px] sm:h-[260px] md:h-[300px]">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart
+                data={[
+                  { name: "Income Tax", "7th CPC": breakdown7th.incomeTax ?? 0, "8th CPC": breakdown8th.incomeTax ?? 0 },
+                  { name: "NPS (Employee)", "7th CPC": breakdown7th.npsEmployee, "8th CPC": breakdown8th.npsEmployee },
+                  { name: "CGHS", "7th CPC": breakdown7th.cghs, "8th CPC": breakdown8th.cghs },
+                  { name: "Total Deductions", "7th CPC": breakdown7th.totalDeductions, "8th CPC": breakdown8th.totalDeductions },
+                ]}
+                margin={{ top: 10, right: 10, left: -10, bottom: 20 }}
+              >
+                <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
+                <XAxis dataKey="name" tick={{ fill: "#4B5563", fontSize: 10 }} interval={0} angle={-25} textAnchor="end" height={40} />
+                <YAxis tick={{ fill: "#4B5563", fontSize: 10 }} width={50} />
+                <Tooltip formatter={(value: number) => `₹${value.toLocaleString("en-IN")}`} />
+                <Legend wrapperStyle={{ fontSize: "10px", paddingTop: "5px" }} align="center" verticalAlign="bottom" />
+                <Bar dataKey="7th CPC" fill="#A5B4FC" barSize={20} radius={[4, 4, 0, 0]} />
+                <Bar dataKey="8th CPC" fill="#FCA5A5" barSize={20} radius={[4, 4, 0, 0]} />
+              </BarChart>
+            </ResponsiveContainer>
+          </div>
+        </div>
+      </Card>
+    )}
+
+    {/* Download Buttons */}
+    <div className="flex flex-col sm:flex-row justify-center gap-3 mt-6 max-w-6xl mx-auto px-2 sm:px-4">
+      <button
+        type="button"
+        onClick={handleGenerateReportPDF}
+        aria-label="Download report as PDF"
+        className="px-5 py-2 bg-indigo-400 text-white rounded-md hover:bg-indigo-500 transition font-medium shadow-sm"
+      >
+        Download Report PDF
+      </button>
+      <button
+        type="button"
+        onClick={handleGenerateReportExcel}
+        aria-label="Download report as Excel"
+        className="px-5 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition font-medium shadow-sm"
+      >
+        Download Report Excel
+      </button>
+    </div>
+  </>
+)}
         </div>
       </main>
       {/* --- Informational SEO Section (Static Text) --- */}
