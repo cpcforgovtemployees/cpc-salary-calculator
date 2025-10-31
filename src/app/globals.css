@@ -1,17 +1,26 @@
 @import "tailwindcss";
 
+/* -------------------------------
+   🌸 Base Styles
+-------------------------------- */
 @layer base {
   html, body {
     @apply bg-gray-50 text-gray-900 min-h-screen;
   }
 }
 
+/* -------------------------------
+   🌿 Component Classes
+-------------------------------- */
 @layer components {
   .card {
     @apply rounded-xl shadow-md p-4 bg-white;
   }
 }
 
+/* -------------------------------
+   ✨ Utility Animations
+-------------------------------- */
 @layer utilities {
   @keyframes fade-in {
     from { opacity: 0; transform: translateY(4px); }
@@ -21,7 +30,21 @@
   .animate-fade-in {
     animation: fade-in 0.15s ease-out forwards;
   }
+
+  /* 👇 Added Dropdown Animation */
+  @keyframes fadeInDropdown {
+    from { opacity: 0; transform: translateY(-5px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-dropdown {
+    animation: fadeInDropdown 0.2s ease-out forwards;
+  }
 }
+
+/* -------------------------------
+   🧭 Layout Control
+-------------------------------- */
 html, body {
   overflow-x: hidden;
   max-width: 100%;
