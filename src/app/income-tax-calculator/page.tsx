@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -33,6 +33,22 @@ export default function IncomeTaxCalculatorPage() {
   const [stdDed, setStdDed] = useState<string>(DEFAULT_STD_DEDUCTION.toString());
   const [ageGroup, setAgeGroup] = useState<AgeGroup>("below60");
   const [fy] = useState("2025-26");
+  const [activeInput, setActiveInput] = useState<"monthly" | "annual" | null>(null);
+
+  // Auto-sync logic between monthly and annual salary
+useEffect(() => {
+  if (activeInput === "monthly" && monthly !== "") {
+    const annualVal = (Number(monthly) * 12).toFixed(0);
+    setAnnual(annualVal);
+  }
+}, [monthly]);
+
+useEffect(() => {
+  if (activeInput === "annual" && annual !== "") {
+    const monthlyVal = (Number(annual) / 12).toFixed(0);
+    setMonthly(monthlyVal);
+  }
+}, [annual]);
 
   // Derived
   const totalIncome =
@@ -146,6 +162,7 @@ export default function IncomeTaxCalculatorPage() {
                   type="number"
                   inputMode="numeric"
                   value={monthly}
+                  onFocus={() => setActiveInput("monthly")}
                   onChange={e => setMonthly(e.target.value.replace(/[^0-9]/g, ""))}
                   min={0}
                   max={MAX_INCOME}
@@ -153,7 +170,7 @@ export default function IncomeTaxCalculatorPage() {
                   placeholder="Enter monthly salary"
                   className="w-full px-4 py-2 border rounded-lg focus:ring-blue-500"
                 />
-                <div className="text-xs text-gray-500 mt-1">Leave blank if entering Total Income below.</div>
+                <div className="text-xs text-gray-500 mt-1">Leave blank if entering Total Income.</div>
               </div>
               <div>
                 <label className="block text-gray-700 mb-2 font-medium">Total Income (Annual, ₹)</label>
@@ -161,6 +178,7 @@ export default function IncomeTaxCalculatorPage() {
                   type="number"
                   inputMode="numeric"
                   value={annual}
+                  onFocus={() => setActiveInput("annual")}
                   onChange={e => setAnnual(e.target.value.replace(/[^0-9]/g, ""))}
                   min={0}
                   max={MAX_INCOME}
@@ -168,7 +186,7 @@ export default function IncomeTaxCalculatorPage() {
                   placeholder="Enter total annual salary/income"
                   className="w-full px-4 py-2 border rounded-lg focus:ring-blue-500"
                 />
-                <div className="text-xs text-gray-500 mt-1">Leave blank if entering Monthly Salary above.</div>
+                <div className="text-xs text-gray-500 mt-1">Leave blank if entering Monthly Salary.</div>
               </div>
               <div>
                 <label className="block text-gray-700 mb-2 font-medium">Standard Deduction (₹)</label>
