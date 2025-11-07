@@ -36,17 +36,26 @@ export default function IncomeTaxCalculatorPage() {
   const [activeInput, setActiveInput] = useState<"monthly" | "annual" | null>(null);
 
   // Auto-sync logic between monthly and annual salary
+// ✅ Auto-sync logic with reset handling
 useEffect(() => {
-  if (activeInput === "monthly" && monthly !== "") {
-    const annualVal = (Number(monthly) * 12).toFixed(0);
-    setAnnual(annualVal);
+  if (activeInput === "monthly") {
+    if (monthly === "") {
+      setAnnual(""); // clear annual when monthly cleared
+    } else {
+      const annualVal = (Number(monthly) * 12).toFixed(0);
+      setAnnual(annualVal);
+    }
   }
 }, [monthly]);
 
 useEffect(() => {
-  if (activeInput === "annual" && annual !== "") {
-    const monthlyVal = (Number(annual) / 12).toFixed(0);
-    setMonthly(monthlyVal);
+  if (activeInput === "annual") {
+    if (annual === "") {
+      setMonthly(""); // clear monthly when annual cleared
+    } else {
+      const monthlyVal = (Number(annual) / 12).toFixed(0);
+      setMonthly(monthlyVal);
+    }
   }
 }, [annual]);
 
