@@ -509,77 +509,307 @@ export default function Calculator() {
 )}
         </div>
       </main>
-      {/* --- Informational SEO Section (Static Text) --- */}
-<section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mt-14 mb-10 text-gray-700 leading-relaxed">
-  <h2 className="text-2xl font-semibold text-gray-800 mb-4 text-center">
-    About the CPC Salary Calculator
-  </h2>
-  <p className="mb-4">
-    The <strong>Indian Pay Calculator</strong> is a comprehensive tool built for{" "}
-    <strong>Central and State Government employees</strong> to understand and compare their
-    pay under both the <strong>7th</strong> and <strong>8th Central Pay Commissions (CPC)</strong>.
-    It instantly calculates all major components including <strong>Basic Pay</strong>,
-    <strong> Dearness Allowance (DA)</strong>, <strong>House Rent Allowance (HRA)</strong>,
-    <strong> Travel Allowance (TA)</strong>, <strong>NPS</strong>, and other deductions,
-    giving a transparent in-hand salary breakdown.
-  </p>
-  <p className="mb-4">
-    This calculator also provides projected salary figures under the upcoming{" "}
-    <strong>8th Pay Commission</strong>, based on the selected{" "}
-    <strong>fitment factor</strong>. The fitment factor helps estimate how much
-    your <strong>Basic Pay</strong> may increase once the new CPC is implemented.
-    Users can also generate detailed <strong>PDF and Excel reports</strong> to save
-    or print their results for official or personal use.
-  </p>
-
-  <h3 className="text-xl font-semibold text-gray-800 mt-8 mb-3">
-    Why Government Employees Use This Calculator
-  </h3>
-  <ul className="list-disc pl-6 space-y-2">
-    <li>Accurate comparison between <strong>7th and 8th CPC pay structures</strong>.</li>
-    <li>City-based <strong>HRA and TA calculations</strong> for realistic results.</li>
-    <li>Calculations are based on <strong>official CPC pay matrix</strong> and DA formula.</li>
-    <li>Free, mobile-friendly, and updated regularly with latest government data.</li>
-  </ul>
-
-  <h3 className="text-xl font-semibold text-gray-800 mt-8 mb-3">
-    Understanding the Fitment Factor
-  </h3>
-  <p className="mb-4">
-    The <strong>Fitment Factor</strong> determines how much your salary increases
-    when moving from one Pay Commission to the next. For example, a factor of{" "}
-    <strong>1.92</strong> means your new Basic Pay will be about{" "}
-    <strong>92% higher</strong> than your current pay. You can adjust this slider in
-    the calculator to test different scenarios and view how your salary components
-    change under the <strong>8th CPC</strong>.
-  </p>
-
-  <h3 className="text-xl font-semibold text-gray-800 mt-8 mb-3">
-    Frequently Asked Questions (FAQs)
-  </h3>
-  <p className="mb-2">
-    <strong>Q:</strong> What is the purpose of this calculator?<br />
-    <strong>A:</strong> It helps government employees instantly calculate in-hand
-    salary, DA, HRA, NPS, deductions, and compare the difference between the
-    <strong> 7th</strong> and <strong>8th Pay Commission</strong>.
-  </p>
-  <p className="mb-2">
-    <strong>Q:</strong> Can I download my salary report?<br />
-    <strong>A:</strong> Yes, the tool lets you export your salary details in{" "}
-    <strong>PDF and Excel formats</strong> for record-keeping or submission purposes.
-  </p>
-  <p className="mb-2">
-    <strong>Q:</strong> Is the data used in this tool official?<br />
-    <strong>A:</strong> Yes, the formulas and DA rates are derived from the{" "}
-    <strong>official CPC pay matrix</strong> and government DA notifications.
-  </p>
-
-  <p className="mt-6">
-    With over a million government employees expected to benefit from the upcoming{" "}
-    <strong>8th Pay Commission</strong>, this calculator ensures transparency,
-    accuracy, and clarity for every user seeking to understand their revised pay structure.
-  </p>
-</section>
+      {/* --- Information section --- */}
+<section className="bg-gradient-to-b from-white to-blue-50 py-16">
+  <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    {/* Main Heading */}
+    <div className="text-center mb-12">
+      <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-4">
+        About the <span className="text-blue-600">CPC Salary Calculator</span>
+      </h2>
+      <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+        India's most trusted salary calculation platform for <strong>Central and State Government employees</strong>
+      </p>
     </div>
+
+    {/* Key Benefits Cards */}
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+      <div className="bg-white rounded-xl p-6 shadow-md border border-blue-100 hover:shadow-lg transition-shadow">
+        <div className="text-4xl mb-3">🧮</div>
+        <h3 className="text-lg font-semibold text-gray-800 mb-2">Instant Calculations</h3>
+        <p className="text-sm text-gray-600">
+          Calculate your complete salary breakdown in seconds with 7th & 8th CPC comparison
+        </p>
+      </div>
+      
+      <div className="bg-white rounded-xl p-6 shadow-md border border-green-100 hover:shadow-lg transition-shadow">
+        <div className="text-4xl mb-3">📊</div>
+        <h3 className="text-lg font-semibold text-gray-800 mb-2">Visual Insights</h3>
+        <p className="text-sm text-gray-600">
+          Interactive charts showing income, deductions, and net salary comparisons
+        </p>
+      </div>
+      
+      <div className="bg-white rounded-xl p-6 shadow-md border border-orange-100 hover:shadow-lg transition-shadow">
+        <div className="text-4xl mb-3">📥</div>
+        <h3 className="text-lg font-semibold text-gray-800 mb-2">Export Reports</h3>
+        <p className="text-sm text-gray-600">
+          Download detailed PDF and Excel reports for official records and planning
+        </p>
+      </div>
+    </div>
+
+    {/* Main Content Box */}
+    <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8 mb-10">
+      <h3 className="text-2xl font-bold text-gray-800 mb-4">
+        What is the CPC Salary Calculator?
+      </h3>
+      <p className="text-gray-700 leading-relaxed mb-4">
+        The <strong>Indian Pay Calculator</strong> is a comprehensive tool built for{" "}
+        <strong>Central and State Government employees</strong> to understand and compare their
+        pay under both the <strong>7th</strong> and <strong>8th Central Pay Commissions (CPC)</strong>.
+        It instantly calculates all major components including <strong>Basic Pay</strong>,
+        <strong> Dearness Allowance (DA)</strong>, <strong>House Rent Allowance (HRA)</strong>,
+        <strong> Travel Allowance (TA)</strong>, <strong>NPS</strong>, and other deductions,
+        giving a transparent in-hand salary breakdown.
+      </p>
+      <p className="text-gray-700 leading-relaxed">
+        This calculator also provides projected salary figures under the upcoming{" "}
+        <strong>8th Pay Commission</strong>, based on the selected{" "}
+        <strong>fitment factor</strong>. The fitment factor helps estimate how much
+        your <strong>Basic Pay</strong> may increase once the new CPC is implemented.
+        Users can also generate detailed <strong>PDF and Excel reports</strong> to save
+        or print their results for official or personal use.
+      </p>
+    </div>
+
+    {/* Why Use This Calculator */}
+    <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl border border-blue-200 p-8 mb-10">
+      <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">
+        Why Government Employees Use This Calculator
+      </h3>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="flex items-start gap-3">
+          <div className="text-blue-600 text-xl mt-1">✓</div>
+          <div>
+            <h4 className="font-semibold text-gray-800 mb-1">Accurate 7th vs 8th CPC Comparison</h4>
+            <p className="text-sm text-gray-700">
+              Instantly compare your current 7th CPC salary with 8th CPC projections using multiple fitment factor scenarios.
+            </p>
+          </div>
+        </div>
+        
+        <div className="flex items-start gap-3">
+          <div className="text-green-600 text-xl mt-1">✓</div>
+          <div>
+            <h4 className="font-semibold text-gray-800 mb-1">City-Based HRA & TA Calculations</h4>
+            <p className="text-sm text-gray-700">
+              Automatic calculations based on X/Y/Z city classification for realistic take-home salary estimates.
+            </p>
+          </div>
+        </div>
+        
+        <div className="flex items-start gap-3">
+          <div className="text-orange-600 text-xl mt-1">✓</div>
+          <div>
+            <h4 className="font-semibold text-gray-800 mb-1">Official CPC Pay Matrix Data</h4>
+            <p className="text-sm text-gray-700">
+              All calculations based on official CPC reports, Ministry of Finance circulars, and latest DA rates.
+            </p>
+          </div>
+        </div>
+        
+        <div className="flex items-start gap-3">
+          <div className="text-purple-600 text-xl mt-1">✓</div>
+          <div>
+            <h4 className="font-semibold text-gray-800 mb-1">100% Free & Mobile-Friendly</h4>
+            <p className="text-sm text-gray-700">
+              No subscriptions, no ads, works perfectly on all devices. Updated regularly with latest government data.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {/* Understanding Fitment Factor */}
+    <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8 mb-10">
+      <h3 className="text-2xl font-bold text-gray-800 mb-4">
+        Understanding the Fitment Factor
+      </h3>
+      <div className="bg-gradient-to-r from-yellow-50 to-amber-50 border border-yellow-200 rounded-lg p-6 mb-4">
+        <div className="flex items-start gap-3">
+          <div className="text-3xl">💡</div>
+          <div>
+            <h4 className="font-semibold text-gray-800 mb-2">What is a Fitment Factor?</h4>
+            <p className="text-gray-700 leading-relaxed mb-3">
+              The <strong>Fitment Factor</strong> determines how much your salary increases
+              when moving from one Pay Commission to the next. It's a multiplication factor
+              applied to your current basic pay to calculate your new basic pay.
+            </p>
+            <div className="bg-white rounded-lg p-4 border border-yellow-300">
+              <p className="text-sm text-gray-700 mb-2">
+                <strong>Example:</strong> If your current basic pay is <strong>₹50,000</strong> and the fitment factor is <strong>1.92</strong>:
+              </p>
+              <p className="text-sm font-mono text-blue-700 mb-1">
+                New Basic Pay = ₹50,000 × 1.92 = <strong>₹96,000</strong>
+              </p>
+              <p className="text-sm text-gray-600">
+                This represents a <strong>92% increase</strong> in your basic pay under the 8th CPC.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p className="text-gray-700 leading-relaxed">
+        You can adjust the fitment factor slider in the calculator (ranging from <strong>1.0 to 3.0</strong>) 
+        to test different scenarios and see how your salary components change under the <strong>8th CPC</strong>. 
+        Most experts predict the 8th CPC fitment factor will be between <strong>1.8 to 2.0</strong>.
+      </p>
+    </div>
+
+    {/* What You Can Calculate */}
+    <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl border border-green-200 p-8 mb-10">
+      <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">
+        What You Can Calculate
+      </h3>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="bg-white rounded-lg p-5 shadow-sm border border-green-100">
+          <h4 className="font-semibold text-green-800 mb-3 flex items-center gap-2">
+            <span className="text-xl">💰</span> Income Components
+          </h4>
+          <ul className="space-y-2 text-sm text-gray-700">
+            <li className="flex items-center gap-2">
+              <span className="text-green-600">•</span> Basic Pay (7th & 8th CPC)
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="text-green-600">•</span> Dearness Allowance (DA)
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="text-green-600">•</span> House Rent Allowance (HRA)
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="text-green-600">•</span> Travel Allowance (TA/CCA)
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="text-green-600">•</span> DA on TA
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="text-green-600">•</span> Gross Salary
+            </li>
+          </ul>
+        </div>
+        
+        <div className="bg-white rounded-lg p-5 shadow-sm border border-red-100">
+          <h4 className="font-semibold text-red-800 mb-3 flex items-center gap-2">
+            <span className="text-xl">📉</span> Deductions
+          </h4>
+          <ul className="space-y-2 text-sm text-gray-700">
+            <li className="flex items-center gap-2">
+              <span className="text-red-600">•</span> Income Tax (New & Old Regime)
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="text-red-600">•</span> NPS (National Pension System)
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="text-red-600">•</span> CGHS Contribution
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="text-red-600">•</span> Professional Tax
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="text-red-600">•</span> Other Deductions
+            </li>
+            <li className="flex items-center gap-2">
+              <span className="text-red-600">•</span> Net In-Hand Salary
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    {/* FAQ Section */}
+    <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8 mb-10">
+      <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">
+        Frequently Asked Questions (FAQs)
+      </h3>
+      
+      <div className="space-y-5">
+        <div className="border-l-4 border-blue-500 pl-4 py-2">
+          <h4 className="font-semibold text-gray-800 mb-2">
+            Q: What is the purpose of this calculator?
+          </h4>
+          <p className="text-gray-700 text-sm leading-relaxed">
+            <strong>A:</strong> It helps government employees instantly calculate in-hand
+            salary, DA, HRA, NPS, deductions, and compare the difference between the
+            <strong> 7th</strong> and <strong>8th Pay Commission</strong>. You can also
+            visualize your salary growth with interactive charts and export detailed reports.
+          </p>
+        </div>
+
+        <div className="border-l-4 border-green-500 pl-4 py-2">
+          <h4 className="font-semibold text-gray-800 mb-2">
+            Q: Can I download my salary report?
+          </h4>
+          <p className="text-gray-700 text-sm leading-relaxed">
+            <strong>A:</strong> Yes, the tool lets you export your complete salary breakdown in{" "}
+            <strong>PDF and Excel formats</strong> for record-keeping, loan applications,
+            or official submission purposes.
+          </p>
+        </div>
+
+        <div className="border-l-4 border-orange-500 pl-4 py-2">
+          <h4 className="font-semibold text-gray-800 mb-2">
+            Q: Is the data used in this tool official?
+          </h4>
+          <p className="text-gray-700 text-sm leading-relaxed">
+            <strong>A:</strong> Yes, all formulas and DA rates are derived from the{" "}
+            <strong>official CPC pay matrix</strong>, Ministry of Finance notifications,
+            and government DA announcements. We update the calculator quarterly.
+          </p>
+        </div>
+
+        <div className="border-l-4 border-purple-500 pl-4 py-2">
+          <h4 className="font-semibold text-gray-800 mb-2">
+            Q: How accurate are the 8th CPC projections?
+          </h4>
+          <p className="text-gray-700 text-sm leading-relaxed">
+            <strong>A:</strong> The 8th CPC projections are estimates based on the fitment
+            factor you select. Since the 8th Pay Commission report is not yet released,
+            these are projections. We'll update with official data once available.
+          </p>
+        </div>
+
+        <div className="border-l-4 border-pink-500 pl-4 py-2">
+          <h4 className="font-semibold text-gray-800 mb-2">
+            Q: Does this work for State Government employees?
+          </h4>
+          <p className="text-gray-700 text-sm leading-relaxed">
+            <strong>A:</strong> Yes, the calculator works for both <strong>Central and State Government employees</strong>.
+            However, some allowances may vary by state. We use standard CPC rates as a baseline.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    {/* Closing Statement */}
+    <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-2xl p-8 text-center text-white shadow-xl">
+      <h3 className="text-2xl font-bold mb-3">
+        Trusted by Thousands of Government Employees
+      </h3>
+      <p className="text-lg leading-relaxed mb-6">
+        With over a million government employees expected to benefit from the upcoming{" "}
+        <strong>8th Pay Commission</strong>, this calculator ensures <strong>transparency,
+        accuracy, and clarity</strong> for every user seeking to understand their revised pay structure.
+      </p>
+      <div className="flex flex-wrap justify-center gap-4 text-sm">
+        <div className="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+          <div className="font-bold text-2xl">100%</div>
+          <div className="text-blue-100">Free</div>
+        </div>
+        <div className="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+          <div className="font-bold text-2xl">Instant</div>
+          <div className="text-blue-100">Results</div>
+        </div>
+        <div className="bg-white/20 backdrop-blur-sm rounded-lg px-4 py-2">
+          <div className="font-bold text-2xl">Accurate</div>
+          <div className="text-blue-100">Data</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+          </div>
   );
 }

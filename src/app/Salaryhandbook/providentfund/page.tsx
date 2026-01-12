@@ -3,153 +3,368 @@
 import React from "react";
 import Link from "next/link";
 import { Card } from "@/components/ui/card";
+import { TrendingUp, Wallet, DollarSign, BookOpen, HelpCircle, Target } from "lucide-react";
 
 export default function ProvidentFundPage() {
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
-      <h1 className="text-4xl font-bold text-gray-800 mb-6 text-center">Provident Fund (PF) for Government Employees (EPF, GPF, and NPS)</h1>
+    <main className="bg-gradient-to-b from-white to-blue-50 min-h-screen">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
+        
+        {/* Hero Section */}
+        <header className="text-center space-y-4 mb-12">
+          <h1 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-700 to-indigo-600 bg-clip-text text-transparent">
+            Provident Fund (PF) for Government Employees
+          </h1>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            Complete Guide to GPF, EPF, and NPS — Understand contributions, interest rates, withdrawals, and maximize your retirement corpus
+          </p>
+        </header>
 
-      {/* Overview Card */}
-      <Card className="bg-white shadow-md rounded-xl p-6 hover:shadow-lg transition-all bg-gradient-to-b from-white via-blue-50 to-white">
-        <h2 className="text-2xl font-semibold text-blue-700 mb-4">Overview of Provident Fund</h2>
-        <p className="text-gray-700 mb-2">
-          Provident Fund (PF) provides long-term financial security to Indian central and state government employees. It is a compulsory savings scheme that ensures retirement planning by mandating regular contributions during an employee's service. The three main schemes relevant for government workers are General Provident Fund (GPF), Employees' Provident Fund (EPF), and the National Pension System (NPS). Each has its own eligibility, benefit structure, and rules for return, withdrawal, and tax. This guide explains how these schemes work, their current rules (2026), and how to maximize retirement benefits.
-        </p>
-      </Card>
-
-      {/* Contributions Card */}
-      <Card className="bg-white shadow-md rounded-xl p-6 hover:shadow-lg transition-all bg-gradient-to-b from-white via-blue-50 to-white">
-        <h2 className="text-2xl font-semibold text-blue-700 mb-4">Employee & Employer Contribution Rules</h2>
-        <h3 className="text-lg font-semibold mb-1">EPF (Employees' Provident Fund)</h3>
-        <ul className="list-disc list-inside text-gray-700 mb-2">
-          <li>Both employee and employer contribute 12% of Basic + Dearness Allowance (DA) monthly.</li>
-          <li>Of employer's 12% share, 8.33% goes to Employees' Pension Scheme (EPS) and 3.67% to EPF corpus.</li>
-          <li>Mandatory for most government-linked and organized private sector workers with salary ≤ ₹25,000/month (2026).</li>
-          <li>Employees can contribute more via Voluntary PF (VPF) but the employer's share remains capped.</li>
-        </ul>
-        <h3 className="text-lg font-semibold mb-1">GPF (General Provident Fund)</h3>
-        <ul className="list-disc list-inside text-gray-700 mb-2">
-          <li>Only employee contributes (minimum 6%, usually up to 100% of emoluments).</li>
-          <li>Available to government employees appointed before January 1, 2004 (pre-NPS service).</li>
-          <li>All contributions accumulate with government-declared interest (no employer matching).</li>
-        </ul>
-        <h3 className="text-lg font-semibold mb-1">NPS (National Pension System)</h3>
-        <ul className="list-disc list-inside text-gray-700">
-          <li>Government employees (joining after Jan 2004) contribute 10% of Basic + DA; government contributes 14%.</li>
-          <li>Invested in a mix of equity, corporate/government bonds, and other instruments; returns are market-linked.</li>
-          <li>NPS is mandatory for most new central/state government hires and voluntary for others.</li>
-        </ul>
-      </Card>
-
-      {/* Interest Rate Card */}
-      <Card className="bg-white shadow-md rounded-xl p-6 hover:shadow-lg transition-all bg-gradient-to-b from-white via-blue-50 to-white">
-        <h2 className="text-2xl font-semibold text-blue-700 mb-4">Interest Rate (2026) and Annual Updates</h2>
-        <ul className="list-disc list-inside text-gray-700 mb-2">
-          <li><strong>EPF:</strong> 8.25% per annum for FY 2025-26 — credited annually on the closing balance.</li>
-          <li><strong>GPF:</strong> 7.1% per annum for 2025-26, fixed quarterly by the Ministry of Finance.</li>
-          <li><strong>NPS:</strong> Returns are market-linked, typically 8–12% (historic average, not guaranteed); portfolio varies as per fund choice.</li>
-        </ul>
-        <p className="text-gray-700">
-          Rates are reviewed annually for EPF and quarterly for GPF. NPS does not have a guaranteed interest, but past performance in government sector schemes has often matched or exceeded 8% per annum.
-        </p>
-      </Card>
-
-      {/* Withdrawal & Retirement Rules Card */}
-      <Card className="bg-white shadow-md rounded-xl p-6 hover:shadow-lg transition-all bg-gradient-to-b from-white via-blue-50 to-white">
-        <h2 className="text-2xl font-semibold text-blue-700 mb-4">Withdrawal & Retirement Rules</h2>
-        <h3 className="text-lg font-semibold mb-1">EPF</h3>
-        <ul className="list-disc list-inside text-gray-700 mb-2">
-          <li>Full withdrawal allowed at superannuation (58 years) or after two months' unemployment.</li>
-          <li>Partial withdrawals for marriage, education, illness, housing, etc. (conditional caps apply).</li>
-          <li>Premature withdrawal (&lt; 5 years service) taxable; after 5 years, tax-free.</li>
-        </ul>
-        <h3 className="text-lg font-semibold mb-1">GPF</h3>
-        <ul className="list-disc list-inside text-gray-700 mb-2">
-          <li>Final withdrawal possible on retirement, resignation, or death.</li>
-          <li>Partial advances or withdrawals allowed for housing, education, illness, or marriage.</li>
-          <li>Separate rules for advances and temporary withdrawals; approval needed from competent authority.</li>
-        </ul>
-        <h3 className="text-lg font-semibold mb-1">NPS</h3>
-        <ul className="list-disc list-inside text-gray-700">
-          <li>60% of corpus can be withdrawn lump sum at age 60; 40% must be used to buy an annuity.</li>
-          <li>Partial withdrawals (up to 25% of own contributions) allowed after 3 years for specific needs.</li>
-          <li>Premature exit allowed after 10 years (with some restrictions on corpus usage).</li>
-        </ul>
-      </Card>
-
-      {/* Tax Implications Card */}
-      <Card className="bg-white shadow-md rounded-xl p-6 hover:shadow-lg transition-all bg-gradient-to-b from-white via-blue-50 to-white">
-        <h2 className="text-2xl font-semibold text-blue-700 mb-4">Tax Implications on Provident Fund</h2>
-        <ul className="list-disc list-inside text-gray-700 mb-2">
-          <li><strong>EPF:</strong> Employee's contribution qualifies for Section 80C deduction up to ₹1.5 lakh/year. Final withdrawal and interest are tax-free if account is held for at least 5 years.</li>
-          <li><strong>GPF:</strong> Entire withdrawal (principal and interest) tax free. Section 80C benefit available.</li>
-          <li><strong>NPS:</strong> Employee contributions eligible for Section 80C and an extra ₹50,000 under Section 80CCD(1B). At maturity, 60% of corpus is tax-free, 40% (annuity) is taxable as income per the individual's slab.</li>
-        </ul>
-        <p className="text-sm text-blue-700">
-          Note: New income tax regimes and annual Budget updates may modify benefits. Check with a financial advisor or current rules.
-        </p>
-      </Card>
-
-      {/* Difference Card */}
-      <Card className="bg-white shadow-md rounded-xl p-6 hover:shadow-lg transition-all bg-gradient-to-b from-white via-blue-50 to-white">
-        <h2 className="text-2xl font-semibold text-blue-700 mb-4">Difference between GPF, EPF, and NPS</h2>
-        <div className="overflow-x-auto">
-          <table className="min-w-full table-auto border text-gray-700 text-sm">
-            <thead>
-              <tr className="bg-blue-100">
-                <th className="border px-4 py-2">Feature</th>
-                <th className="border px-4 py-2">GPF</th>
-                <th className="border px-4 py-2">EPF</th>
-                <th className="border px-4 py-2">NPS</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td className="border px-4 py-2 font-medium">Eligible Employees</td>
-                <td className="border px-4 py-2">Govt. employees (joined before 01/01/2004)</td>
-                <td className="border px-4 py-2">Govt./private org (salary ≤ ₹25,000/mo)</td>
-                <td className="border px-4 py-2">Govt. hires post 01/01/2004 and all citizens</td>
-              </tr>
-              <tr>
-                <td className="border px-4 py-2 font-medium">Contribution</td>
-                <td className="border px-4 py-2">Employee only</td>
-                <td className="border px-4 py-2">Both employee &amp; employer</td>
-                <td className="border px-4 py-2">Both; higher govt. share</td>
-              </tr>
-              <tr>
-                <td className="border px-4 py-2 font-medium">Interest/Returns</td>
-                <td className="border px-4 py-2">7.1% (fixed; 2026)</td>
-                <td className="border px-4 py-2">8.25% (fixed; 2026)</td>
-                <td className="border px-4 py-2">Market-linked (8-12% typical)</td>
-              </tr>
-              <tr>
-                <td className="border px-4 py-2 font-medium">Tax on Withdrawal</td>
-                <td className="border px-4 py-2">Nil</td>
-                <td className="border px-4 py-2">Nil if ≥5 years; else taxable</td>
-                <td className="border px-4 py-2">60% tax-free; 40% taxable on annuity</td>
-              </tr>
-              <tr>
-                <td className="border px-4 py-2 font-medium">Withdrawal Age</td>
-                <td className="border px-4 py-2">Retirement/exit</td>
-                <td className="border px-4 py-2">58 years/2 mo. jobless</td>
-                <td className="border px-4 py-2">60 years</td>
-              </tr>
-            </tbody>
-          </table>
+        {/* Quick Stat Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-12">
+          <div className="bg-blue-50 border border-blue-200 rounded-xl p-4 text-center hover:shadow-md transition-shadow">
+            <div className="text-3xl mb-2">📊</div>
+            <h3 className="font-semibold text-blue-900">GPF: 7.1%</h3>
+            <p className="text-sm text-blue-700">Annual Interest (2026)</p>
+          </div>
+          <div className="bg-green-50 border border-green-200 rounded-xl p-4 text-center hover:shadow-md transition-shadow">
+            <div className="text-3xl mb-2">💰</div>
+            <h3 className="font-semibold text-green-900">EPF: 8.25%</h3>
+            <p className="text-sm text-green-700">Annual Interest (2026)</p>
+          </div>
+          <div className="bg-orange-50 border border-orange-200 rounded-xl p-4 text-center hover:shadow-md transition-shadow">
+            <div className="text-3xl mb-2">📈</div>
+            <h3 className="font-semibold text-orange-900">NPS: 8-12%</h3>
+            <p className="text-sm text-orange-700">Market-Linked Returns</p>
+          </div>
+          <div className="bg-purple-50 border border-purple-200 rounded-xl p-4 text-center hover:shadow-md transition-shadow">
+            <div className="text-3xl mb-2">🎯</div>
+            <h3 className="font-semibold text-purple-900">Tax-Free</h3>
+            <p className="text-sm text-purple-700">Withdrawals (GPF/EPF)</p>
+          </div>
         </div>
-        <p className="mt-2 text-gray-700">
-          For hands-on calculations, try our <Link href="/pf-calculator" className="text-blue-700 underline hover:text-blue-900">Provident Fund Calculator</Link>.
-        </p>
-      </Card>
 
-      {/* CTA Button */}
-      <div className="flex justify-center mt-8">
-        <Link href="/pf-calculator">
-          <button className="bg-gradient-to-r from-blue-600 to-green-500 text-white font-semibold px-8 py-4 rounded-xl shadow-lg hover:from-blue-700 hover:to-green-600 transition-all text-xl">
-            Calculate Provident Fund
-          </button>
-        </Link>
+        {/* Overview Card */}
+        <Card className="bg-white shadow-md rounded-xl p-6 border border-gray-200 space-y-4 hover:shadow-lg transition-all">
+          <div className="flex items-center gap-3 mb-4">
+            <Wallet className="w-7 h-7 text-blue-600" />
+            <h2 className="text-2xl font-semibold text-blue-700">Overview of Provident Fund</h2>
+          </div>
+          <p className="text-gray-700 leading-relaxed">
+            <strong>Provident Fund (PF)</strong> provides long-term financial security to Indian central and state government employees. It is a compulsory savings scheme that ensures retirement planning by mandating regular contributions during an employee's service. The three main schemes relevant for government workers are:
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+            <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+              <h4 className="font-semibold text-blue-900 mb-2">GPF</h4>
+              <p className="text-sm text-gray-700">For employees joining before Jan 2004. Fixed interest, fully tax-free.</p>
+            </div>
+            <div className="bg-green-50 p-4 rounded-lg border border-green-200">
+              <h4 className="font-semibold text-green-900 mb-2">EPF</h4>
+              <p className="text-sm text-gray-700">Employer-employee contribution. Best for organized sector workers.</p>
+            </div>
+            <div className="bg-orange-50 p-4 rounded-lg border border-orange-200">
+              <h4 className="font-semibold text-orange-900 mb-2">NPS</h4>
+              <p className="text-sm text-gray-700">Market-linked returns with higher govt. contribution for post-2004 hires.</p>
+            </div>
+          </div>
+        </Card>
+
+        {/* Contributions Card */}
+        <Card className="bg-white shadow-md rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-all space-y-4">
+          <div className="flex items-center gap-3 mb-4">
+            <DollarSign className="w-7 h-7 text-green-600" />
+            <h2 className="text-2xl font-semibold text-green-700">Employee & Employer Contribution Rules</h2>
+          </div>
+          
+          <div className="space-y-4">
+            <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+              <h3 className="text-lg font-semibold text-blue-900 mb-2">EPF (Employees' Provident Fund)</h3>
+              <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                <li>Both employee and employer contribute <strong>12% of Basic + DA</strong> monthly</li>
+                <li>Employer's 12%: 8.33% to Pension Scheme (EPS) + 3.67% to EPF corpus</li>
+                <li>Mandatory for organized sector (salary ≤ ₹25,000/month)</li>
+                <li>Voluntary Provident Fund (VPF) for additional contributions</li>
+              </ul>
+            </div>
+
+            <div className="bg-green-50 p-4 rounded-lg border border-green-200">
+              <h3 className="text-lg font-semibold text-green-900 mb-2">GPF (General Provident Fund)</h3>
+              <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                <li>Only <strong>employee contributes</strong> (min 6%, typically up to 100%)</li>
+                <li>Available to govt. employees appointed before <strong>Jan 1, 2004</strong></li>
+                <li>All contributions accumulate with government-declared interest</li>
+                <li>No employer matching required</li>
+              </ul>
+            </div>
+
+            <div className="bg-orange-50 p-4 rounded-lg border border-orange-200">
+              <h3 className="text-lg font-semibold text-orange-900 mb-2">NPS (National Pension System)</h3>
+              <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                <li>Government employees: <strong>10% (employee)</strong> + <strong>14% (government)</strong></li>
+                <li>Invested in equity, bonds, and government securities</li>
+                <li>Mandatory for govt. hires post Jan 2004</li>
+                <li>Voluntary for all other citizens</li>
+              </ul>
+            </div>
+          </div>
+        </Card>
+
+        {/* Interest Rate Card */}
+        <Card className="bg-gradient-to-br from-indigo-50 to-blue-50 shadow-md rounded-xl p-6 border border-indigo-200 hover:shadow-lg transition-all space-y-4">
+          <div className="flex items-center gap-3 mb-4">
+            <TrendingUp className="w-7 h-7 text-indigo-700" />
+            <h2 className="text-2xl font-semibold text-indigo-800">Interest Rates (FY 2025-26)</h2>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="bg-white p-4 rounded-lg border border-indigo-200">
+              <h4 className="font-semibold text-indigo-900 mb-2 text-center">EPF Rate</h4>
+              <p className="text-3xl font-bold text-green-600 text-center mb-1">8.25%</p>
+              <p className="text-xs text-gray-600 text-center">Per annum on closing balance</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg border border-indigo-200">
+              <h4 className="font-semibold text-indigo-900 mb-2 text-center">GPF Rate</h4>
+              <p className="text-3xl font-bold text-blue-600 text-center mb-1">7.1%</p>
+              <p className="text-xs text-gray-600 text-center">Fixed by Finance Ministry</p>
+            </div>
+            <div className="bg-white p-4 rounded-lg border border-indigo-200">
+              <h4 className="font-semibold text-indigo-900 mb-2 text-center">NPS Returns</h4>
+              <p className="text-3xl font-bold text-orange-600 text-center mb-1">8-12%</p>
+              <p className="text-xs text-gray-600 text-center">Market-linked (historic avg)</p>
+            </div>
+          </div>
+
+          <p className="text-sm text-indigo-700 bg-white p-3 rounded-lg border border-indigo-200 mt-4">
+            <strong>📌 Important:</strong> EPF & GPF rates reviewed annually. NPS is market-linked with no guaranteed returns. Past performance: ~8-12% annually.
+          </p>
+        </Card>
+
+        {/* Withdrawal & Retirement Rules Card */}
+        <Card className="bg-white shadow-md rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-all space-y-4">
+          <div className="flex items-center gap-3 mb-4">
+            <Target className="w-7 h-7 text-orange-600" />
+            <h2 className="text-2xl font-semibold text-orange-700">Withdrawal & Retirement Rules</h2>
+          </div>
+
+          <div className="space-y-4">
+            <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
+              <h3 className="text-lg font-semibold text-blue-900 mb-2">EPF Withdrawal</h3>
+              <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                <li>Full withdrawal at <strong>superannuation (58 years)</strong> or after 2 months unemployment</li>
+                <li>Partial withdrawals for marriage, education, illness, housing</li>
+                <li>Premature withdrawal (&lt; 5 years): Taxable | After 5 years: Tax-free</li>
+              </ul>
+            </div>
+
+            <div className="bg-green-50 p-4 rounded-lg border border-green-200">
+              <h3 className="text-lg font-semibold text-green-900 mb-2">GPF Withdrawal</h3>
+              <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                <li>Full withdrawal on <strong>retirement, resignation, or death</strong></li>
+                <li>Partial advances for housing, education, illness, marriage</li>
+                <li>All withdrawals: <strong>100% Tax-Free</strong></li>
+              </ul>
+            </div>
+
+            <div className="bg-orange-50 p-4 rounded-lg border border-orange-200">
+              <h3 className="text-lg font-semibold text-orange-900 mb-2">NPS Withdrawal</h3>
+              <ul className="list-disc list-inside text-gray-700 space-y-1 text-sm">
+                <li>At age 60: <strong>60% lump sum (tax-free)</strong> + <strong>40% annuity (taxable)</strong></li>
+                <li>Partial withdrawals: Up to <strong>25% of own contributions</strong> after 3 years</li>
+                <li>Premature exit after 10 years with certain restrictions</li>
+              </ul>
+            </div>
+          </div>
+        </Card>
+
+        {/* Tax Implications Card */}
+        <Card className="bg-gradient-to-br from-green-50 to-emerald-50 shadow-md rounded-xl p-6 border border-green-200 hover:shadow-lg transition-all space-y-4">
+          <div className="flex items-center gap-3 mb-4">
+            <BookOpen className="w-7 h-7 text-green-700" />
+            <h2 className="text-2xl font-semibold text-green-800">Tax Benefits & Implications</h2>
+          </div>
+
+          <div className="space-y-4">
+            <div className="bg-white p-4 rounded-lg border border-green-200">
+              <h4 className="font-semibold text-green-900 mb-2">EPF Tax Benefits</h4>
+              <ul className="text-sm text-gray-700 space-y-1">
+                <li>✅ Section 80C: Deduction up to ₹1.5 lakh/year</li>
+                <li>✅ Withdrawal tax-free if ≥ 5 years service</li>
+                <li>✅ Interest credited annually (tax-free)</li>
+              </ul>
+            </div>
+
+            <div className="bg-white p-4 rounded-lg border border-green-200">
+              <h4 className="font-semibold text-green-900 mb-2">GPF Tax Benefits</h4>
+              <ul className="text-sm text-gray-700 space-y-1">
+                <li>✅ Section 80C: Full deduction available</li>
+                <li>✅ Final withdrawal: 100% Tax-Free (principal + interest)</li>
+                <li>✅ Most tax-efficient option for government employees</li>
+              </ul>
+            </div>
+
+            <div className="bg-white p-4 rounded-lg border border-green-200">
+              <h4 className="font-semibold text-green-900 mb-2">NPS Tax Benefits</h4>
+              <ul className="text-sm text-gray-700 space-y-1">
+                <li>✅ Section 80C: Contribution deduction up to ₹1.5 lakh</li>
+                <li>✅ Section 80CCD(1B): Extra ₹50,000 deduction</li>
+                <li>✅ Maturity: 60% tax-free lump sum + 40% annuity (taxable)</li>
+              </ul>
+            </div>
+          </div>
+        </Card>
+
+        {/* Comparison Table Card */}
+        <Card className="bg-white shadow-md rounded-xl p-6 border border-gray-200 hover:shadow-lg transition-all space-y-4">
+          <h2 className="text-2xl font-semibold text-gray-800 mb-4">GPF vs EPF vs NPS: Side-by-Side Comparison</h2>
+          <div className="overflow-x-auto rounded-lg border border-gray-200">
+            <table className="min-w-full table-auto text-gray-700 text-sm">
+              <thead>
+                <tr className="bg-blue-100">
+                  <th className="border px-4 py-3 text-left font-semibold">Feature</th>
+                  <th className="border px-4 py-3 text-left font-semibold">GPF</th>
+                  <th className="border px-4 py-3 text-left font-semibold">EPF</th>
+                  <th className="border px-4 py-3 text-left font-semibold">NPS</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="hover:bg-blue-50">
+                  <td className="border px-4 py-2 font-medium">Eligible Employees</td>
+                  <td className="border px-4 py-2">Govt. (joined before 01/01/2004)</td>
+                  <td className="border px-4 py-2">Govt./Private (salary ≤ ₹25K/mo)</td>
+                  <td className="border px-4 py-2">Post 01/01/2004 & all citizens</td>
+                </tr>
+                <tr className="hover:bg-blue-50">
+                  <td className="border px-4 py-2 font-medium">Contribution</td>
+                  <td className="border px-4 py-2"><strong>Employee only</strong> (6-100%)</td>
+                  <td className="border px-4 py-2">Both (12% each of Basic+DA)</td>
+                  <td className="border px-4 py-2">Both (10% + 14% of Basic+DA)</td>
+                </tr>
+                <tr className="hover:bg-blue-50">
+                  <td className="border px-4 py-2 font-medium">Interest Rate</td>
+                  <td className="border px-4 py-2"><strong>7.1%</strong> (fixed)</td>
+                  <td className="border px-4 py-2"><strong>8.25%</strong> (fixed)</td>
+                  <td className="border px-4 py-2">8-12% (market-linked)</td>
+                </tr>
+                <tr className="hover:bg-blue-50">
+                  <td className="border px-4 py-2 font-medium">Tax on Withdrawal</td>
+                  <td className="border px-4 py-2"><strong>Nil</strong> (fully tax-free)</td>
+                  <td className="border px-4 py-2">Nil if ≥ 5 years; else taxable</td>
+                  <td className="border px-4 py-2">60% tax-free; 40% taxable</td>
+                </tr>
+                <tr className="hover:bg-blue-50">
+                  <td className="border px-4 py-2 font-medium">Withdrawal Age</td>
+                  <td className="border px-4 py-2">Retirement/exit</td>
+                  <td className="border px-4 py-2">58 years / 2 mo. jobless</td>
+                  <td className="border px-4 py-2">60 years</td>
+                </tr>
+                <tr className="hover:bg-blue-50">
+                  <td className="border px-4 py-2 font-medium">Partial Withdrawal</td>
+                  <td className="border px-4 py-2">Allowed (with approval)</td>
+                  <td className="border px-4 py-2">Allowed (conditional)</td>
+                  <td className="border px-4 py-2">Up to 25% after 3 years</td>
+                </tr>
+                <tr className="hover:bg-blue-50">
+                  <td className="border px-4 py-2 font-medium">Best For</td>
+                  <td className="border px-4 py-2">Pre-2004 govt. employees</td>
+                  <td className="border px-4 py-2">Organized sector workers</td>
+                  <td className="border px-4 py-2">Post-2004 govt. hires</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </Card>
+
+        {/* Quick Tips Card */}
+        <Card className="bg-gradient-to-br from-purple-50 to-pink-50 shadow-md rounded-xl p-6 border border-purple-200 hover:shadow-lg transition-all space-y-4">
+          <div className="flex items-center gap-3 mb-4">
+            <HelpCircle className="w-7 h-7 text-purple-700" />
+            <h2 className="text-2xl font-semibold text-purple-800">Smart PF Planning Tips</h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="bg-white p-4 rounded-lg border border-purple-200">
+              <h4 className="font-semibold text-purple-900 mb-2">💼 For GPF Holders</h4>
+              <ul className="text-sm text-gray-700 space-y-1">
+                <li>• Maximize contributions (no limit)</li>
+                <li>• Fully tax-free withdrawal</li>
+                <li>• Perfect for long-term savings</li>
+              </ul>
+            </div>
+            <div className="bg-white p-4 rounded-lg border border-purple-200">
+              <h4 className="font-semibold text-purple-900 mb-2">📊 For EPF Holders</h4>
+              <ul className="text-sm text-gray-700 space-y-1">
+                <li>• Employer match benefit (12%)</li>
+                <li>• Higher interest (8.25%)</li>
+                <li>• Pension component (EPS)</li>
+              </ul>
+            </div>
+            <div className="bg-white p-4 rounded-lg border border-purple-200">
+              <h4 className="font-semibold text-purple-900 mb-2">🎯 For NPS Contributors</h4>
+              <ul className="text-sm text-gray-700 space-y-1">
+                <li>• Highest govt. contribution (14%)</li>
+                <li>• Market-linked growth</li>
+                <li>• Section 80CCD(1B) extra deduction</li>
+              </ul>
+            </div>
+            <div className="bg-white p-4 rounded-lg border border-purple-200">
+              <h4 className="font-semibold text-purple-900 mb-2">✅ General Tips</h4>
+              <ul className="text-sm text-gray-700 space-y-1">
+                <li>• Review scheme annually</li>
+                <li>• Claim all tax deductions</li>
+                <li>• Plan partial withdrawals wisely</li>
+              </ul>
+            </div>
+          </div>
+        </Card>
+
+        {/* Support Section */}
+        <div className="bg-gradient-to-r from-blue-700 via-indigo-700 to-blue-800 rounded-3xl p-10 sm:p-14 text-white mb-8 shadow-2xl">
+          <h2 className="text-4xl font-black mb-3 text-center text-white drop-shadow-lg">
+            Questions About Provident Fund? 🚀
+          </h2>
+          <p className="text-center text-white mb-10 text-lg font-medium drop-shadow-md max-w-2xl mx-auto">
+            Confused about GPF, EPF, or NPS? Need help with calculations or strategy? We're here to assist!
+          </p>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:gap-8">
+            <div className="bg-gradient-to-br from-yellow-300 to-yellow-400 rounded-2xl p-8 text-center shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+              <div className="text-6xl mb-4">📧</div>
+              <p className="text-xs text-yellow-900 mb-4 font-bold uppercase tracking-widest">Email Support</p>
+              <a 
+                href="mailto:cpcforgovtemployees@gmail.com"
+                className="inline-block font-black text-yellow-900 text-lg break-all hover:text-yellow-700 transition-colors underline underline-offset-4 decoration-3"
+              >
+                cpcforgovtemployees@gmail.com
+              </a>
+              <p className="text-xs text-yellow-800 mt-4 font-semibold">Response within 24 hours</p>
+            </div>
+            
+            <div className="bg-gradient-to-br from-green-300 to-green-400 rounded-2xl p-8 text-center shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+              <div className="text-6xl mb-4">💬</div>
+              <p className="text-xs text-green-900 mb-4 font-bold uppercase tracking-widest">Feedback & Questions</p>
+              <p className="text-green-900 font-bold text-base leading-relaxed">
+                Share your PF questions and feedback
+              </p>
+              <p className="text-xs text-green-800 mt-4 font-semibold">We value your input!</p>
+            </div>
+          </div>
+        </div>
+
+        {/* CTA Buttons */}
+        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mt-12">
+          <Link href="/pf-calculator">
+            <button className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold px-8 py-4 rounded-xl shadow-lg hover:from-blue-700 hover:to-indigo-700 transition-all text-lg hover:shadow-xl">
+              Calculate Provident Fund
+            </button>
+          </Link>
+          <Link href="/">
+            <button className="bg-gray-600 text-white font-semibold px-8 py-4 rounded-xl shadow-lg hover:bg-gray-700 transition-all text-lg hover:shadow-xl">
+              Back to Home
+            </button>
+          </Link>
+        </div>
+
       </div>
-    </div>
+    </main>
   );
 }

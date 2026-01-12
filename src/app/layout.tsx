@@ -23,6 +23,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
+        {/* --- AdSense Auto Ads --- */}
+        <Script
+          id="adsense-auto-ads"
+          async
+          strategy="afterInteractive"
+          crossOrigin="anonymous"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4556400007110881"
+        />
+
         {/* --- JSON-LD structured data for SEO --- */}
         <Script id="jsonld-schema" type="application/ld+json" strategy="afterInteractive">
           {JSON.stringify(structuredData)}
