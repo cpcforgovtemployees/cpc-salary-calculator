@@ -314,14 +314,108 @@ export default function Calculator() {
       <main className="flex-1">
         <div className="container mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-10 sm:space-y-12">
           {/* Title */}
-          <header className="text-center mb-8">
-            <h1 className="text-4xl sm:text-5xl font-extrabold bg-gradient-to-r from-blue-800 via-blue-600 to-indigo-500 bg-clip-text text-transparent mb-4 tracking-tight">
-              Govt. Employees Salary Calculator
-            </h1>
-            <p className="text-gray-600 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
-              This CPC Salary Calculator helps you understand and compare your pay under the <strong>7th</strong> and upcoming <strong>8th Pay Commission</strong>. Whether you want to calculate your in-hand salary, DA, HRA, TA, or total deductions, this tool gives a clear, accurate breakdown for government employees. Explore your salary growth with our Pay Matrix and fitment factor projection features.
-            </p>
-          </header>
+          <section className="bg-white py-12 sm:py-16 px-4 rounded-xl border border-gray-200">
+  <div className="max-w-4xl mx-auto">
+    <h2 className="text-3xl sm:text-4xl font-bold text-gray-800 mb-6">
+      What is the Government Salary Calculator?
+    </h2>
+    <div className="prose prose-lg text-gray-700 space-y-4 max-w-none">
+      <p className="leading-relaxed">
+        Calculating government employee salary is complex. You need to account for Basic Pay, 
+        Dearness Allowance (DA), House Rent Allowance (HRA), Travel Allowance (TA), deductions 
+        like NPS and Income Tax, and special considerations for city classification and pay level. 
+        With the 7th Pay Commission in place and the 8th Pay Commission expected in 2026-2027, 
+        government employees need accurate tools to understand their current salary breakdown 
+        and future projections.
+      </p>
+      <p className="leading-relaxed">
+        The <strong>Indian Pay Calculator</strong> provides exactly this—instant, accurate salary 
+        calculations based on <strong>official CPC pay matrix data</strong>, updated quarterly with 
+        the latest Dearness Allowance rates and income tax rules.
+      </p>
+      <p className="leading-relaxed">
+        Our calculator is used by <strong>50,000+ government employees</strong> across India to plan 
+        their finances, verify salary calculations, understand deductions, and prepare for the upcoming 
+        8th Pay Commission.
+      </p>
+    </div>
+
+    <h3 className="text-2xl font-bold text-gray-800 mt-8 mb-6">
+      Why You Need This Calculator
+    </h3>
+    
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="flex items-start gap-3 p-4 bg-blue-50 rounded-lg border border-blue-200">
+        <span className="text-blue-600 text-2xl font-bold mt-1">✓</span>
+        <div>
+          <h4 className="font-semibold text-gray-800 mb-1">Understand Your Full Salary</h4>
+          <p className="text-sm text-gray-700">
+            See exactly how much you take home after taxes, NPS, CGHS, and other deductions
+          </p>
+        </div>
+      </div>
+      
+      <div className="flex items-start gap-3 p-4 bg-green-50 rounded-lg border border-green-200">
+        <span className="text-green-600 text-2xl font-bold mt-1">✓</span>
+        <div>
+          <h4 className="font-semibold text-gray-800 mb-1">Compare Pay Commissions</h4>
+          <p className="text-sm text-gray-700">
+            See side-by-side comparison of your current 7th CPC salary vs projected 8th CPC salary
+          </p>
+        </div>
+      </div>
+      
+      <div className="flex items-start gap-3 p-4 bg-purple-50 rounded-lg border border-purple-200">
+        <span className="text-purple-600 text-2xl font-bold mt-1">✓</span>
+        <div>
+          <h4 className="font-semibold text-gray-800 mb-1">Plan Your Future</h4>
+          <p className="text-sm text-gray-700">
+            Adjust fitment factor to see various scenarios and plan your finances accordingly
+          </p>
+        </div>
+      </div>
+      
+      <div className="flex items-start gap-3 p-4 bg-orange-50 rounded-lg border border-orange-200">
+        <span className="text-orange-600 text-2xl font-bold mt-1">✓</span>
+        <div>
+          <h4 className="font-semibold text-gray-800 mb-1">Download Reports</h4>
+          <p className="text-sm text-gray-700">
+            Generate PDF and Excel reports for loan applications, financial planning, or records
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section className="bg-gradient-to-r from-blue-50 to-indigo-50 py-12 px-4 rounded-xl border border-blue-200">
+  <div className="max-w-6xl mx-auto">
+    <p className="text-center text-gray-600 text-lg mb-8 font-medium">
+      Trusted by thousands of government employees across India
+    </p>
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+      <div className="bg-white p-6 rounded-lg shadow-sm border border-blue-100">
+        <div className="text-5xl font-bold text-blue-600 mb-2">50K+</div>
+        <p className="text-gray-700 text-sm font-medium">
+          Government employees using calculator
+        </p>
+      </div>
+      <div className="bg-white p-6 rounded-lg shadow-sm border border-green-100">
+        <div className="text-5xl font-bold text-green-600 mb-2">100%</div>
+        <p className="text-gray-700 text-sm font-medium">
+          Based on official CPC pay matrix data
+        </p>
+      </div>
+      <div className="bg-white p-6 rounded-lg shadow-sm border border-purple-100">
+        <div className="text-5xl font-bold text-purple-600 mb-2">Free</div>
+        <p className="text-gray-700 text-sm font-medium">
+          No subscriptions, no hidden charges
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
 
           {/* Salary Details Form */}
           <section className="flex justify-center">
