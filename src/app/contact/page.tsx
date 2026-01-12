@@ -16,30 +16,32 @@ export default function ContactPage() {
   });
   const [submitted, setSubmitted] = useState(false);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
   const handleChange = (e: any) => {
-    e.preventDefault();
-    console.log("Form submitted:", formData);
-    setSubmitted(true);
-    setTimeout(() => {
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        subject: "",
-        message: "",
-        feedbackType: "general"
-      });
-      setSubmitted(false);
-    }, 3000);
-  };
+  const { name, value } = e.target;
+  setFormData(prev => ({
+    ...prev,
+    [name]: value
+  }));
+};
+
+const handleSubmit = (e: any) => {
+  e.preventDefault();
+  console.log("Form submitted:", formData);
+  setSubmitted(true);
+  setTimeout(() => {
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      subject: "",
+      message: "",
+      feedbackType: "general"
+    });
+    setSubmitted(false);
+  }, 3000);
+};
+
+
 
   return (
     <main className="bg-gradient-to-b from-white to-blue-50 min-h-screen">
