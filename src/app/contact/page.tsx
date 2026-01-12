@@ -24,7 +24,7 @@ export default function ContactPage() {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleChange = (e: any) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
     setSubmitted(true);
