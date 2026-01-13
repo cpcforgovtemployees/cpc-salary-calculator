@@ -634,36 +634,36 @@ export default function Calculator() {
                     <span className="text-2xl">💰</span> Basic Pay
                   </h3>
                   <p className="text-gray-700 leading-relaxed">
-                    The foundation of your salary, determined by your pay level in the government pay matrix. Under the 7th CPC (implemented in 2016), each pay level corresponds to a specific basic pay amount. The 8th CPC will adjust this through a fitment factor (estimated at 1.92x), meaning your basic pay would increase by approximately 92%.
+                    The foundation of your salary, determined by your pay level in the government pay matrix. Under the 7th CPC (2016), each level has a specific basic pay. The 8th CPC is expected to adjust this using a fitment factor (est. 1.92x), increasing basic pay by approx 92%.
                   </p>
                   <div className="mt-4 p-3 bg-blue-50 rounded border border-blue-200">
-                    <p className="text-sm text-blue-900"><strong>Example:</strong> Level 10 under 7th CPC is ₹56,100; under 8th CPC with 1.92x = ₹107,712</p>
+                    <p className="text-sm text-blue-900"><strong>Example:</strong> Level 10 (7th CPC) ₹56,100 → (8th CPC) ₹107,712</p>
                   </div>
                 </div>
 
-                {/* DA */}
+                {/* DA - Updated for 2026 Context */}
                 <div className="bg-white rounded-xl p-6 shadow-md border border-green-200">
                   <h3 className="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
                     <span className="text-2xl">📈</span> Dearness Allowance (DA)
                   </h3>
                   <p className="text-gray-700 leading-relaxed">
-                    DA is paid to offset inflation and cost of living increases. It is calculated as a percentage of basic pay and is revised quarterly by the Ministry of Finance based on the Consumer Price Index (CPI). As of January 2024, DA stands at 58% of basic pay. This percentage fluctuates based on economic conditions.
+                    DA offsets inflation and is revised biannually. As of the July 2025 notification, DA stands at 58% of basic pay. (Note: The January 2026 revision is usually announced in March).
                   </p>
                   <div className="mt-4 p-3 bg-green-50 rounded border border-green-200">
-                    <p className="text-sm text-green-900"><strong>Calculation:</strong> DA = Basic Pay × (Current DA Percentage / 100)</p>
+                    <p className="text-sm text-green-900"><strong>Calculation:</strong> DA = Basic Pay × (58 / 100)</p>
                   </div>
                 </div>
 
-                {/* HRA */}
+                {/* HRA - Updated for DA > 50% Rules */}
                 <div className="bg-white rounded-xl p-6 shadow-md border border-orange-200">
                   <h3 className="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
                     <span className="text-2xl">🏠</span> House Rent Allowance (HRA)
                   </h3>
                   <p className="text-gray-700 leading-relaxed">
-                    HRA varies based on city classification. Cities are classified into: X-Class (major metros like Delhi, Mumbai), Y-Class (major cities), and Z-Class (other towns). HRA is calculated as a percentage of basic pay: 24% for X-Class, 16% for Y-Class, and 8% for Z-Class.
+                    Since DA has crossed 50%, HRA rates have been revised. Cities are classified into X, Y, and Z. The current rates are 30% (X-Class), 20% (Y-Class), and 10% (Z-Class) of Basic Pay.
                   </p>
                   <div className="mt-4 p-3 bg-orange-50 rounded border border-orange-200">
-                    <p className="text-sm text-orange-900"><strong>Rates:</strong> X: 24% | Y: 16% | Z: 8% of Basic Pay</p>
+                    <p className="text-sm text-orange-900"><strong>Current Rates (DA &gt; 50%):</strong> X: 30% | Y: 20% | Z: 10%</p>
                   </div>
                 </div>
 
@@ -673,36 +673,36 @@ export default function Calculator() {
                     <span className="text-2xl">✈️</span> Travel Allowance (TA)
                   </h3>
                   <p className="text-gray-700 leading-relaxed">
-                    Travel Allowance is a fixed monthly amount for local travel and commute. Unlike HRA and DA which are percentage-based, TA is a fixed amount varying by city category. Additionally, DA is calculated on TA amount as well (called "DA on TA"), providing dual benefit.
+                    A fixed monthly amount for commuting, varying by city category. You also earn "DA on TA" (Dearness Allowance calculated on the TA amount), which provides a dual benefit.
                   </p>
                   <div className="mt-4 p-3 bg-purple-50 rounded border border-purple-200">
-                    <p className="text-sm text-purple-900"><strong>Important:</strong> You earn DA on top of TA (DA on TA)</p>
+                    <p className="text-sm text-purple-900"><strong>Note:</strong> You earn DA on top of TA (DA on TA)</p>
                   </div>
                 </div>
 
-                {/* NPS */}
+                {/* NPS/UPS - Updated for Unified Pension Scheme */}
                 <div className="bg-white rounded-xl p-6 shadow-md border border-red-200">
                   <h3 className="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
-                    <span className="text-2xl">📊</span> National Pension Scheme (NPS)
+                    <span className="text-2xl">📊</span> NPS / UPS Contribution
                   </h3>
                   <p className="text-gray-700 leading-relaxed">
-                    All government employees appointed after January 1, 2004, contribute to NPS. The employee contributes 10% of (Basic Pay + DA). The employer contributes an additional 14% (not shown as deduction). These funds build your retirement corpus through market-based investments.
+                    Employees appointed after Jan 1, 2004, contribute 10% of (Basic + DA). Effective April 2025, you can choose between <strong>NPS</strong> (market-linked) or <strong>UPS</strong> (guaranteed 50% pension). The deduction remains 10% for both.
                   </p>
                   <div className="mt-4 p-3 bg-red-50 rounded border border-red-200">
-                    <p className="text-sm text-red-900"><strong>Deduction:</strong> 10% of (Basic + DA) | Employer: 14%</p>
+                    <p className="text-sm text-red-900"><strong>Deduction:</strong> 10% of (Basic + DA)</p>
                   </div>
                 </div>
 
-                {/* Income Tax */}
+                {/* Income Tax - Updated FY */}
                 <div className="bg-white rounded-xl p-6 shadow-md border border-indigo-200">
                   <h3 className="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
                     <span className="text-2xl">🧾</span> Income Tax Deduction
                   </h3>
                   <p className="text-gray-700 leading-relaxed">
-                    Income Tax is calculated on annual gross income using FY 2024-25 tax slabs. Tax is deducted monthly via TDS (Tax Deducted at Source) on your salary. Various exemptions like Section 80C, HRA claims, and life insurance reduce your taxable income. Your actual tax depends on total annual income and claimed deductions.
+                    Income Tax is calculated on annual gross income using <strong>FY 2025-26</strong> tax slabs. Tax is deducted monthly via TDS. Final liability depends on your choice between the Old and New Tax Regimes.
                   </p>
                   <div className="mt-4 p-3 bg-indigo-50 rounded border border-indigo-200">
-                    <p className="text-sm text-indigo-900"><strong>Note:</strong> Varies based on annual gross and claimed deductions</p>
+                    <p className="text-sm text-indigo-900"><strong>Note:</strong> Based on FY 2025-26 (AY 2026-27) slabs</p>
                   </div>
                 </div>
               </div>
@@ -861,7 +861,7 @@ export default function Calculator() {
                 {[
                   { icon: "🧮", name: "DA Calculator", desc: "Dearness Allowance", link: "/da-arrear-calculator" },
                   { icon: "🏠", name: "HRA Calculator", desc: "House Rent Allowance", link: "/hra-class-calculator" },
-                  { icon: "✈️", name: "TA Calculator", desc: "Travel Allowance", link: "/ta-calculator" },
+                  { icon: "✈️", name: "TA Calculator", desc: "Travel Allowance", link: "/Salaryhandbook/ta" },
                   { icon: "💼", name: "NPS Calculator", desc: "Pension Contribution", link: "/nps-calculator" },
                   { icon: "🧾", name: "Income Tax", desc: "Tax Calculation", link: "/income-tax-calculator" },
                 ].map((calc, idx) => (
