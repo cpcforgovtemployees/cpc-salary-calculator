@@ -277,146 +277,124 @@ export default function Calculator() {
       <main className="flex-1">
         <div className="container mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-12 sm:space-y-16">
           
+          {/* HERO SECTION */}
           <section className="relative overflow-hidden py-8 sm:py-10 lg:py-12">
-  <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-indigo-50"></div>
-  <div className="absolute top-0 right-0 w-64 h-64 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-15"></div>
-  <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-15"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-indigo-50"></div>
+            <div className="absolute top-0 right-0 w-64 h-64 bg-blue-200 rounded-full mix-blend-multiply filter blur-3xl opacity-15"></div>
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-15"></div>
 
-  <div className="relative px-4 sm:px-6 lg:px-8">
-    <div className="max-w-5xl mx-auto">
-      
-      {/* Trust Badge at Top */}
-      <div className="flex justify-center mb-4 sm:mb-6">
-        <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-3 sm:px-5 py-1.5 sm:py-2 border border-blue-200/50 shadow-sm">
-          <span className="text-xs sm:text-sm font-medium text-gray-700">
-            🇮🇳 <span className="text-blue-600 font-semibold"></span> Built for Indian Government Employees 
-          </span>
-        </div>
-      </div>
+            <div className="relative px-4 sm:px-6 lg:px-8">
+              <div className="max-w-5xl mx-auto">
+                
+                {/* Trust Badge */}
+                <div className="flex justify-center mb-4 sm:mb-6">
+                  <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-3 sm:px-5 py-1.5 sm:py-2 border border-blue-200/50 shadow-sm">
+                    <span className="text-xs sm:text-sm font-medium text-gray-700">
+                      🇮🇳 Built for Indian Government Employees 
+                    </span>
+                  </div>
+                </div>
 
-      <div className="grid md:grid-cols-2 gap-6 items-center">
-        
-        {/* LEFT: TEXT */}
-        <div className="space-y-4">
-          
-          {/* Headline */}
-          <div>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
-              Forecast Your 
-              <span className="block text-blue-600">8th CPC Salary</span>
-            </h1>
-          </div>
-          
-          {/* Subheading */}
-          <p className="text-base sm:text-lg text-gray-700 leading-snug">
-            Instant breakdown of DA, HRA, deductions & compare 7th vs 8th CPC in seconds.
-          </p>
+                <div className="grid md:grid-cols-2 gap-6 items-center">
+                  
+                  {/* LEFT: TEXT */}
+                  <div className="space-y-4">
+                    <div>
+                      <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+                        Forecast Your 
+                        <span className="block text-blue-600">8th CPC Salary</span>
+                      </h1>
+                    </div>
+                    
+                    <p className="text-base sm:text-lg text-gray-700 leading-snug">
+                      Instant breakdown of DA, HRA, deductions & compare 7th vs 8th CPC in seconds.
+                    </p>
 
-          {/* Key Benefits */}
-          <div className="space-y-2 pt-2">
-            <p className="text-sm text-gray-700 flex items-center gap-2">
-              <span className="text-green-600 font-bold text-lg">✓</span> 
-              <span>Based on latest government salary data</span>
-            </p>
-            <p className="text-sm text-gray-700 flex items-center gap-2">
-              <span className="text-green-600 font-bold text-lg">✓</span> 
-              <span>Download PDF & Excel reports</span>
-            </p>
-          </div>
+                    <div className="space-y-2 pt-2">
+                      <p className="text-sm text-gray-700 flex items-center gap-2">
+                        <span className="text-green-600 font-bold text-lg">✓</span> 
+                        <span>Based on latest government salary data</span>
+                      </p>
+                      <p className="text-sm text-gray-700 flex items-center gap-2">
+                        <span className="text-green-600 font-bold text-lg">✓</span> 
+                        <span>Download PDF & Excel reports</span>
+                      </p>
+                    </div>
 
-          {/* CTA Button */}
-          <button 
-            onClick={() => {
-              const element = document.querySelector('[aria-label="Salary Details Form"]');
-              element?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }}
-            className="mt-4 px-6 sm:px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold text-sm sm:text-base rounded-lg shadow-md hover:shadow-lg transition-all duration-300 inline-flex items-center gap-2 transform hover:scale-105"
-          >
-            <span></span> Calculate Now
-          </button>
-        </div>
+                    <button 
+                      onClick={() => {
+                        const element = document.querySelector('[aria-label="Salary Details Form"]');
+                        element?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                      }}
+                      className="mt-4 px-6 sm:px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-bold text-sm sm:text-base rounded-lg shadow-md hover:shadow-lg transition-all duration-300 inline-flex items-center gap-2 transform hover:scale-105"
+                    >
+                      Calculate Now
+                    </button>
+                  </div>
 
-        {/* RIGHT: EXAMPLE CARD - REAL DATA */}
-        <div className="hidden md:block">
-          <div className="bg-white rounded-2xl p-5 sm:p-6 shadow-xl border border-blue-100 hover:shadow-2xl transition-shadow duration-300">
-            
-            {/* Card Header */}
-            <div className="flex items-center gap-2 mb-4 pb-4 border-b border-gray-200">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-full flex items-center justify-center text-white text-lg">
-                💎
-              </div>
-              <div>
-                <p className="text-sm font-bold text-gray-900">Sample Output</p>
-                <p className="text-xs text-gray-500">Delhi, Level 10</p>
+                  {/* RIGHT: EXAMPLE CARD */}
+                  <div className="hidden md:block">
+                    <div className="bg-white rounded-2xl p-5 sm:p-6 shadow-xl border border-blue-100 hover:shadow-2xl transition-shadow duration-300 relative">
+                      
+                      <div className="flex items-center gap-2 mb-4 pb-4 border-b border-gray-200">
+                        <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-indigo-600 rounded-full flex items-center justify-center text-white text-lg">
+                          💎
+                        </div>
+                        <div>
+                          <p className="text-sm font-bold text-gray-900">Sample Output</p>
+                          <p className="text-xs text-gray-500">Delhi, Level 10</p>
+                        </div>
+                      </div>
+
+                      <div className="space-y-3">
+                        <div>
+                          <p className="text-xs text-gray-500 font-semibold uppercase tracking-wide mb-1">7th CPC - Monthly</p>
+                          <div className="flex justify-between items-baseline">
+                            <p className="text-sm text-gray-700">Basic Pay</p>
+                            <p className="text-lg font-bold text-gray-900">₹56,100</p>
+                          </div>
+                          <div className="flex justify-between items-baseline mt-1">
+                            <p className="text-sm text-gray-700">DA + HRA</p>
+                            <p className="text-lg font-bold text-gray-900">₹38,900</p>
+                          </div>
+                          <div className="flex justify-between items-baseline mt-1 pt-2 border-t border-gray-200">
+                            <p className="text-sm font-semibold text-gray-900">Net Salary</p>
+                            <p className="text-xl font-bold text-blue-600">₹78,200</p>
+                          </div>
+                        </div>
+
+                        <div className="py-2 border-t-2 border-b-2 border-dashed border-blue-200">
+                          <p className="text-xs text-blue-600 font-semibold text-center">↓ 8th CPC Projection</p>
+                        </div>
+
+                        <div>
+                          <p className="text-xs text-gray-500 font-semibold uppercase tracking-wide mb-1">8th CPC - Estimated</p>
+                          <div className="flex justify-between items-baseline">
+                            <p className="text-sm text-gray-700">Basic Pay (×1.92)</p>
+                            <p className="text-lg font-bold text-gray-900">₹107,712</p>
+                          </div>
+                          <div className="flex justify-between items-baseline mt-1 pt-2 border-t border-gray-200">
+                            <p className="text-sm font-semibold text-gray-900">Est. Net</p>
+                            <p className="text-xl font-bold text-green-600">₹1,12,000+</p>
+                          </div>
+                          <p className="text-xs text-green-600 font-semibold mt-2 flex items-center gap-1">
+                            <span>🌱</span> +43% Increase Potential
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="absolute top-4 right-4 flex items-center gap-1.5 bg-green-50 px-2.5 py-1 rounded-full border border-green-200">
+                        <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                        <span className="text-xs font-semibold text-green-700">Live Data</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
+          </section>
 
-            {/* Sample Calculation Data */}
-            <div className="space-y-3">
-              
-              {/* 7th CPC Section */}
-              <div>
-                <p className="text-xs text-gray-500 font-semibold uppercase tracking-wide mb-1">7th CPC - Monthly</p>
-                <div className="flex justify-between items-baseline">
-                  <p className="text-sm text-gray-700">Basic Pay</p>
-                  <p className="text-lg font-bold text-gray-900">₹56,100</p>
-                </div>
-                <div className="flex justify-between items-baseline mt-1">
-                  <p className="text-sm text-gray-700">DA + HRA</p>
-                  <p className="text-lg font-bold text-gray-900">₹38,900</p>
-                </div>
-                <div className="flex justify-between items-baseline mt-1 pt-2 border-t border-gray-200">
-                  <p className="text-sm font-semibold text-gray-900">Net Salary</p>
-                  <p className="text-xl font-bold text-blue-600">₹78,200</p>
-                </div>
-              </div>
-
-              {/* Divider */}
-              <div className="py-2 border-t-2 border-b-2 border-dashed border-blue-200">
-                <p className="text-xs text-blue-600 font-semibold text-center">↓ 8th CPC Projection</p>
-              </div>
-
-              {/* 8th CPC Section */}
-              <div>
-                <p className="text-xs text-gray-500 font-semibold uppercase tracking-wide mb-1">8th CPC - Estimated</p>
-                <div className="flex justify-between items-baseline">
-                  <p className="text-sm text-gray-700">Basic Pay (×1.92)</p>
-                  <p className="text-lg font-bold text-gray-900">₹107,712</p>
-                </div>
-                <div className="flex justify-between items-baseline mt-1 pt-2 border-t border-gray-200">
-                  <p className="text-sm font-semibold text-gray-900">Est. Net</p>
-                  <p className="text-xl font-bold text-green-600">₹1,12,000+</p>
-                </div>
-                <p className="text-xs text-green-600 font-semibold mt-2 flex items-center gap-1">
-                  <span>🌱</span> +43% Increase Potential
-                </p>
-              </div>
-            </div>
-
-            {/* Live Badge */}
-            <div className="absolute top-4 right-4 flex items-center gap-1.5 bg-green-50 px-2.5 py-1 rounded-full border border-green-200">
-              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-              <span className="text-xs font-semibold text-green-700">Live Data</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  {/* Animations */}
-  <style jsx>{`
-    @keyframes blob {
-      0%, 100% { transform: translate(0, 0) scale(1); }
-      33% { transform: translate(15px, -20px) scale(1.05); }
-      66% { transform: translate(-10px, 10px) scale(0.95); }
-    }
-    .animate-blob { animation: blob 7s infinite; }
-    .animation-delay-2000 { animation-delay: 2s; }
-  `}</style>
-</section>
-
-          {/* BENEFIT CARDS SECTION */}
+          {/* BENEFIT CARDS */}
           <section className="mt-8 sm:mt-12">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-10 sm:mb-12">
@@ -454,11 +432,8 @@ export default function Calculator() {
             </div>
           </section>
 
-          {/* CALCULATOR FORM SECTION */}
-          <section 
-            aria-label="Salary Details Form"
-            className="relative"
-          >
+          {/* CALCULATOR FORM */}
+          <section aria-label="Salary Details Form" className="relative">
             <div className="max-w-3xl mx-auto">
               <div className="text-center mb-8">
                 <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">
@@ -558,99 +533,328 @@ export default function Calculator() {
       </div>
     </section>
 
-              {/* CHARTS SECTION */}
-              {(breakdown7th?.grossSalary > 0 || breakdown8th?.grossSalary > 0) && (
-                <section className="mt-12 sm:mt-16">
-                  <Card className="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 sm:p-8">
-                    <h2 className="text-2xl sm:text-3xl font-bold text-center text-gray-900 mb-2">
-                    ⚖️ Visual Comparison
-                    </h2>
-                    <p className="text-center text-gray-600 mb-8">See your salary components side-by-side</p>
+    {/* CHARTS */}
+    {(breakdown7th?.grossSalary > 0 || breakdown8th?.grossSalary > 0) && (
+      <section className="mt-12 sm:mt-16">
+        <Card className="bg-white rounded-2xl shadow-lg border border-gray-200 p-6 sm:p-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-center text-gray-900 mb-2">
+          📈 Visual Comparison
+          </h2>
+          <p className="text-center text-gray-600 mb-8">See your salary components side-by-side</p>
 
-                    {/* Income Chart */}
-                    <div className="mb-10 sm:mb-12">
-                      <h3 className="text-center font-semibold text-blue-700 mb-4 text-lg">
-                        Income Components Comparison
-                      </h3>
-                      <div className="w-full h-72">
-                        <ResponsiveContainer width="100%" height="100%">
-                          <BarChart
-                            data={[
-                              { name: "Basic Pay", "7th": breakdown7th.basicPay, "8th": breakdown8th.basicPay },
-                              { name: "DA", "7th": breakdown7th.da, "8th": breakdown8th.da },
-                              { name: "HRA", "7th": breakdown7th.hra, "8th": breakdown8th.hra },
-                              { name: "Net Salary", "7th": breakdown7th.netSalary, "8th": breakdown8th.netSalary },
-                            ]}
-                            margin={{ top: 10, right: 10, left: -10, bottom: 20 }}
-                          >
-                            <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
-                            <XAxis dataKey="name" tick={{ fill: "#4B5563", fontSize: 12 }} />
-                            <YAxis tick={{ fill: "#4B5563", fontSize: 12 }} width={60} />
-                            <Tooltip formatter={(value: number) => `₹${value.toLocaleString("en-IN")}`} />
-                            <Legend />
-                            <Bar dataKey="7th" fill="#FBBF24" radius={[8, 8, 0, 0]} />
-                            <Bar dataKey="8th" fill="#10B981" radius={[8, 8, 0, 0]} />
-                          </BarChart>
-                        </ResponsiveContainer>
-                      </div>
-                    </div>
-
-                    {/* Deductions Chart */}
-                    <div>
-                      <h3 className="text-center font-semibold text-red-700 mb-4 text-lg">
-                        Deductions Comparison
-                      </h3>
-                      <div className="w-full h-72">
-                        <ResponsiveContainer width="100%" height="100%">
-                          <BarChart
-                            data={[
-                              { name: "Income Tax", "7th": breakdown7th.incomeTax ?? 0, "8th": breakdown8th.incomeTax ?? 0 },
-                              { name: "NPS", "7th": breakdown7th.npsEmployee, "8th": breakdown8th.npsEmployee },
-                              { name: "CGHS", "7th": breakdown7th.cghs, "8th": breakdown8th.cghs },
-                            ]}
-                            margin={{ top: 10, right: 10, left: -10, bottom: 20 }}
-                          >
-                            <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
-                            <XAxis dataKey="name" tick={{ fill: "#4B5563", fontSize: 12 }} />
-                            <YAxis tick={{ fill: "#4B5563", fontSize: 12 }} width={60} />
-                            <Tooltip formatter={(value: number) => `₹${value.toLocaleString("en-IN")}`} />
-                            <Legend />
-                            <Bar dataKey="7th" fill="#A5B4FC" radius={[8, 8, 0, 0]} />
-                            <Bar dataKey="8th" fill="#FCA5A5" radius={[8, 8, 0, 0]} />
-                          </BarChart>
-                        </ResponsiveContainer>
-                      </div>
-                    </div>
-                  </Card>
-                </section>
-              )}
-
-              {/* DOWNLOAD BUTTONS */}
-              <section className="mt-10 sm:mt-12 flex flex-col sm:flex-row justify-center gap-4 max-w-2xl mx-auto px-2">
-                <button
-                  onClick={handleGenerateReportPDF}
-                  className="flex-1 px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-lg hover:shadow-lg transform hover:scale-105 transition-all duration-300"
+          <div className="mb-10 sm:mb-12">
+            <h3 className="text-center font-semibold text-blue-700 mb-4 text-lg">
+              Income Components Comparison
+            </h3>
+            <div className="w-full h-72">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart
+                  data={[
+                    { name: "Basic Pay", "7th": breakdown7th.basicPay, "8th": breakdown8th.basicPay },
+                    { name: "DA", "7th": breakdown7th.da, "8th": breakdown8th.da },
+                    { name: "HRA", "7th": breakdown7th.hra, "8th": breakdown8th.hra },
+                    { name: "Net Salary", "7th": breakdown7th.netSalary, "8th": breakdown8th.netSalary },
+                  ]}
+                  margin={{ top: 10, right: 10, left: -10, bottom: 20 }}
                 >
-                  Download PDF Report
-                </button>
-                <button
-                  onClick={handleGenerateReportExcel}
-                  className="flex-1 px-6 py-3 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-semibold rounded-lg hover:shadow-lg transform hover:scale-105 transition-all duration-300"
-                >
-                  Download Excel Report
-                </button>
-              </section>
-            </>
-          )}
+                  <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
+                  <XAxis dataKey="name" tick={{ fill: "#4B5563", fontSize: 12 }} />
+                  <YAxis tick={{ fill: "#4B5563", fontSize: 12 }} width={60} />
+                  <Tooltip formatter={(value: number) => `₹${value.toLocaleString("en-IN")}`} />
+                  <Legend />
+                  <Bar dataKey="7th" fill="#FBBF24" radius={[8, 8, 0, 0]} />
+                  <Bar dataKey="8th" fill="#10B981" radius={[8, 8, 0, 0]} />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
 
-          {/* OTHER CALCULATORS SECTION */}
+          <div>
+            <h3 className="text-center font-semibold text-red-700 mb-4 text-lg">
+              Deductions Comparison
+            </h3>
+            <div className="w-full h-72">
+              <ResponsiveContainer width="100%" height="100%">
+                <BarChart
+                  data={[
+                    { name: "Income Tax", "7th": breakdown7th.incomeTax ?? 0, "8th": breakdown8th.incomeTax ?? 0 },
+                    { name: "NPS", "7th": breakdown7th.npsEmployee, "8th": breakdown8th.npsEmployee },
+                    { name: "CGHS", "7th": breakdown7th.cghs, "8th": breakdown8th.cghs },
+                  ]}
+                  margin={{ top: 10, right: 10, left: -10, bottom: 20 }}
+                >
+                  <CartesianGrid strokeDasharray="3 3" stroke="#E5E7EB" />
+                  <XAxis dataKey="name" tick={{ fill: "#4B5563", fontSize: 12 }} />
+                  <YAxis tick={{ fill: "#4B5563", fontSize: 12 }} width={60} />
+                  <Tooltip formatter={(value: number) => `₹${value.toLocaleString("en-IN")}`} />
+                  <Legend />
+                  <Bar dataKey="7th" fill="#A5B4FC" radius={[8, 8, 0, 0]} />
+                  <Bar dataKey="8th" fill="#FCA5A5" radius={[8, 8, 0, 0]} />
+                </BarChart>
+              </ResponsiveContainer>
+            </div>
+          </div>
+        </Card>
+      </section>
+    )}
+
+    {/* DOWNLOAD BUTTONS */}
+    <section className="mt-10 sm:mt-12 flex flex-col sm:flex-row justify-center gap-4 max-w-2xl mx-auto px-2">
+      <button
+        onClick={handleGenerateReportPDF}
+        className="flex-1 px-6 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold rounded-lg hover:shadow-lg transform hover:scale-105 transition-all duration-300"
+      >
+        📄 Download PDF Report
+      </button>
+      <button
+        onClick={handleGenerateReportExcel}
+        className="flex-1 px-6 py-3 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-semibold rounded-lg hover:shadow-lg transform hover:scale-105 transition-all duration-300"
+      >
+        📊 Download Excel Report
+      </button>
+    </section>
+  </>
+)}
+
+          {/* SALARY COMPONENTS SECTION */}
+          <section className="mt-16 sm:mt-20 py-12 -mx-3 sm:-mx-6 lg:-mx-8 px-3 sm:px-6 lg:px-8 bg-gradient-to-br from-blue-50 to-indigo-50">
+            <div className="max-w-5xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">
+                  Understanding Your Salary Components
+                </h2>
+                <p className="text-gray-600 text-lg">A complete breakdown of how government salaries are calculated</p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+                
+                {/* Basic Pay */}
+                <div className="bg-white rounded-xl p-6 shadow-md border border-blue-200">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
+                    <span className="text-2xl">💰</span> Basic Pay
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    The foundation of your salary, determined by your pay level in the government pay matrix. Under the 7th CPC (implemented in 2016), each pay level corresponds to a specific basic pay amount. The 8th CPC will adjust this through a fitment factor (estimated at 1.92x), meaning your basic pay would increase by approximately 92%.
+                  </p>
+                  <div className="mt-4 p-3 bg-blue-50 rounded border border-blue-200">
+                    <p className="text-sm text-blue-900"><strong>Example:</strong> Level 10 under 7th CPC is ₹56,100; under 8th CPC with 1.92x = ₹107,712</p>
+                  </div>
+                </div>
+
+                {/* DA */}
+                <div className="bg-white rounded-xl p-6 shadow-md border border-green-200">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
+                    <span className="text-2xl">📈</span> Dearness Allowance (DA)
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    DA is paid to offset inflation and cost of living increases. It is calculated as a percentage of basic pay and is revised quarterly by the Ministry of Finance based on the Consumer Price Index (CPI). As of January 2024, DA stands at 58% of basic pay. This percentage fluctuates based on economic conditions.
+                  </p>
+                  <div className="mt-4 p-3 bg-green-50 rounded border border-green-200">
+                    <p className="text-sm text-green-900"><strong>Calculation:</strong> DA = Basic Pay × (Current DA Percentage / 100)</p>
+                  </div>
+                </div>
+
+                {/* HRA */}
+                <div className="bg-white rounded-xl p-6 shadow-md border border-orange-200">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
+                    <span className="text-2xl">🏠</span> House Rent Allowance (HRA)
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    HRA varies based on city classification. Cities are classified into: X-Class (major metros like Delhi, Mumbai), Y-Class (major cities), and Z-Class (other towns). HRA is calculated as a percentage of basic pay: 24% for X-Class, 16% for Y-Class, and 8% for Z-Class.
+                  </p>
+                  <div className="mt-4 p-3 bg-orange-50 rounded border border-orange-200">
+                    <p className="text-sm text-orange-900"><strong>Rates:</strong> X: 24% | Y: 16% | Z: 8% of Basic Pay</p>
+                  </div>
+                </div>
+
+                {/* TA */}
+                <div className="bg-white rounded-xl p-6 shadow-md border border-purple-200">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
+                    <span className="text-2xl">✈️</span> Travel Allowance (TA)
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    Travel Allowance is a fixed monthly amount for local travel and commute. Unlike HRA and DA which are percentage-based, TA is a fixed amount varying by city category. Additionally, DA is calculated on TA amount as well (called "DA on TA"), providing dual benefit.
+                  </p>
+                  <div className="mt-4 p-3 bg-purple-50 rounded border border-purple-200">
+                    <p className="text-sm text-purple-900"><strong>Important:</strong> You earn DA on top of TA (DA on TA)</p>
+                  </div>
+                </div>
+
+                {/* NPS */}
+                <div className="bg-white rounded-xl p-6 shadow-md border border-red-200">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
+                    <span className="text-2xl">📊</span> National Pension Scheme (NPS)
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    All government employees appointed after January 1, 2004, contribute to NPS. The employee contributes 10% of (Basic Pay + DA). The employer contributes an additional 14% (not shown as deduction). These funds build your retirement corpus through market-based investments.
+                  </p>
+                  <div className="mt-4 p-3 bg-red-50 rounded border border-red-200">
+                    <p className="text-sm text-red-900"><strong>Deduction:</strong> 10% of (Basic + DA) | Employer: 14%</p>
+                  </div>
+                </div>
+
+                {/* Income Tax */}
+                <div className="bg-white rounded-xl p-6 shadow-md border border-indigo-200">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
+                    <span className="text-2xl">🧾</span> Income Tax Deduction
+                  </h3>
+                  <p className="text-gray-700 leading-relaxed">
+                    Income Tax is calculated on annual gross income using FY 2024-25 tax slabs. Tax is deducted monthly via TDS (Tax Deducted at Source) on your salary. Various exemptions like Section 80C, HRA claims, and life insurance reduce your taxable income. Your actual tax depends on total annual income and claimed deductions.
+                  </p>
+                  <div className="mt-4 p-3 bg-indigo-50 rounded border border-indigo-200">
+                    <p className="text-sm text-indigo-900"><strong>Note:</strong> Varies based on annual gross and claimed deductions</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="mt-8 bg-white rounded-lg p-6 border border-blue-200">
+                <h4 className="font-bold text-gray-900 mb-3">💡 Important Note:</h4>
+                <p className="text-gray-700">
+                  This calculator uses official 7th CPC pay matrices currently in effect. For 8th CPC, the 1.92x fitment factor is a commonly discussed estimate, but the actual official factor will be confirmed when the 8th CPC is formally notified by the Government of India. Always verify your official salary with your employer's payroll department.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          {/* 7TH vs 8TH CPC COMPARISON */}
+          <section className="mt-16 sm:mt-20">
+            <div className="max-w-5xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">
+                  7th CPC vs 8th CPC: Complete Comparison
+                </h2>
+                <p className="text-gray-600 text-lg">Understanding key differences between pay commissions</p>
+              </div>
+
+              <div className="bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
+                <div className="overflow-x-auto">
+                  <table className="w-full">
+                    <thead className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
+                      <tr>
+                        <th className="px-6 py-4 text-left font-bold">Aspect</th>
+                        <th className="px-6 py-4 text-left font-bold">7th CPC (Since 2016)</th>
+                        <th className="px-6 py-4 text-left font-bold">8th CPC (Estimated)</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-gray-200">
+                      <tr className="hover:bg-gray-50">
+                        <td className="px-6 py-4 font-semibold text-gray-900">Minimum Basic Pay</td>
+                        <td className="px-6 py-4 text-gray-700">₹18,000</td>
+                        <td className="px-6 py-4 text-gray-700">~₹35,400 (Estimated)</td>
+                      </tr>
+                      <tr className="hover:bg-gray-50">
+                        <td className="px-6 py-4 font-semibold text-gray-900">Maximum Basic Pay</td>
+                        <td className="px-6 py-4 text-gray-700">₹2,37,500</td>
+                        <td className="px-6 py-4 text-gray-700">~₹4,55,000 (Estimated)</td>
+                      </tr>
+                      <tr className="hover:bg-gray-50">
+                        <td className="px-6 py-4 font-semibold text-gray-900">Fitment Factor</td>
+                        <td className="px-6 py-4 text-gray-700">N/A (Base commission)</td>
+                        <td className="px-6 py-4 text-green-700 font-semibold">1.92x (Estimated)</td>
+                      </tr>
+                      <tr className="hover:bg-gray-50">
+                        <td className="px-6 py-4 font-semibold text-gray-900">Expected Salary Increase</td>
+                        <td className="px-6 py-4 text-gray-700">23% (from 6th CPC)</td>
+                        <td className="px-6 py-4 text-green-700 font-semibold">40-92% (with 1.92x)</td>
+                      </tr>
+                      <tr className="hover:bg-gray-50">
+                        <td className="px-6 py-4 font-semibold text-gray-900">NPS Contribution</td>
+                        <td className="px-6 py-4 text-gray-700">10% (Employee)</td>
+                        <td className="px-6 py-4 text-gray-700">10% (Employee) + 14% (Employer)</td>
+                      </tr>
+                      <tr className="hover:bg-gray-50">
+                        <td className="px-6 py-4 font-semibold text-gray-900">Retirement Age</td>
+                        <td className="px-6 py-4 text-gray-700">60 years</td>
+                        <td className="px-6 py-4 text-gray-700">Expected 60 years</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+
+                <div className="bg-yellow-50 border-t border-yellow-200 p-6 m-6 rounded-lg">
+                  <p className="text-sm text-gray-800">
+                    <strong>⚠️ Important Disclaimer:</strong> The 8th Central Pay Commission is under consideration. The 1.92x fitment factor is widely discussed but not officially confirmed. Actual pay scales, DA rates, and implementation date will be announced only upon official government notification. This calculator uses estimated values based on expert analysis.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* FAQ */}
+          <section className="mt-16 sm:mt-20">
+            <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">
+                  Frequently Asked Questions
+                </h2>
+                <p className="text-gray-600 text-lg">Common questions about government salary calculations</p>
+              </div>
+
+              <div className="space-y-4">
+                {[
+                  {
+                    q: "How is DA calculated and when does it change?",
+                    a: "DA is a percentage of basic pay revised quarterly by the Ministry of Finance based on the Consumer Price Index (CPI). Currently at 58%, it increases during inflation and decreases during deflation. Check the DoPT website for latest DA rates."
+                  },
+                  {
+                    q: "Which city category do I fall under for HRA?",
+                    a: "Your city category is determined by your official posting location. X-Class includes metros (Delhi, Mumbai, Bangalore), Y-Class has major cities, and Z-Class has other towns. Verify with your HR department for your official classification."
+                  },
+                  {
+                    q: "What is the fitment factor and why does it matter?",
+                    a: "The fitment factor multiplies your 7th CPC basic pay to calculate 8th CPC basic pay. A 1.92 factor means a 92% increase. This directly impacts DA, HRA, and TA since they're calculated as percentages of basic pay."
+                  },
+                  {
+                    q: "Is NPS mandatory for all government employees?",
+                    a: "NPS is mandatory for employees appointed after January 1, 2004. Employee contribution is 10% of (Basic + DA). Employees appointed before this date may be under the old pension scheme."
+                  },
+                  {
+                    q: "How is income tax calculated on government salary?",
+                    a: "Income tax is calculated on annual gross income using FY 2024-25 tax slabs. Tax is deducted monthly via TDS. Deductions like Section 80C, HRA claims, and insurance reduce your taxable income."
+                  },
+                  {
+                    q: "What is CGHS and why is it deducted?",
+                    a: "CGHS (Central Government Health Scheme) provides healthcare benefits for employees and families. The monthly contribution (₹500-1000) is deducted from salary in exchange for coverage at CGHS-empaneled hospitals."
+                  },
+                  {
+                    q: "Can I adjust the fitment factor to see different scenarios?",
+                    a: "Yes! The slider lets you adjust the fitment factor from 1.0 to 3.0 to explore different salary scenarios. This helps with financial planning for different commission outcomes."
+                  },
+                  {
+                    q: "Are these calculations accurate for all government employees?",
+                    a: "This calculator uses standard CPC pay matrices for Central Government employees. Special cadres (Armed Forces, Judges, AICTE) may have different structures. Verify with your HR department for accuracy."
+                  },
+                  {
+                    q: "When will the 8th CPC be officially implemented?",
+                    a: "As of January 2026, the 8th CPC is under review. No official implementation date has been announced yet. Follow official DoPT notifications for updates."
+                  },
+                  {
+                    q: "Can I use this for loan and mortgage applications?",
+                    a: "Banks typically require 3-6 months of actual salary slips for official applications. Use this calculator to understand your salary structure, but always provide verified payslips from your employer for official documents."
+                  },
+                ].map((faq, idx) => (
+                  <details key={idx} className="bg-white rounded-lg border border-gray-200 hover:border-blue-300 transition-colors group">
+                    <summary className="px-6 py-4 cursor-pointer font-semibold text-gray-900 hover:bg-gray-50 transition-colors flex items-start justify-between">
+                      <span className="text-left">{faq.q}</span>
+                      <span className="ml-4 flex-shrink-0 group-open:rotate-180 transition-transform">▼</span>
+                    </summary>
+                    <div className="px-6 py-4 border-t border-gray-200 text-gray-700 leading-relaxed bg-gray-50">
+                      {faq.a}
+                    </div>
+                  </details>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* OTHER CALCULATORS */}
           <section className="mt-16 sm:mt-20">
             <div className="max-w-6xl mx-auto">
               <div className="text-center mb-12">
                 <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">
                   Other Government Salary Calculators
                 </h2>
-                <p className="text-gray-600">Calculate allowances and deductions separately</p>
+                <p className="text-gray-600">Calculate individual components and deductions</p>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6">
@@ -675,21 +879,21 @@ export default function Calculator() {
             </div>
           </section>
 
-          {/* ABOUT SECTION */}
+          {/* ABOUT */}
           <section className="mt-16 sm:mt-20 bg-gradient-to-b from-white to-gray-50 py-12 -mx-3 sm:-mx-6 lg:-mx-8 px-3 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto">
               <div className="text-center mb-12">
                 <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">
                   About This Calculator
                 </h2>
-                <p className="text-gray-600 text-lg">India's most trusted salary tool for government employees</p>
+                <p className="text-gray-600 text-lg">India's trusted salary tool for government employees</p>
               </div>
 
               <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-8 space-y-6">
                 <div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">What is the CPC Salary Calculator?</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-3">What is the 8th CPC Salary Calculator?</h3>
                   <p className="text-gray-700 leading-relaxed">
-                    A comprehensive tool built for Central and State Government employees to understand and compare pay under the 7th and 8th Central Pay Commissions. It instantly calculates Basic Pay, DA, HRA, TA, NPS, and income tax with transparent breakdowns.
+                    A comprehensive tool for Indian government employees to calculate and compare salaries under both the 7th Central Pay Commission (currently active) and the projected 8th CPC. It provides instant calculations of Basic Pay, DA, HRA, TA, NPS, and Income Tax with detailed visual comparisons and downloadable reports.
                   </p>
                 </div>
 
@@ -697,15 +901,17 @@ export default function Calculator() {
                   <h3 className="text-2xl font-bold text-gray-900 mb-4">Why Government Employees Trust This Calculator</h3>
                   <div className="space-y-3">
                     {[
-                      { title: "Official Data", desc: "Based on CPC pay matrix and Ministry of Finance circulars" },
-                      { title: "City-Based Calculations", desc: "Accurate HRA & TA based on X/Y/Z city classification" },
-                      { title: "Instant Results", desc: "Get your complete breakdown in seconds with visual charts" },
-                      { title: "Always Free", desc: "No subscriptions, no hidden costs, no ads. 100% free to use" },
+                      { title: "✓ Official Government Data", desc: "Based on actual Ministry of Finance pay matrices and 7th CPC recommendations" },
+                      { title: "✓ City-Based Accuracy", desc: "Precise HRA and TA based on official X/Y/Z city classifications" },
+                      { title: "✓ Instant Results", desc: "Real-time calculations with detailed breakdowns and visual charts" },
+                      { title: "✓ Completely Free", desc: "No subscriptions, no ads, no hidden fees - 100% free" },
+                      { title: "✓ Downloadable Reports", desc: "Generate PDF and Excel files for loans and financial planning" },
+                      { title: "✓ Latest Tax Rates", desc: "Updated with FY 2024-25 income tax slabs" },
                     ].map((item, idx) => (
                       <div key={idx} className="flex gap-3">
-                        <span className="text-green-600 font-bold text-lg mt-0.5">✓</span>
+                        <span className="text-green-600 font-bold text-lg mt-0.5 flex-shrink-0">{item.title.split(" ")[0]}</span>
                         <div>
-                          <h4 className="font-semibold text-gray-900">{item.title}</h4>
+                          <h4 className="font-semibold text-gray-900">{item.title.substring(2)}</h4>
                           <p className="text-sm text-gray-600">{item.desc}</p>
                         </div>
                       </div>
@@ -714,11 +920,23 @@ export default function Calculator() {
                 </div>
 
                 <div className="bg-blue-50 border border-blue-200 rounded-lg p-5">
-                  <h4 className="font-semibold text-blue-900 mb-2 flex items-center gap-2">
-                    💡 Fitment Factor Explained
-                  </h4>
+                  <h4 className="font-semibold text-blue-900 mb-2">✓ Accuracy & Verification</h4>
                   <p className="text-sm text-blue-800">
-                    The fitment factor determines your new basic pay under the 8th CPC. E.g., a factor of 1.92 means your basic pay increases by 92%. Adjust the slider to see different scenarios.
+                    Our calculator uses official government pay matrices. Salary calculations may vary based on individual circumstances like promotions or special allowances. Always verify with your HR department or official payslip.
+                  </p>
+                </div>
+
+                <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-5">
+                  <h4 className="font-semibold text-yellow-900 mb-2">⚠️ Important Disclaimer</h4>
+                  <p className="text-sm text-yellow-800">
+                    The 8th CPC is under government consideration. The 1.92x fitment factor is an estimate, not official. Actual salaries under 8th CPC may differ when officially implemented. This calculator is for planning purposes only.
+                  </p>
+                </div>
+
+                <div className="bg-green-50 border border-green-200 rounded-lg p-5">
+                  <h4 className="font-semibold text-green-900 mb-2">✓ Last Updated: January 2026</h4>
+                  <p className="text-sm text-green-800">
+                    Updated with latest DA rates (58%), FY 2024-25 tax slabs, and official 7th CPC pay matrices. NPS rates (10% employee, 14% employer) and CGHS values are current per government notifications.
                   </p>
                 </div>
               </div>
