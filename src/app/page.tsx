@@ -299,6 +299,24 @@ export default function Calculator() {
                   
                   {/* LEFT: TEXT */}
                   <div className="space-y-4">
+                    
+                    {/* --- NEW: COMING SOON NOTIFICATION --- */}
+                    <div>
+                       <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-50 border border-purple-200 shadow-sm transition-all hover:bg-purple-100 cursor-default">
+                        <span className="relative flex h-2 w-2">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
+                          <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-500"></span>
+                        </span>
+                        <span className="text-xs font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent uppercase tracking-wide">
+                          Coming Soon
+                        </span>
+                        <span className="text-xs font-medium text-purple-700 border-l border-purple-200 pl-2">
+                          1-on-1 Financial Planning 🚀
+                        </span>
+                      </div>
+                    </div>
+                    {/* ----------------------------------- */}
+
                     <div>
                       <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
                         Forecast Your 
@@ -384,9 +402,9 @@ export default function Calculator() {
                       </div>
 
                       <div className="absolute top-4 right-4 flex items-center gap-1.5 bg-blue-50 px-2.5 py-1 rounded-full border border-blue-200">
-  <span className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></span>
-  <span className="text-xs font-semibold text-blue-700">Live Data</span>
-</div>
+                        <span className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></span>
+                        <span className="text-xs font-semibold text-blue-700">Live Data</span>
+                      </div>
                     </div>
                   </div>
                 </div>
