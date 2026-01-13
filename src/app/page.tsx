@@ -631,7 +631,7 @@ export default function Calculator() {
                 {/* Basic Pay */}
                 <div className="bg-white rounded-xl p-6 shadow-md border border-blue-200">
                   <h3 className="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
-                    <span className="text-2xl">💰</span> Basic Pay
+                    <span className="text-2xl">📌</span> Basic Pay
                   </h3>
                   <p className="text-gray-700 leading-relaxed">
                     The foundation of your salary, determined by your pay level in the government pay matrix. Under the 7th CPC (2016), each level has a specific basic pay. The 8th CPC is expected to adjust this using a fitment factor (est. 1.92x), increasing basic pay by approx 92%.
@@ -644,7 +644,7 @@ export default function Calculator() {
                 {/* DA - Updated for 2026 Context */}
                 <div className="bg-white rounded-xl p-6 shadow-md border border-green-200">
                   <h3 className="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
-                    <span className="text-2xl">📈</span> Dearness Allowance (DA)
+                    <span className="text-2xl">🤼</span> Dearness Allowance (DA)
                   </h3>
                   <p className="text-gray-700 leading-relaxed">
                     DA offsets inflation and is revised biannually. As of the July 2025 notification, DA stands at 58% of basic pay. (Note: The January 2026 revision is usually announced in March).
@@ -683,7 +683,7 @@ export default function Calculator() {
                 {/* NPS/UPS - Updated for Unified Pension Scheme */}
                 <div className="bg-white rounded-xl p-6 shadow-md border border-red-200">
                   <h3 className="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
-                    <span className="text-2xl">📊</span> NPS / UPS Contribution
+                    <span className="text-2xl">🧓🏼</span> NPS / UPS Contribution
                   </h3>
                   <p className="text-gray-700 leading-relaxed">
                     Employees appointed after Jan 1, 2004, contribute 10% of (Basic + DA). Effective April 2025, you can choose between <strong>NPS</strong> (market-linked) or <strong>UPS</strong> (guaranteed 50% pension). The deduction remains 10% for both.
