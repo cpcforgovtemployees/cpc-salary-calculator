@@ -383,10 +383,10 @@ export default function Calculator() {
                         </div>
                       </div>
 
-                      <div className="absolute top-4 right-4 flex items-center gap-1.5 bg-green-50 px-2.5 py-1 rounded-full border border-green-200">
-                        <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                        <span className="text-xs font-semibold text-green-700">Live Data</span>
-                      </div>
+                      <div className="absolute top-4 right-4 flex items-center gap-1.5 bg-blue-50 px-2.5 py-1 rounded-full border border-blue-200">
+  <span className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></span>
+  <span className="text-xs font-semibold text-blue-700">Live Data</span>
+</div>
                     </div>
                   </div>
                 </div>
