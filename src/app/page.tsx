@@ -934,11 +934,11 @@ export default function Calculator() {
                 </div>
 
                 <div className="bg-green-50 border border-green-200 rounded-lg p-5">
-                  <h4 className="font-semibold text-green-900 mb-2">✓ Last Updated: January 2026</h4>
-                  <p className="text-sm text-green-800">
-                    Updated with latest DA rates (58%), FY 2024-25 tax slabs, and official 7th CPC pay matrices. NPS rates (10% employee, 14% employer) and CGHS values are current per government notifications.
-                  </p>
-                </div>
+  <h4 className="font-semibold text-green-900 mb-2">✓ Last Updated: January 2026</h4>
+  <p className="text-sm text-green-800">
+    Updated with latest DA rates (58%), FY 2025-26 tax slabs, and official 7th CPC pay matrices. NPS rates (10% employee, 14% employer) and CGHS values are current per government notifications.
+  </p>
+</div>
               </div>
             </div>
           </section>
