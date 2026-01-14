@@ -924,7 +924,7 @@ export default function Calculator() {
                       { title: "✓ Instant Results", desc: "Real-time calculations with detailed breakdowns and visual charts" },
                       { title: "✓ Completely Free", desc: "No subscriptions, no ads, no hidden fees - 100% free" },
                       { title: "✓ Downloadable Reports", desc: "Generate PDF and Excel files for loans and financial planning" },
-                      { title: "✓ Latest Tax Rates", desc: "Updated with FY 2024-25 income tax slabs" },
+                      { title: "✓ Latest Tax Rates", desc: "Updated with FY 2025-26 income tax slabs" },
                     ].map((item, idx) => (
                       <div key={idx} className="flex gap-3">
                         <span className="text-green-600 font-bold text-lg mt-0.5 flex-shrink-0">{item.title.split(" ")[0]}</span>
