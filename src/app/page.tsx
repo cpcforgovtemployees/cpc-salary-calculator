@@ -922,7 +922,7 @@ export default function Calculator() {
                       { title: "✓ Official Government Data", desc: "Based on actual Ministry of Finance pay matrices and 7th CPC recommendations" },
                       { title: "✓ City-Based Accuracy", desc: "Precise HRA and TA based on official X/Y/Z city classifications" },
                       { title: "✓ Instant Results", desc: "Real-time calculations with detailed breakdowns and visual charts" },
-                      { title: "✓ Completely Free", desc: "No subscriptions, no ads, no hidden fees - 100% free" },
+                      { title: "✓ Completely Free", desc: "No subscriptions, no hidden fees - 100% free" },
                       { title: "✓ Downloadable Reports", desc: "Generate PDF and Excel files for loans and financial planning" },
                       { title: "✓ Latest Tax Rates", desc: "Updated with FY 2025-26 income tax slabs" },
                     ].map((item, idx) => (
