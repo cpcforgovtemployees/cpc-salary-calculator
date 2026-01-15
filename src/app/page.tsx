@@ -878,7 +878,7 @@ export default function Calculator() {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 sm:gap-6">
                 {[
                   { icon: "🧮", name: "DA Calculator", desc: "Dearness Allowance", link: "/da-arrear-calculator" },
-                  { icon: "🏠", name: "HRA Calculator", desc: "House Rent Allowance", link: "/hra-class-calculator" },
+                  { icon: "🏠", name: "HRA Class Calculator", desc: "House Rent Allowance", link: "/hra-class-calculator" },
                   { icon: "✈️", name: "TA Calculator", desc: "Travel Allowance", link: "/Salaryhandbook/ta" },
                   { icon: "💼", name: "NPS Calculator", desc: "Pension Contribution", link: "/nps-calculator" },
                   { icon: "🧾", name: "Income Tax", desc: "Tax Calculation", link: "/income-tax-calculator" },

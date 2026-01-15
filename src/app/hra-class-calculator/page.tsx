@@ -526,9 +526,6 @@ export default function HRAClassCalculator() {
       <a href="/income-tax-calculator" className="text-blue-600 hover:underline font-medium text-sm">
         → Income Tax Calculator
       </a>
-      <a href="/Salaryhandbook/hra" className="text-blue-600 hover:underline font-medium text-sm">
-        → HRA Handbook Guide
-      </a>
       <a href="/Salaryhandbook/ta" className="text-blue-600 hover:underline font-medium text-sm">
         → Travel Allowance Guide
       </a>

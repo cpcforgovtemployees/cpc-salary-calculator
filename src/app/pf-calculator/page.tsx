@@ -792,9 +792,6 @@ export default function PFCalculatorPage() {
       <a href="/income-tax-calculator" className="text-blue-600 hover:underline font-medium text-sm">
         → Income Tax Calculator
       </a>
-      <a href="/Salaryhandbook/pf" className="text-blue-600 hover:underline font-medium text-sm">
-        → PF Handbook Guide
-      </a>
     </div>
   </div>
 
