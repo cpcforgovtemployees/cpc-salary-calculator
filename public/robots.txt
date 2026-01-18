@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://indianpaycalculator.in
+Host: https://www.indianpaycalculator.in
 
 # Sitemaps
-Sitemap: https://indianpaycalculator.in/sitemap.xml
+Sitemap: https://www.indianpaycalculator.in/sitemap.xml
