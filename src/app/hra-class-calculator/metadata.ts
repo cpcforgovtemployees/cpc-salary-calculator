@@ -22,7 +22,9 @@ export const metadata: Metadata = {
     "Central Government HRA",
     "State Government HRA",
     "Urban HRA Rate",
-    "City Wise HRA Amount"
+    "City Wise HRA Amount",
+    "Calculate HRA for Govt Employees",
+    "X Y Z City HRA Rates"
   ],
   openGraph: {
     title: "HRA Class Calculator – X, Y, Z City HRA for Govt Employees | Indian Pay Calculator",

@@ -6,24 +6,48 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
-import { structuredData } from "./metadata";
+
+// Import metadata from your separate file (Good practice!)
+import { metadata as baseMetadata } from "./metadata";
+export const metadata: Metadata = baseMetadata;
 
 const inter = Inter({ subsets: ["latin"] });
 
-// Use metadata from metadata.ts for consistency
-export { metadata } from "./metadata";
+// GLOBAL SCHEMA: This tells Google "Who owns this site" (Brand/Organization)
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Indian Pay Calculator",
+  "url": "https://www.indianpaycalculator.in",
+  "logo": "https://www.indianpaycalculator.in/logo-512.png",
+  "sameAs": [
+    "https://x.com/IndianPay17017",
+    "https://instagram.com/indianpaycpc"
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "cpcforgovtemployees@gmail.com",
+    "contactType": "customer support"
+  }
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
-        {/* --- Favicons and Apple-Touch Icon --- */}
+        {/* --- Favicons --- */}
         <link rel="icon" href="/favicon.ico" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-        {/* --- AdSense Auto Ads --- */}
+        {/* --- Global Organization Schema (Standard HTML Script for best crawling) --- */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+
+        {/* --- AdSense Auto Ads (External Script) --- */}
         <Script
           id="adsense-auto-ads"
           async
@@ -31,12 +55,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           crossOrigin="anonymous"
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4556400007110881"
         />
-
-        {/* --- JSON-LD structured data for SEO --- */}
-        <Script id="jsonld-schema" type="application/ld+json" strategy="afterInteractive">
-          {JSON.stringify(structuredData)}
-        </Script>
       </head>
+      
       <body className={`${inter.className} min-h-screen flex flex-col bg-gray-50 text-gray-900`}>
         <ThemeProvider>
           <Header />
@@ -45,11 +65,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </main>
           <Footer />
         </ThemeProvider>
-        {/* Vercel Analytics */}
+
+        {/* --- Vercel Analytics --- */}
         <Analytics />
 
-        {/* GA4 tracking */}
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-NM3F8Q6764" strategy="afterInteractive" />
+        {/* --- Google Analytics 4 (GA4) --- */}
+        <Script 
+          src="https://www.googletagmanager.com/gtag/js?id=G-NM3F8Q6764" 
+          strategy="afterInteractive" 
+        />
         <Script id="ga4-init" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
@@ -59,17 +83,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               page_path: window.location.pathname,
             });
           `}
-        </Script>
-
-        {/* Organization Schema for Google */}
-        <Script id="org-schema" type="application/ld+json" strategy="afterInteractive">
-          {JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            name: "CPC Salary Calculator",
-            url: "https://www.indianpaycalculator.in",
-            logo: "https://www.indianpaycalculator.in/logo-512.png",
-          })}
         </Script>
       </body>
     </html>
